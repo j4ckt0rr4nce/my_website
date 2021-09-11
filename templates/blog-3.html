@@ -1,0 +1,1148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ic-animate mb-5 text-center">
+          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'blog' %}">Blog <i class="fa fa-chevron-right"></i></a></span> <span>Čo je knižnica Pandas? <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread">Čo je knižnica Pandas?</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		<section class="ic-section ic-degree-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ic-animate">
+          	<p>
+              <img src="{% static 'core/images/intro-pandas.png' %}" alt="" class="img-fluid">
+            </p>
+            <h2 class="mb-3 mt-5">Úvod do Pandas</h2>
+            <p>Pandas (čo je skratka pre „panel data"“) je jednou z najdôležitejších knižníc, ktorú by sme mali mať v 
+            malíčku v prípade, ak sme sa rozhodli učiť programovací jazyk Python.</p>
+            <p>Knižnica je známa pre veľmi užitočnú dátovú štruktúru, ktorá sa nazýva Pandas Dátový rámec. Pandas tiež 
+            umožňuje Python vývojárom ľahko narábať s tabuľkovými dátami v Python skripte.</p>
+            <p>Tento článok vás naučí základy Pandas knižnice, ktorú dnes môžeme využiť na vytváranie dátovo 
+            orientovaných Python aplikácií.</p>
+            <h2 class="mb-3 mt-5">Pandas sa naučíme nasledovným spôsobom:</h2>
+            <ul>
+              <li>Pandas Série</li>
+              <ul>
+                <li>Čo sú Pandas Série?</li>
+                <li>Importy, ktoré budeme potrebovať pri práci s Pandas Sériami</li>
+                <li>Ako vytvoriť Pandas Série</li>
+                <li>Hlavná výhoda Pandas Sérií oproti NumPy poliam</li>
+              </ul>
+              <li>Pandas Dátové rámce</li>
+              <ul>
+                <li>Čo je Pandas Dátový rámec?</li>
+                <li>Vzťah Pandas Sérií a Pandas Dátových rámcov</li>
+                <li>Index a priraďovanie v Pandas Dátových rámcoch</li>
+                <li>Ako vytvoriť a odstrániť stĺpce v Pandas Dátovom rámci</li>
+                <li>Ako načítať riadok z Pandas Dátového rámca</li>
+                <li>Ako určiť počet riadkov a stĺpcov v Pandas Dátovom rámci</li>
+                <li>Segmentácia Pandas Dátových rámcov</li>
+                <li>Podmienený výber pomocou Pandas Dátového rámca</li>
+                <li>Ako modifikovať index Pandas Dátového rámca</li>
+                <li>Ako premenovať stĺpce v Pandas Dátovom rámci</li>
+              </ul>
+              <li>Ako sa vysporiadať s chýbajúcimi dátami v Pandas Dátových rámcoch</li>
+              <ul>
+                <li>Dátový rámec, ktorý použijeme v tejto časti</li>
+                <li>Pandas metóda dropna()</li>
+                <li>Pandas metóda fillna()</li>
+              </ul>
+              <li>Pandas groupby metóda</li>
+              <ul>
+                <li>Použitie groupby s metódou describe</li>
+              </ul>
+              <li>Pandas concat metóda</li>
+              <ul>
+                <li>Dátové rámce, ktoré použijeme v tejto časti</li>
+                <li>Ako spájať Pandas Dátové rámce</li>
+              </ul>
+              <li>Pandas merge metóda</li>
+              <ul>
+                <li>Dátové rámce, ktoré použijeme v tejto časti</li>
+                <li>Ako zlučovať Pandas Dátové rámce</li>
+              </ul>
+              <li>Pandas join metóda</li>
+              <ul>
+                <li>Dátové rámce, ktoré použijeme v tejto časti</li>
+                <li>Ako k sebe pripojiť Pandas Dátové rámce</li>
+              </ul>
+              <li>Ďalšie bežné operácie v Pandas</li>
+              <ul>
+                <li>Dátový rámec, ktorý použijeme v tejto časti</li>
+                <li>Ako nájsť unikátne hodnoty v Pandas Sérii</li>
+                <li>Ako spočítať výskyt každej rovnakej hodnoty v Pandas Sérii</li>
+                <li>Použitie Pandas metódy apply</li>
+                <li>Ako zoradiť Pandas Dátový rámec</li>
+              </ul>
+              <li>Vstup a výstup lokálnych dát (I/O) v Pandas</li>
+              <ul>
+                <li>Súbory s ktorými budeme pracovať v tejto časti</li>
+                <li>Ako importovať súbory .csv pomocou Pandas</li>
+                <li>Ako exportovať súbory .csv pomocou Pandas</li>
+                <li>Ako importovať súbory .json pomocou Pandas</li>
+                <li>Ako exportovať súbory .json pomocou Pandas</li>
+                <li>Ako importovať súbory .xlsx pomocou Pandas</li>
+                <li>Ako exportovať súbory .xlsx pomocou Pandas</li>
+              </ul>
+              <li>Vstup a výstup externých dát (I/O) v Pandas</li>
+              <ul>
+                <li>Čo je externý import a prečo je užitočný?</li>
+                <li>Ako importovať externé .csv súbory</li>
+                <li>Ako importovať externé .json súbory</li>
+                <li>Ako importovať externé .xlsx súbory</li>
+                <li>Nevýhody externého importu</li>
+              </ul>
+              <li>Záverečné myšlienky</li>
+            </ul>
+            <h2 class="mb-3 mt-5">Pandas Série</h2>
+            <p>V tejto časti sa budeme venovať Pandas Sériám, ktoré sú základnou súčasťou Pandas knižnice pre 
+            programovanie v jazyku Python.</p>
+            <h4 class="mb-3 mt-5">Čo sú Pandas Série?</h4>
+            <p>Pandas Série sú špeciálnym typom dátovej štruktúry dostupnej v Pandas knižnici. Pandas Série sú podobné 
+            NumPy poliam až na to, že im môžeme zadať index názvu alebo index času a nielen číselný index.</p>
+            <h4 class="mb-3 mt-5">Importy, ktoré budeme potrebovať pri práci s Pandas Sériami</h4>
+            <p>Aby sme mohli pracovať s Pandas Sériami, je potrebné importovať NumPy a Pandas knižnice, a to nasledovne:</p>
+            <pre>import numpy as np
+import pandas as pd</pre>
+            <p>Po zbytok tohoto článku budeme predpokladať, že obidve tieto knižnice boli importované pred spustením 
+            akýchkoľvek nasledujúcich blokov kódu.</p>
+            <h4 class="mb-3 mt-5">Ako vytvoriť Pandas Série</h4>
+            <p>Existuje množstvo rôznych spôsobov, ako vytvoriť Pandas Série. Na všetky z nich sa pozrieme v tejto 
+            časti.</p>
+            <p>Najprv si vytvoríme niekoľko štartovacích premenných - vytvoríme dva listy, NumPy pole a slovník.</p>
+            <pre>labels = ['a', 'b', 'c']
+my_list = [10, 20, 30]
+arr = np.array([10, 20, 30])
+d = {'a':10, 'b':20, 'c':30}</pre>
+            <p>Najjednoduchší spôsob, ako vytvoriť Pandas Série, je použitím metódy <strong>pd.Series()</strong> v 
+            ktorej zadáme Python list ako argument. To vykonáme pomocou nižšie uvedenej premennej 
+            <strong>my_list:</strong></p>
+            <pre>pd.Series(my_list)</pre>
+            <p>Ak to spustíte vo svojom Jupyter notebooku, zistíte, že výstup je mierne odlišný od výstupu pre 
+            normálny Python list:</p>
+            <pre>0    10
+1    20
+2    30
+dtype: int64
+</pre>
+            <p>Výstup zobrazený vyššie je jasne navrhnutý tak, aby sa zobrazoval ako dva stĺpce. Druhým stĺpcom sú 
+            dáta z premennej my_list. Čo myslíte, čo predstavuje prvý stĺpec?</p>
+            <p>Jednou z kľúčových výhod používania Pandas Sérií oproti NumPy poliam je, že umožňujú označovanie. 
+            Ako ste mohli uhádnuť, prvý stĺpec je stĺpec označení.</p>
+            <p>Označenia môžeme pridať k Pandas Sériám pomocou argumentu <strong>index</strong>, nasledovne:</p>
+            <pre>pd.Series(my_list, index=labels)
+#Pamätajte - 'labels' list sme už vytvorili vyššie v tejto sekcii
+</pre>
+            <p>Výstup tohto kódu je uvedený nižšie:</p>
+            <pre>a    10
+b    20
+c    30
+dtype: int64
+</pre>
+            <p>Spýtajme sa teraz prečo by sme chceli používať označenia v Pandas Sériách? Hlavnou výhodou je, že vám 
+            umožňia odkazovať na prvok zo série pomocou jeho označení namiesto jeho číselného indexu. Aby bolo jasné, 
+            po zadaní označení v Pandas Sériách môžeme použiť buď ich číselný index, alebo ich označenie.</p>
+            <p>Príklad je uvedený nižšie.</p>
+            <pre>Series = pd.Series(my_list, index=labels)
+Series[0]
+#Výstup je 10
+Series['a']
+#Výstup je taktiež 10
+</pre>
+            <p>Možno ste si všimli, že schopnosť odkazovať na prvok série pomocou jeho označenia je podobná tomu, 
+            ako sa odkazuje na hodnoty pri Python slovníkoch. Kvôli tejto podobnosti ich fungovania môžeme taktiež 
+            zadať Python slovník ako argument na vytvorenie Pandas Sérií. Ako príklad použijeme slovník 
+            d = {'a': 10, 'b': 20, 'c': 30}, ktorý sme si už vytvorili vyššie:</p>
+            <pre>pd.Series(d)</pre>
+            <p>Výstup tohto kódu je:</p>
+            <pre>a    10
+b    20
+c    30
+dtype: int64
+</pre>
+            <p>Zatiaľ vám asi ešte nieje jasné, prečo sme sa zaoberali dvomi novými dátovymi štruktúrami 
+            (NumPy polia a Pandas Série), ktoré sú si veľmi podobné. Preto sa v nasledujúcej časti pozrieme na 
+            hlavné výhody Pandas Sérií oproti NumPy poliam.</p>
+            <h4 class="mb-3 mt-5">Hlavná výhoda Pandas Sérií oproti NumPy poliam</h4>
+            <p>Aj keď sme sa s tým zatiaľ nestretli, NumPy polia sú veľmi limitované jednou charakteristikou: každý 
+            prvok NumPy poľa musí byť rovnakého typu dátovej štruktúry. Inak povedané , všetky prvky NumPy poľa musia byť 
+            buď stringy, celé čísla alebo boolean hodnoty.</p>
+            <p>Pandas Série týmto obmedzením netrpia, pretože sú v skutočnosti vysoko flexibilné.</p>
+            <p>Napríklad môžeme do Pandas Sérií zadať tri vstavané Python funkcie bez toho, aby sme dostali chybu:</p>
+            <pre>pd.Series([sum, print, len])</pre>
+            <p>Tu je výstup tohto kódu:</p>
+            <pre>0      &lt;built-in function sum&gt;
+1      &lt;built-in function print&gt;
+2      &lt;built-in function len&gt;
+dtype: object
+</pre>
+            <p>Je zrejmé, že vyššie uvedený príklad je veľmi nepraktický a nejedná sa o niečo, čo by sme v praxi 
+            niekedy vykonali. Je to však vynikajúci príklad flexibility dátovej štruktúry Pandas Sérií.</p>
+            <h2 class="mb-3 mt-5">Pandas Dátové rámce</h2>
+            <p>NumPy umožňuje vývojárom pracovať s jednorozmernými NumPy poliami (nazývané vektory) a s dvoj 
+            a viacrozmernými NumPy poliami (nazývané matice). V poslednej časti sme skúmali Pandas Série, 
+            ktoré sú podobné jednorozmerným NumPy poliam.</p>
+            <p>V tejto časti sa pozrieme na Pandas Dátové rámce, ktoré sú podobné dvojrozmerným NumPy poliam - ale s 
+            oveľa väčšou funkcionalitou. Dátové rámce sú najdôležitejšou dátovou štruktúrou v Pandas knižnici, takže 
+            celej tejto časti venujte zvýšenú pozornosť.</p>
+            <h4 class="mb-3 mt-5">Čo je Pandas Dátový rámec?</h4>
+            <p>Pandas Dátový rámec je dvojrozmerná dátová štruktúra, ktorá má označenia pre svoje riadky aj stĺpce. 
+            Pre tých, ktorí poznajú Microsoft Excel, Google Sheets alebo iný tabuľkový softvér, sú Dátové rámce 
+            veľmi podobné.</p>
+            <p>Tu môžeme vidieť príklad Pandas Dátového rámca, ktorý sa zobrazuje v Jupyter notebooku.</p>
+            <p><a href="{% static 'core/images/pandas-dataframe.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe.png' %}" alt="Pandas-dataframe" class="img-fluid">
+            </a></p>
+            <p>Teraz prejdeme procesom vytvorenia tohto Dátového rámca krok za krokom.</p>
+            <p>Najskôr budeme musieť importovať knižnice NumPy a Pandas. Urobili sme to už predtým, ale v prípade, 
+            že si nie ste istí, tu je ďalší príklad, ako to urobiť:</p>
+            <pre>import numpy as np
+import pandas as pd
+</pre>
+            <p>Budeme tiež musieť vytvoriť zoznamy pre názvy riadkov a stĺpcov. Môžeme to urobiť pomocou Python 
+            listov:</p>
+            <pre>rows = ['X','Y','Z']
+cols = ['A', 'B', 'C', 'D', 'E']</pre>
+            <p>Ďalej budeme musieť vytvoriť NumPy pole, ktoré obsahuje údaje obsiahnuté v bunkách Dátového rámca. Použijeme 
+            na to NumPy metódu <strong>np.random.randn()</strong>. Túto metódu sme zabalili aj do metódy 
+            <strong>np.round()</strong> (kde sme zadali 2 ako druhý argument), ktorá zaokrúhľuje každý dátový bod na dve 
+            desatinné miesta a umožňuje oveľa ľahšiu čitateľnosť dátovej štruktúry.</p>
+            <p>Toto je finálna funkcia, ktorá vygeneruje dáta.</p>
+            <pre>data = np.round(np.random.randn(3,5),2)</pre>
+            <p>Keď toto máme hotové všetky potrebné premenné môžeme zabaliť do metódy <strong>pd.DataFrame()</strong> a 
+            vytvoriť tak náš prvý Dátový rámec!</p>
+            <pre>pd.DataFrame(data, rows, cols)</pre>
+            <p>Stále nám však ostáva veľa vecí, ktoré treba prebrať, poďme sa teda pozrieť na tento príklad trochu 
+            podrobnejšie.</p>
+            <p>Za prvé, nie je potrebné vytvárať každú premennú mimo samotného Dátového rámca. Tento Dátový rámec 
+            sme mohli vytvoriť v jednom riadku nasledovne:</p>
+            <pre>pd.DataFrame(np.round(np.random.randn(3,5),2), ['X','Y','Z'], ['A', 'B', 'C', 'D', 'E'])</pre>
+            <p>Z uvedeného vyplýva, že deklarovanie každej premennej osobitne uľahčuje čítateľnosť kódu.</p>
+            <p>Za druhé, možno by vás zaujímalo, či je potrebné vložiť riadky do metódy pd.DataFrame() pred stĺpcami. 
+            Je to skutočne nevyhnutné. Ak by ste sa pokúsili spustiť kód <strong>pd.DataFrame(data, cols, rows)</strong>, 
+            váš Jupyter notebook vygeneruje nasledujúcu chybu:</p>
+            <pre>ValueError: Shape of passed values is (3, 5), indices imply (5, 3)</pre>
+            <p>Ďalej sa pozrieme na vzťah Pandas Sérií a Pandas Dátových rámcov.</p>
+            <h4 class="mb-3 mt-5">Vzťah Pandas Sérií a Pandas Dátových rámcov</h4>
+            <p>Pozrime sa ešte raz na Pandas Dátový rámec, ktorý sme práve vytvorili:</p>
+            <p><a href="{% static 'core/images/pandas-dataframe.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe.png' %}" alt="Pandas-dataframe" class="img-fluid">
+            </a></p>
+            <p>Ak by sme mali slovne opísať Pandas Dátový rámec, jeden spôsob by bol <span style="font-style: italic;">
+            “sada označených stĺpcov obsahujúcich dáta, kde každý stĺpec zdieľa rovnaký index riadkov“.</span></p>
+            <p>Je zaujímavé, že každý z týchto stĺpcov je vlastne Pandas Séria! Môžeme teda upraviť našu definíciu 
+            Pandas Dátového rámca tak, aby zodpovedala jeho formálnej definícii:</p>
+            <p style="font-style: italic;">"Sada Pandas Sérií, ktorá zdieľa rovnaký index."</p>
+            <h4 class="mb-3 mt-5">Index a priraďovanie v Pandas Dátových rámcoch</h4>
+            <p>Načítať konkrétnu sériu z Pandas Dátového rámca môžeme pomocou hranatých zátvoriek, rovnako ako načítavame 
+            prvok z Python listu. Niekoľko príkladov je uvedených nižšie:</p>
+            <pre>df = pd.DataFrame(data, rows, cols)
+df['A']
+"""
+Výstup:
+X   -0.66
+Y   -0.08
+Z    0.64
+Name: A, dtype: float64
+"""
+df['E']
+"""
+Výstup:
+X   -1.46
+Y    1.71
+Z   -0.20
+Name: E, dtype: float64
+"""</pre>
+            <p>Čo keby sme chceli načítať viac stĺpcov z Pandas Dátového rámca? Môžete vložiť list stĺpcov buď priamo do 
+            hranatých zátvoriek - napríklad df[['A', 'E']] - alebo deklarovať premennú mimo hranatých zátvoriek 
+            nasledovne:</p>
+            <pre>columnsIWant = ['A', 'E']
+df[columnsIWant]
+
+#Výstup je Dátový rámec, obsahujúci stĺpce A a E</pre>
+            <p>Môžeme tiež načítať konkrétny prvok konkrétneho riadku pomocou zložených zátvoriek. Napríklad, ak chceme 
+            dostať prvok z riadku A na indexe X (čo je prvok v ľavej hornej bunke Dátového rámca), môžeme sa k nemu 
+            dostať nasledovne. df['A']['X'].</p>
+            <p>Niekoľko ďalších príkladov je uvedených nižšie.</p>
+            <pre>df['B']['Z']
+#Výstup 1.34
+df['D']['Y']
+#Výstup -0.64</pre>
+            <h4 class="mb-3 mt-5">Ako vytvoriť a odstrániť stĺpce v Pandas Dátovom rámci</h4>
+            <p>Nový stĺpec môžeme vytvoriť v Pandas Dátovom rámci deklarovaním nového stĺpca a k nemu následne
+            priradíme nové Pandas Série.</p>
+            <p>Napríklad v nasledujúcom bloku kódu vytvoríme nový stĺpec s názvom „A + B“, ktorý je súčtom stĺpcov A a B:
+            </p>
+            <pre>df['A + B'] = df['A'] + df['B']
+df 
+
+#Posledný riadok vypíše nový Dátový rámec</pre>
+            <p>Tu je výstup z tohto bloku kódu:</p>
+            <p><a href="{% static 'core/images/pandas-dataframe-add-column.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-add-column.png' %}" alt="Pandas-dataframe-add-column" 
+              class="img-fluid">
+            </a></p>
+            <p>Ak chceme tento stĺpec z Pandas Dátového rámca odstrániť, použijeme metódu <strong>pd.DataFrame.drop().
+            </strong></p>
+            <p>Poznámka: táto metóda je predvolená na odstránenie riadkov, nie stĺpcov. Ak chceme zmeniť nastavenie 
+            metódy tak, aby fungovala na stĺpcoch, musíte pri metóde zadať argument <strong>axis = 1.</strong></p>
+            <pre>df.drop('A + B', axis = 1)</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe.png' %}" alt="Pandas-dataframe" class="img-fluid">
+            </a></p>
+            <p>Je veľmi dôležité poznamenať, že táto metóda odstránenia vlastne nemení samotný Dátový rámec. Dôkazom 
+            toho je, výstup premennej <strong>df</strong> kde vidíme, že stále obsahuje stĺpec A + B:</p>
+            <pre>df</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-add-column.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-add-column.png' %}" alt="Pandas-dataframe-add-column" 
+              class="img-fluid">
+            </a></p>
+            <p>Dôvodom, prečo drop() (a mnoho ďalších metód Dátových rámcov!) predvolene nemení štruktúru dát, 
+            je zabránenie náhodnému odstráneniu dát.</p>
+            <p>Existujú dva spôsoby, ako dosiahnuť, aby Pandas automaticky prepísala aktuálny Dátový rámec.</p>
+            <p>Prvým je zadanie argumentu <strong>inplace = True</strong>, nasledovne:</p>
+            <pre>df.drop('A + B', axis=1, inplace=True)</pre>
+            <p>Druhým je použitie operátora priradenia, ktorý manuálne prepíše existujúcu premennú, nasledovne:</p>
+            <pre>df = df.drop('A + B', axis=1)
+</pre>
+            <p>Obe možnosti sú správne, ale druhú možnosť používam častejšie, pretože je ľahšie zapamätateľná.</p>
+            <p>Metódu <strong>drop()</strong> je možné použiť aj na odstránenie riadkov. Napríklad riadok Z môžeme 
+            odstrániť nasledovne:</p>
+            <pre>df.drop('Z')</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-remove-rows.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-remove-rows.png' %}" alt="Pandas-dataframe-remove-rows" 
+              class="img-fluid">
+            </a></p>
+            <h4 class="mb-3 mt-5">Ako načítať riadok z Pandas Dátového rámca</h4>
+            <p>Už sme videli, že sa môžeme dostať k špecifickému stĺpcu Pandas Dátového rámca pomocou hranatých 
+            zátvoriek. Teraz sa pozrieme na to, ako sa dostať ku konkrétnemu riadku Pandas Dátového rámca, s podobným 
+            cieľom vygenerovať Pandas Série z väčšej dátovej štruktúry.</p>
+            <p>K riadkom Dátového rámca sa môžeme dostať cez označenie riadkov pomocou atribútu <strong>loc</strong> 
+            spolu s hranatými zátvorkami. Príklad je uvedený nižšie.</p>
+            <pre>df.loc['X']</pre>
+            <p>Tu je výstup tohto kódu:</p>
+            <pre>A   -0.66
+B   -1.43
+C   -0.88
+D    1.60
+E   -1.46
+Name: X, dtype: float64</pre>
+            <p>K riadkom Dátového rámca sa taktiež môžeme dostať cez číselný index pomocou atribútu 
+            <strong>iloc</strong> spolu s hranatými zátvorkami. Príklad je uvedený nižšie.</p>
+            <pre>df.iloc[0]</pre>
+            <p>Ako iste predpokladáte, tento kód má rovnaký výstup ako náš predchádzajúci príklad:</p>
+            <pre>A   -0.66
+B   -1.43
+C   -0.88
+D    1.60
+E   -1.46
+Name: X, dtype: float64</pre>
+            <h4 class="mb-3 mt-5">Ako určiť počet riadkov a stĺpcov v Pandas Dátovom rámci</h4>
+            <p>V mnohých prípadoch je potrebné poznať tvar Pandas Dátového rámca. Tým mám na mysli počet stĺpcov a 
+            riadkov v dátovej štruktúre.</p>
+            <p>Pandas má vstavaný atribút zvaný <strong>shape</strong>, ktorý nám umožňuje určiť tvar nášho Dátového 
+            rámca:</p>
+            <pre>df.shape
+#Výstup (3, 5)</pre>
+            <h4 class="mb-3 mt-5">Segmentácia Pandas Dátových rámcov</h4>
+            <p>Už sme sa naučili, ako načítať riadky, stĺpce a prvky z Pandas Dátového rámca. V tejto časti sa pozrieme 
+            na to, ako načítať podmnožinu Dátového rámca. Konkrétne vyberieme prvky zo stĺpcov A a B a riadkov X a Y.</p>
+            <p>Najprv vyberieme stĺpce A a B:</p>
+            <pre>df[['A', 'B']]</pre>
+            <p>A následne k tomu vyberieme riadky X a Y:</p>
+            <pre>df[['A', 'B']].loc[['X', 'Y']]</pre>
+            <p>A sme hotoví!</p>
+            <h4 class="mb-3 mt-5">Podmienený výber pomocou Pandas Dátového rámca</h4>
+            <p>Ak si spomínate na našu diskusiu o NumPy poliach, boli sme schopní načítať určité prvky poľa pomocou 
+            podmienených operátorov. Napríklad, ak sme mali pole NumPy nazvané <strong>arr</strong> a chceli sme načítať iba hodnoty
+            poľa, ktoré boli väčšie ako 4, mohli sme použiť príkaz <strong>arr[arr > 4].</strong></p>
+            <p>Pandas Dátové rámce sa obsahujú podobnú syntax. Napríklad, ak by sme chceli načítať hodnoty, ktoré 
+            sú väčšie ako 0,5, mohli by sme zadať príkaz <strong>df > 0,5</strong>, aby sme získali nasledujúci 
+            výstup:</p>
+            <p><a href="{% static 'core/images/pandas-dataframe-condition-selection.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-condition-selection.png' %}" alt="Pandas-dataframe-condition-selection" 
+              class="img-fluid">
+            </a></p>
+            <p>Môžeme tiež vygenerovať nový Pandas Dátový rámec, ktorý obsahuje normálne hodnoty, ktoré sú určené ako True, 
+            a NaN - čo znamená Not a Number - hodnoty, ktoré sú určené ako False. Spravíme to tak, že podmienku zadáme 
+            do Dátového rámca pomocou hranatých zátvoriek nasledovne:</p>
+            <pre>df[df > 0.5]</pre>
+            <p>Tu je výstup tohto kódu:</p>
+            <p><a href="{% static 'core/images/pandas-dataframe-conditional-selection-boolean.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-conditional-selection-boolean.png' %}" alt="Pandas-dataframe-conditional-selection-boolean" 
+              class="img-fluid">
+            </a></p>
+            <p>Podmienený výber môžeme tiež použiť na načítanie podmnožiny Dátového rámca, kde je v zadanom stĺpci 
+            splnená konkrétna podmienka.</p>
+            <p>Aby som bol konkrétnejší, povedzme, že sme chceli podmnožinu Dátového rámca, kde hodnota v stĺpci C 
+            je menšia ako 1 ale s platnosťou iba pre riadok X.</p>
+            <p>Môžeme získať pole boolean hodnôt v rámci tejto podmienky nasledovne:</p>
+            <pre>df['C'] < 1</pre>
+            <p>Tu je výstup:</p>
+            <pre>X     True
+Y    False
+Z    False
+Name: C, dtype: bool
+</pre>
+            <p>Normálne hodnoty Dátového rámca vo vzťahu k predchádzajúcej podmienke môžeme získať aj zadaním príkazu 
+            <strong>df[df['C'] &lt; 1]</strong>, ktorý vygeneruje iba prvý riadok Dátového rámca (pretože toto je jediný 
+            riadok určený ako True pre stĺpec C:</p>
+            <p><a href="{% static 'core/images/pandas-dataframe-conditional-selection-dataframe.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-conditional-selection-dataframe.png' %}" alt="Pandas-dataframe-conditional-selection-dataframe" 
+              class="img-fluid">
+            </a></p>
+            <p>Pri použití podmieneného výberu môžeme tiež spojiť dohromady viac podmienok. V rámci Pandas to robíme 
+            pomocou operátora <strong>&amp;.</strong> Nemôžeme použiť normálny <strong>and</strong> operátor Pythonu, 
+            pretože v tomto prípade neporovnávame dve boolean hodnoty. Namiesto toho porovnávame dve Pandas Série, 
+            ktoré obsahujú boolean hodnoty, a preto sa namiesto operátora <strong>and</strong> používa znak 
+            <strong>&amp;.</strong></p>
+            <p>Ako príklad viacnásobného podmieneného výberu môžeme načítať podmnožinu Dátového rámca, ktorá 
+            spĺňa podmienky <strong>df['C'] > 0</strong> a <strong>df['A'] > 0</strong> nasledovne:</p>
+            <pre>df[(df['C'] > 0) &amp; (df['A']> 0)]</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-multiple-conditional-selection.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-multiple-conditional-selection.png' %}" alt="Pandas-dataframe-multiple-conditional-selection" 
+              class="img-fluid">
+            </a></p>
+            <h4 class="mb-3 mt-5">Ako modifikovať index Pandas Dátového rámca</h4>
+            <p>Existuje niekoľko spôsobov, ako môžeme modifikovať index Pandas Dátového rámca.</p>
+            <p>Najzákladnejšie je vynulovať index na jeho predvolené číselné hodnoty. To spravíme pomocou metódy 
+            <strong>reset_index():</strong></p>
+            <pre>df.reset_index()</pre>
+            <p>Treba si uvedomiť, že táto metóda vytvorí nový stĺpec v Dátovom rámci s názvom index, ktorý obsahuje 
+            predchádzajúce označenia indexu:</p>
+            <p></p>
+            <p><a href="{% static 'core/images/pandas-dataframe-reset-index.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-reset-index.png' %}" alt="Pandas-dataframe-reset-index" 
+              class="img-fluid">
+            </a></p>
+            <p>Všimnite si, že <strong>reset_index():</strong> nezmení pôvodný Dátový rámec tak ako ďalšie operácie 
+            Dátového rámca, ktoré sme skúmali, pokiaľ (1) si nevynútime použitie <strong>=</strong> priraďovacieho 
+            operátora alebo (2) pokiaľ nepridáme atribút <strong>inplace = True.</strong></p>
+            <p>Taktiež môžeme nastaviť už existujúci stĺpec ako index Dátového rámca pomocou metódy 
+            <strong>set_index()</strong>. Stĺpec A ako index môžeme nastaviť pomocou nasledujúceho kódu:</p>
+            <pre>df.set_index('A')</pre>
+            <p>Hodnoty A sú teraz v indexe Dátového rámca:</p>
+            <p><a href="{% static 'core/images/pandas-dataframe-set-index.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-set-index.png' %}" alt="Pandas-dataframe-set-index" 
+              class="img-fluid">
+            </a></p>
+            <p>Tu treba mať na pamäti tri veci:</p>
+            <ul>
+                <li> <strong>set_index():</strong> nezmení pôvodný Dátový rámec, pokiaľ (1) si nevynútime použitie 
+                <strong>=</strong> priraďovacieho operátora alebo (2) nepridáme atribút 
+                <strong>inplace = True.</strong></li>
+                <li>Pokiaľ nespustíme najskôr <strong>reset_index()</strong> metódu, vykonaním operácie 
+                <strong>set_index()</strong> s <strong>inplace = True</strong> alebo vynúteným <strong>=</strong> 
+                priraďovacím operátorom trvale prepíšeme naše aktuálne hodnoty indexu.</li>
+                <li>Ak chceme svoj index premenovať na označenia, ktoré momentálne nie sú obsiahnuté v stĺpci, 
+                môžeme to urobiť tak, že (1) vytvoríme NumPy pole s týmito hodnotami, (2) pridáme tieto hodnoty ako 
+                nový riadok Pandas Dátového rámca a (3) spustíme <strong>set_index()</strong> operáciu.</li>
+              </ul>
+            <h4 class="mb-3 mt-5">Ako premenovať stĺpce v Pandas Dátovom rámci</h4>
+            <p>Posledná operácia Dátového rámca, o ktorej si povieme, je spôsob, ako premenovať jeho stĺpce.</p>
+            <p>Stĺpce sú atribútom Panda Dátového rámca, čo znamená, že ich môžeme načítavať a modifikovať pomocou 
+            jednoduchého operátora bodky. Napríklad:</p>
+            <pre>df.columns
+
+#Výstup Index(['A', 'B', 'C', 'D', 'E'], dtype='object'
+</pre>
+            <p>Operátor priradenia je najlepší spôsob, ako modifikovať tento atribút:</p>
+            <pre>df.columns = [1, 2, 3, 4, 5]
+df</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-name-columns.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-name-columns.png' %}" alt="Pandas-dataframe-name-columns" 
+              class="img-fluid">
+            </a></p>
+            <h2 class="mb-3 mt-5">Ako sa vysporiadať s chýbajúcimi dátami v Pandas Dátových rámcoch</h2>
+            <p>V ideálnom svete budeme vždy pracovať s dokonalými dátovými setmi. V praxi to však nikdy neplatí. 
+            Existuje veľa prípadov, keď pracujeme s kvantitatívnymi dátami, kde budeme musieť vynechať alebo upraviť 
+            chýbajúce dáta. V tejto časti preskúmame stratégie na spracovanie chýbajúcich dát v Pandas.</p>
+            <h4 class="mb-3 mt-5">Dátový rámec, ktorý použijeme v tejto časti</h4>
+            <p>V tejto časti budeme na generovanie hodnôt <strong>NaN</strong> používať atribút 
+            <strong>np.nan.</strong></p>
+            <pre>Np.nan
+
+#Výstup nan</pre>
+            <p>V tejto časti použijeme nasledujúci Dátový rámec:</p>
+            <pre>df = pd.DataFrame(np.array([[1, 5, 1],[2, np.nan, 2],[np.nan, np.nan, 3]]))
+df.columns = ['A', 'B', 'C']
+df
+</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-missing-data.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-missing-data.png' %}" alt="Pandas-dataframe-missing-data" 
+              class="img-fluid">
+            </a></p>
+            <h4 class="mb-3 mt-5">Pandas metóda dropna()</h4>
+            <p>Knižnica Pandas obsahuje vstavanú metódu <strong>dropna().</strong> Pri jej použití, metóda odstráni 
+            všetky riadky Dátového rámca, ktoré obsahujú hodnotu NaN.</p>
+            <p>Ako príklad použijeme metódu <strong>dropna()</strong> na náš <strong>df</strong> Dátový rámec:</p>
+            <pre>df.dropna()</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-drop-na.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-drop-na.png' %}" alt="Pandas-dataframe-drop-na" 
+              class="img-fluid">
+            </a></p>
+            <p>Všimnite si, že rovnako ako ostatné operácie Dátového rámca, ktoré sme skúmali, <strong>dropna()</strong> 
+            nemení pôvodný Dátový rámec, pokiaľ (1) si nevynútime použitie <strong>=</strong> priraďovacieho 
+            operátora alebo (2) pokiaľ nepridáme atribút <strong>inplace = True.</strong></p>
+            <p>Môžeme tiež odstrániť aj všetky stĺpce, ktoré majú chýbajúce hodnoty a to zadaním argumentu 
+            <strong>axis = 1</strong> pri metóde <strong>dropna()</strong> nasledovne:</p>
+            <pre>df.dropna(axis=1)</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-drop-na-columns.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-drop-na-columns.png' %}" alt="Pandas-dataframe-drop-na-columns" 
+              class="img-fluid">
+            </a></p>
+            <h4 class="mb-3 mt-5">Pandas metóda fillna()</h4>
+            <p>V mnohých prípadoch budeme chcieť namiesto odstránenia chýbajúcich hodnôt v Pandas Dátovom rámci 
+            tieto chýbajúce hodnoty nahradiť. Na to slúži metóda <strong>fillna().</strong></p>
+            <p>Ako príklad vyplňme každú chýbajúcu hodnotu v našom Dátovom rámci znakom <strong>?:</strong></p>
+            <pre>df.fillna('?')</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-fill-na.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-fill-na.png' %}" alt="Pandas-dataframe-fill-na" 
+              class="img-fluid">
+            </a></p>
+            <p>Je zrejmé, že v zásade neexistuje situácia, kde by sme chceli nahradiť chýbajúce údaje s emodži. 
+            Bol to iba zábavný príklad.</p>
+            <p>Namiesto toho vo väčšine prípadov nahradíme chýbajúcu hodnotu buď:</p>
+            <ul>
+              <li>Priemernou hodnotou celého Dátového rámca</li>
+              <li>Priemernou hodnotou daného riadku Dátového rámca</li>
+            </ul>
+            <p>Obidve metódy si ukážeme nižšie.</p>
+            <p>Ak chceme vyplniť chýbajúce hodnoty priemernou hodnotou celého Dátového rámca, použijeme nasledujúci 
+            kód:</p>
+            <pre>df.fillna(df.mean())</pre>
+            <p>Ak chceme vyplniť chýbajúce hodnoty v konkrétnom stĺpci priemernou hodnotou tohto stĺpca, použijeme 
+            nasledujúci kód (kód je pre stĺpec A):</p>
+            <pre>df['A'].fillna(df['A'].mean())</pre>
+            <h2 class="mb-3 mt-5">Pandas groupby metóda</h2>
+            <p>V tejto časti budeme diskutovať o tom, ako použíť Pandas <strong>groupby()</strong> metódu.</p>
+            <p>Pandas prichádza so vstavanou funkciou <strong>groupby()</strong>, ktorá nám umožňuje zoskupovať riadky 
+            na základe stĺpcov a vykonávať na nich agregačné funkcie. Môžeme napríklad vypočítať sumu všetkých riadkov, 
+            ktoré majú v stĺpci ID hodnotu 1.</p>
+            <p>Pre každého, kto je oboznámený s jazykom SQL na dotazovanie databáz, je metóda Pandas 
+            <strong>groupby()</strong> veľmi podobná SQL príkazu GROUP BY.</p>
+            <p>Metódu Pandas <strong>groupby()</strong> najjednoduchšie pochopíme pomocou príkladu. Budeme používať 
+            nasledujúci Dátový rámec:</p>
+            <pre>df = pd.DataFrame([ ['Google', 'Sam', 200],
+                    ['Google', 'Charlie', 120],
+                    ['Salesforce','Ralph', 125],
+                    ['Salesforce','Emily', 250],
+                    ['Adobe','Rosalynn', 150],
+                    ['Adobe','Chelsea', 500]])
+
+df.columns = ['Organization', 'Salesperson Name', 'Sales']
+
+df</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-groupby.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-groupby.png' %}" alt="Pandas-dataframe-groupby" 
+              class="img-fluid">
+            </a></p>
+            <p>Tento Dátový rámec obsahuje informácie o predaji pre tri samostatné organizácie: Google, Salesforce 
+            a Adobe. Na získanie súhrnných dát o predaji pre každú konkrétnu organizáciu použijeme metódu 
+            <strong>groupby()</strong>.</p>
+            <p>Na začiatok budeme musieť vytvoriť groupby objekt, čo je dátová štruktúra, ktorá Pythonu hovorí, 
+            do ktorého stĺpca chceme zoskupiť Dátový rámec. V našom prípade je to stĺpec <strong>Organizácia,</strong> 
+            takže vytvoríme groupby objekt nasledovne:</p>
+            <pre>df.groupby('Organization')</pre>
+            <p>Ak uvidíme výstup, ktorý vyzerá nasledovne, budeme vedieť, že sme objekt vytvorili úspešne:</p>
+            <pre>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x113f4ecd0&gt;</pre>
+            <p>Po vytvorení groupby objektu môžeme s týmto objektom vykonávať operácie a vytvoriť Dátový rámec so 
+            súhrnnými informáciami o skupinách organizácií. Niekoľko príkladov je uvedených nižšie:</p>
+            <pre>df.groupby('Organization').mean()
+
+#Priemer (alebo stredná hodnota) sales stĺpca
+
+df.groupby('Organization').sum()
+
+#Suma sales stĺpca
+
+df.groupby('Organization').std()
+
+#Štandardná odchýlka sales stĺpca
+
+</pre>
+            <p>Pretože všetky vyššie uvedené operácie sú číselné, stĺpec <strong>Salesperson Name</strong> bude 
+            automaticky ignorovaný, pretože obsahuje iba stringy.</p>
+            <p>Tu je niekoľko ďalších agregačných funkcií, ktoré dobre fungujú s Pandas <strong>groupby()</strong> 
+            metódou:</p>
+            <pre>df.groupby('Organization').count()
+
+#Spočíta počet záznamov
+
+df.groupby('Organization').max()
+
+#Výstup maximálnej hodnoty
+
+df.groupby('Organization').min()
+
+#Výstup minimálnej hodnoty
+</pre>
+            <h4 class="mb-3 mt-5">Použitie groupby s metódou describe</h4>
+            <p>Jedným z veľmi užitočných nástrojov pri práci s Pandas Dátovými rámcami je metóda 
+            <strong>describe(),</strong> ktorá vypíše užitočné informácie pre každú kategóriu, s ktorou 
+            funkcia groupby pracuje.</p>
+            <p>Najlepšie sa to naučíme na príklade. Nižšie sme skombinovali groupby() and describe() metódy:</p>
+            <pre>df.groupby('Organization').describe()</pre>
+            <p>Takto vyzerá výstup:</p>
+            <p><a href="{% static 'core/images/pandas-dataframe-groupby-describe.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-groupby-describe.png' %}" alt="Pandas-dataframe-groupby-describe" 
+              class="img-fluid">
+            </a></p>
+            <h2 class="mb-3 mt-5">Pandas concat metóda</h2>
+            <p>V tejto časti sa dozvieme, ako spájať Pandas Dátové rámce. Bude to len stručná časť, ale napriek tomu je 
+            tento koncept dôležitý. Poďme na to!</p>
+            <h4 class="mb-3 mt-5">Dátové rámce, ktoré použijeme v tejto časti</h4>
+            <p>Na demonštráciu toho, ako spájať Pandas Dátové rámce, použijeme nasledujúce 3 príklady Dátových rámcov:</p>
+            <pre>df1 = pd.DataFrame({'A': ['A0', 'A1', 'A2', 'A3'],
+                    'B': ['B0', 'B1', 'B2', 'B3'],
+                    'C': ['C0', 'C1', 'C2', 'C3'],
+                    'D': ['D0', 'D1', 'D2', 'D3']},
+                    index=[0, 1, 2, 3])
+
+df2 = pd.DataFrame({'A': ['A4', 'A5', 'A6', 'A7'],
+                    'B': ['B4', 'B5', 'B6', 'B7'],
+                    'C': ['C4', 'C5', 'C6', 'C7'],
+                    'D': ['D4', 'D5', 'D6', 'D7']},
+                    index=[4, 5, 6, 7]) 
+
+df3 = pd.DataFrame({'A': ['A8', 'A9', 'A10', 'A11'],
+                    'B': ['B8', 'B9', 'B10', 'B11'],
+                    'C': ['C8', 'C9', 'C10', 'C11'],
+                    'D': ['D8', 'D9', 'D10', 'D11']},
+                    index=[8, 9, 10, 11])</pre>
+            <h4 class="mb-3 mt-5">Ako spájať Pandas Dátové rámce</h4>
+            <p>Každý, kto už má nejaké základy v jazyku Python, si pamätá, že spájanie stringov znamená pridať 
+            jeden string na koniec druhého. Príklad spájania stringov je uvedený nižšie.</p>
+            <pre>str1 = "Hello "
+str2 = "World!"
+str1 + str2
+
+#Výstup je 'Hello World!'
+</pre>
+            <p>Spájanie Dátových rámcov je veľmi podobné. Znamená to pridať jeden Dátový rámec na koniec druhého.</p>
+            <p>Aby sme mohli vykonať spájanie Dátových rámcov, potrebujeme na to dva Dátové rámce s rovnakými stĺpcami. 
+            Príklad je uvedený nižšie:</p>
+            <pre>pd.concat([df1, df2, df3])</pre>
+            <p><a href="{% static 'core/images/pandas-dataframe-concatenation.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-concatenation.png' %}" alt="Pandas-dataframe-concatenation" 
+              class="img-fluid">
+            </a></p>
+            <p>V predvolenom nastavení Pandas spája pozdĺž <strong>osi = 0,</strong> čo znamená, že pridáva riadky, 
+            nie stĺpce.</p>
+            <p>Ak chceme pridať riadky, jednoducho zadáme <strong>os = 1</strong> ako novú premennú do funkcie 
+            <strong>concat().</strong></p>
+            <pre>pd.concat([df1,df2,df3],axis=1)</pre>
+            <p>V našom prípade to vytvára veľmi nepekný Dátový rámec s mnohými chýbajúcimi hodnotami:</p>
+            <p><a href="{% static 'core/images/pandas-dataframe-concatenation-columns.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-concatenation-columns.png' %}" alt="Pandas-dataframe-concatenation-columns" 
+              class="img-fluid">
+            </a></p>
+            <h2 class="mb-3 mt-5">Pandas merge metóda</h2>
+            <p>V tejto časti sa dozvieme, ako zlúčiť Pandas Dátové rámce.</p>
+            <h4 class="mb-3 mt-5">Dátové rámce, ktoré použijeme v tejto časti</h4>
+            <p>V tejto časti použíjeme nasledujúce dva Pandas Dátové rámce:</p>
+            <pre>import pandas as pd
+
+leftDataFrame = pd.DataFrame({'key': ['K0', 'K1', 'K2', 'K3'],
+                                'A': ['A0', 'A1', 'A2', 'A3'],
+                                'B': ['B0', 'B1', 'B2', 'B3']})
+
+rightDataFrame = pd.DataFrame({'key': ['K0', 'K1', 'K2', 'K3'],
+                                 'C': ['C0', 'C1', 'C2', 'C3'],
+                                 'D': ['D0', 'D1', 'D2', 'D3']})</pre>
+            <p>Stĺpce A, B, C a D obsahujú skutočné údaje, zatiaľ čo key stĺpec je spoločný pre oba Dátové rámce. 
+            Zlúčiť dva Dátové rámce znamená prepojiť ich pozdĺž toho stĺpca, ktorý je pre rámce spoločný.</p>
+            <h4 class="mb-3 mt-5">Ako zlučovať Pandas Dátové rámce</h4>
+            <p>Zlúčiť dva Dátové rámce môžeme pozdĺž ich spoločného stĺpca. Pre každého, kto je oboznámený s jazykom 
+            SQL, je metóda Pandas <strong>merge()</strong> veľmi podobná SQL príkazu INNER JOIN.</p>
+            <p>Ak nepoznáte jazyk SQL, nerobte si starosti, pretože syntax zlúčenia je v skutočnosti veľmi jednoduchá. 
+            Vyzerá nasledovne:</p>
+            <pre>pd.merge(leftDataFrame, rightDataFrame, how='inner', on='key')</pre>
+            <p>Poďme si rozdeliť štyri argumenty, ktoré sme použili v metóde <strong>merge()</strong>:</p>
+            <ol>
+              <li><strong>leftDataFrame:</strong> Toto je Dátový rámec, ktorý by sme chceli zlúčiť na ľavú stranu.</li>
+              <li><strong>rightDataFrame:</strong> Toto je Dátový rámec, ktorý by sme chceli zlúčiť na pravú stranu.</li>
+              <li><strong>how=inner:</strong> Toto je typ zlúčenia, ktorý operácia vykoná. Existuje niekoľko typov 
+              zlúčenia, ale v tomto článku sa budeme venovať iba inner zlúčeniu.</li>
+              <li><strong>on='key'</strong> Toto je stĺpec, pozdĺž ktorého chceme zlúčovať. Keďže key je jediný 
+              spoločný stĺpec medzi dvoma Dátovými rámcami, je to jediná možnosť, ktorá pripadá do úvahy na 
+              vykonanie zlúčenia.</li>
+            </ol>  
+            <h2 class="mb-3 mt-5">Pandas join metóda</h2>
+            <p>V tejto časti sa dozvieme, ako k sebe pripojiť Pandas Dátové rámce.</p>
+            <h4 class="mb-3 mt-5">Dátové rámce, ktoré použijeme v tejto časti</h4>
+            <p>V tejto časti použíjeme nasledujúce dva Pandas Dátové rámce:</p>
+            <pre>leftDataFrame = pd.DataFrame({  'A': ['A0', 'A1', 'A2', 'A3'],
+                                'B': ['B0', 'B1', 'B2', 'B3']},
+                                index =['K0', 'K1', 'K2', 'K3'])
+
+rightDataFrame = pd.DataFrame({ 'C': ['C0', 'C1', 'C2', 'C3'],
+                                'D': ['D0', 'D1', 'D2', 'D3']},
+                                index = ['K0', 'K1', 'K2', 'K3'])</pre>
+            <p>Ak sa vám zdajú tieto Dátové rámce povedomé, máte pravdu. Jedná sa o takmer rovnaké Dátové rámce 
+            z predchádzajúcej časti, pri ktorých sme skúmali zlúčovanie Pandas Dátových rámcov. Kľúčovým rozdielom je, 
+            že namiesto <strong>key</strong> stĺpca, máme teraz index Dátového rámca. V podstate môžeme uvažovať, že 
+            sa jedná o tie isté Dátové rámce z predchádzajúcej časti po vykonaní <strong>.set_index(key)</strong> 
+            príkazu.</p>
+            <h4 class="mb-3 mt-5">Ako k sebe pripojiť Pandas Dátové rámce</h4>
+            <p>Pripájanie Pandas Dátových rámcov k sebe je veľmi podobné zlučovaniu Pandas Dátových rámcov, až na to, 
+            že rámce kombinujeme pozdĺž indexu a nie stĺpca.</p>
+            <p>Na pripojenie týchto dvoch Dátových rámcov k sebe môžeme použiť nasledujúci kód:</p>
+            <pre>leftDataFrame.join(rightDataFrame)</pre>
+            <h2 class="mb-3 mt-5">Ďalšie bežné operácie v Pandas</h2>
+            <p>V tejto časti sa budeme venovať bežným operáciám v Pandas knižnici. Účelom tejto časti je preskúmať 
+            dôležité Pandas operácie, nezaradené do žiadnej zo sekcií, o ktorých sme doteraz hovorili.</p>
+            <h4 class="mb-3 mt-5">Dátový rámec, ktorý použijeme v tejto časti</h4>
+            <p>V tejto časti použíjeme nasledujúci Dátový rámec:</p>
+            <pre>df = pd.DataFrame({'col1':['A','B','C','D'],
+                   'col2':[2,7,3,7],
+                   'col3':['fgh','rty','asd','qwe']})
+</pre>
+            <h4 class="mb-3 mt-5">Ako nájsť unikátne hodnoty v Pandas Sérii</h4>
+            <p>Pandas obsahuje vynikajúcu metódu nazvanú <strong>unique(),</strong> ktorú je možné použiť na vyhľadanie 
+            unikátnych hodnôt v Pandas Sérii. Treba však poznamenať, že táto metóda funguje iba na Série, a nie na 
+            Dátové rámce. Ak by sme chceli použiť túto metódu na Dátový rámec, dostaneme chybu:</p>
+            <pre>df.unique()
+
+#Výstup AttributeError: 'DataFrame' object has no attribute 'unique'
+</pre>
+            <p>Keďže každý stĺpec Pandas Dátového rámca je vlastne Pandas Séria, môžeme na konkrétny stĺpec použiť 
+            metódu <strong>unique(),</strong>nasledovne:</p>
+            <pre>df['col2'].unique()
+
+#Výstup array([2, 7, 3])
+</pre>
+            <p>Pandas taktiež obsahuje samostatnú metódu <strong>nunique()</strong>, ktorá zráta počet unikátnych 
+            hodnôt v Sérii a vypíše túto hodnotu ako celé číslo. Napríklad:</p>
+            <pre>df['col2'].nunique()
+
+#Výstup 3
+</pre>
+            <p>Je zaujímavé, že metóda <strong>nunique()</strong> je úplne rovnaká ako <strong>len(unique()),</strong> 
+            ale vzhľadom na to, že je to dosť zaužívaná operácia, tak sa Pandas komunita rozhodla pre tento prípad 
+            vytvoriť špecifickú metódu.</p>
+            <h4 class="mb-3 mt-5">Ako spočítať výskyt každej rovnakej hodnoty v Pandas Sérii</h4>
+            <p>Pandas obsahuje funkciu s názvom <strong>counts_value(),</strong> ktorá nám umožní ľahko spočítať počet 
+            každého rovnakého záznamu v Pandas Sérii. Príklad je uvedený nižšie:</p>
+            <pre>df['col2'].value_counts()
+
+"""
+Výstup:
+7    2
+2    1
+3    1
+Name: col2, dtype: int64
+"""</pre>
+            <h4 class="mb-3 mt-5">Použitie Pandas metódy apply</h4>
+            <p>Metóda <strong>apply()</strong> je jednou z najvýkonnejších metód dostupných v Pandas knižnici. 
+            Umožňuje nám aplikovať vlastnú funkciu na každý prvok Pandas Série.</p>
+            <p>Ako príklad si predstavme, že máme nasledujúcu funkciu <strong>exponentify(),</strong> ktorá berie celé 
+            číslo ako argument a exponenciálne ho zvyšuje nasledovne:</p>
+            <pre>def exponentify(x):
+
+    return x**x</pre>
+            <p>Metóda <strong>apply()</strong> nám umožňuje ľahko aplikovať funkciu <strong>exponentify()</strong> 
+            na každý prvok Pandas Série:</p>
+            <pre>df['col2'].apply(exponentify)
+
+"""
+Výstup:
+0         4
+1    823543
+2        27
+3    823543
+Name: col2, dtype: int64
+"""</pre>
+            <p>Metódu <strong>apply()</strong> možno použiť aj so vstavanými funkciami ako <strong>len</strong> 
+            (aj keď je určite výkonnejšia, ak sa používa s vlastnými funkciami). Nižšie uvádzame príklad funkcie 
+            <strong>len</strong>, ktorá je použitá v spojení s metódu <strong>apply():</strong></p>
+            <pre>df['col3'].apply(len)
+
+"""
+Výstup
+0    3
+1    3
+2    3
+3    3
+Name: col3, dtype: int64
+"""</pre>
+            <h4 class="mb-3 mt-5">Ako zoradiť Pandas Dátový rámec</h4>
+            <p>Pandas Dátový rámec môžeme filtrovať podľa hodnôt konkrétneho stĺpca pomocou metódy 
+            <strong>sort_values().</strong> Napríklad, ak by sme chceli triediť podľa stĺpca <strong>col2</strong> 
+            v našom Dátovom rámci <strong>df,</strong> spustili by sme nasledujúci príkaz:</p>
+            <pre>df.sort_values('col2')</pre>
+            <p>Výstup tohto príkazu je uvedený nižšie:</p>
+            <p><a href="{% static 'core/images/pandas-dataframe-sort-values.png' %}">
+              <img src="{% static 'core/images/pandas-dataframe-sort-values.png' %}" alt="Pandas-dataframe-sort-values" 
+              class="img-fluid">
+            </a></p>
+            <p>Z tohto výstupu si treba uvedomiť dve veci:</p>
+            <ol>
+              <li>Ako vidíme, každý riadok si zachováva svoj index, čo znamená, že index je teraz mimo poradia.</li>
+              <li>Rovnako ako v prípade ostatných metód Dátových rámcov, ani v tomto prípade sa pôvodný Dátový rámec 
+              neprepíše, pokiaľ si nevynútime použitie <strong>=</strong> priraďovacieho operátora alebo pokiaľ 
+              nepridáme atribút <strong>inplace = True.</strong></li>
+            </ol>  
+            <h2 class="mb-3 mt-5">Vstup a výstup lokálnych dát (I/O) v Pandas</h2>
+            <p>V tejto časti budeme skúmať vstup a výstup dát pomocou Pandas knižnice.</p>
+            <h4 class="mb-3 mt-5">Súbory s ktorými budeme pracovať v tejto časti</h4>
+            <p>V tejto časti budeme pracovať s rôznymi súbormi obsahujúcimi ceny akcií pre Facebook (FB), 
+            Amazon (AMZN), Google (GOOG) a Microsoft (MSFT). Na stiahnutie týchto súborov, si stiahneme celé GitHub 
+            úložisko <a href="https://github.com/nickmccullum/advanced-python" target="_blank">tu.</a> Súbory použité v 
+            tejto časti nájdeme v priečinku <strong>stock_prices.</strong></p>
+            <p>Súbory si uložte v rovnakom adresári ako Jupyter Notebook. Najjednoduchší spôsob, ako to urobiť, 
+            je stiahnuť GitHub repozitár a potom otvoriť Jupyter Notebook v priečinku <strong>stock_prices</strong> 
+            repozitára.</p>
+            <h4 class="mb-3 mt-5">Ako importovať súbory .csv pomocou Pandas</h4>
+            <p>Súbory <strong>.csv</strong> môžeme importovať do Pandas Dátového rámca pomocou metódy 
+            <strong>read_csv(),</strong> nasledovne:</p>
+            <pre>import pandas as pd
+
+pd.read_csv('stock_prices.csv')</pre>
+            <p><a href="{% static 'core/images/pandas-data-input-output-example.png' %}">
+              <img src="{% static 'core/images/pandas-data-input-output-example.png' %}" alt="Pandas-data-input-output-example" 
+              class="img-fluid">
+            </a></p>
+            <p>Tento nový Dátový rámec môžeme tiež priradiť k premennej, na ktorú sa bude neskôr odkazovať, pomocou 
+            klasického <strong>=</strong> priraďovacieho operátora:</p>
+            <pre>new_data_frame = pd.read_csv('stock_prices.csv')</pre>
+            <p>V programovacej knižnici Pandas je obsiahnuté množstvo metód na čítanie súborov. Ak by sme chceli 
+            importovať dáta z externého dokumentu, je pravdepodobné, že Pandas má vstavanú metódu aj na tento účel.</p>
+            <p>Niekoľko príkladov rôznych metód čítania je uvedených nižšie:</p>
+            <pre>pd.read_json()
+pd.read_html()
+pd.read_excel()
+</pre>
+            <p>Niektoré z týchto metód preskúmame v tejto časti neskôr.</p>
+            <p>Ak by sme chceli importovať súbor <strong>.csv,</strong> ktorý sa nenachádza priamo v našom pracovnom 
+            adresári, musíme mierne upraviť syntax metódy <strong>read_csv().</strong></p>
+            <p>Ak je súbor hlbšie v priečinku ako v ktorom teraz pracujeme, musíme v argumente metódy 
+            <strong>read_csv()</strong> určiť úplnú cestu k súboru. Napríklad ak sa súbor 
+            <strong>stock_prices.csv</strong> nachádza v priečinku s názvom <strong>new_folder,</strong> mohli by 
+            sme ho importovať nasledovne:</p>
+            <pre>new_data_frame = pd.read_csv('./new_folder/stock_prices.csv')</pre>
+            <p>Ak nieste oboznámení s prácou s adresárovými štruktúrami, <strong>.</strong> na začiatku cesty k súboru 
+            indikuje aktuálny adresár. Podobne <strong>..</strong> indikuje jeden adresár nad aktuálnym adresárom a 
+            <strong>...</strong> indikuje dva adresáre nad aktuálnym adresárom.</p>
+            <p>Použitím tejto syntaxe (pomocou bodiek) importujeme a odkazujeme na súbory, ktoré sú nad naším aktuálnym 
+            pracovným adresárom. Ako príklad si môžeme otvoriť Jupyter Notebook vo vnútri priečinka 
+            <strong>new_folder</strong> a do nadradeného priečinka vložte súbor <strong>stock_prices.csv.</strong> 
+            S týmto súborovým rozmiestnením môžeme importovať súbor <strong>stock_prices.csv</strong> pomocou 
+            nasledujúceho príkazu:</p>
+            <pre>new_data_frame = pd.read_csv('../stock_prices.csv')</pre>
+            <p>Treba si uvedomiť, že táto adresárová syntax je rovnaká pre všetky typy importu súborov, takže keď 
+            budeme neskôr v tomto článku skúmať rôzne spôsoby importu, nebudeme sa vracať k tomu, ako importovať 
+            súbory z rôznych adresárov.</p>
+            <h4 class="mb-3 mt-5">Ako exportovať súbory .csv pomocou Pandas</h4>
+            <p>Na demonštráciu ako uložiť nový súbor <strong>.csv,</strong> si najskôr vytvorme nový Dátový rámec. 
+            Dátový rámec vyplníme 3 stĺpcami a 50 riadkami náhodných dát pomocou metódy 
+            <strong>np.random.randn():</strong></p>
+            <pre>import pandas as pd
+import numpy as np
+
+df = pd.DataFrame(np.random.randn(50,3))
+</pre>
+            <p>Vytvorený Dátový rámec môžeme uložiť pomocou metódy <strong>to_csv().</strong> Ako argument metódy 
+            zadávame názov nového súboru.</p>
+            <pre>df.to_csv('my_new_csv.csv')</pre>
+            <p>Všimnite si, že ak spustíme vyššie uvedený kód, nový súbor <strong>.csv</strong> bude začínať 
+            neoznačeným stĺpcom, ktorý obsahuje index Dátového rámca. Nižšie je uvedený príklad 
+            (po otvorení súboru <strong>.csv</strong> v programe Microsoft Excel):</p>
+            <p><a href="{% static 'core/images/pandas-data-csv-output.png' %}">
+              <img src="{% static 'core/images/pandas-data-csv-output.png' %}" alt="Pandas-data-csv-output" 
+              class="img-fluid">
+            </a></p>
+            <p>V mnohých prípadoch je to však nežiaduce. Ak chceme odstrániť neoznačený stĺpec indexu, 
+            zadáme <strong>index = False</strong> ako druhý argument metódy <strong>to_csv()</strong> nasledovne:</p>
+            <pre>new_data_frame.to_csv('my_new_csv.csv', index = False)</pre>
+            <p>Následne nový súbor <strong>.csv</strong> už neoznačený index stĺpec neobsahuje:</p>
+            <p><a href="{% static 'core/images/pandas-data-csv-output-index-false.png' %}">
+              <img src="{% static 'core/images/pandas-data-csv-output-index-false.png' %}" alt="Pandas-data-csv-output-index-false" 
+              class="img-fluid">
+            </a></p>
+            <p>Metódy <strong>read_csv()</strong> a <strong>to_csv()</strong> nám uľahčujú import a export dát 
+            zo súborov <strong>.csv</strong> vo vysokej miere. Ďalej v tejto časti uvidíme, že pre každú metódu 
+            čítania súborov, ktorá nám umožňuje importovať dáta, zvyčajne existuje zodpovedajúca funkcia, ktorá 
+            nám umožňuje tieto dáta aj uložiť!</p>
+            <h4 class="mb-3 mt-5">Ako importovať súbory .json pomocou Pandas</h4>
+            <p>Ak nemáte skúsenosti s prácou s veľkými dátovými setmi, asi nieste oboznámení s typom súboru JSON.</p>
+            <p>JSON je skratka pre JavaScript Object Notation. Súbory JSON sú veľmi podobné Python slovníkom.</p>
+            <p>Súbory JSON sú jedny z najbežnejšie používaných dátových typov medzi softvérovými vývojármi, pretože 
+            s nimi možno manipulovať v zásade pomocou každého programovacieho jazyka.</p>
+            <p>Pandas obsahuje metódu nazvanú <strong>read_json(),</strong> ktorá umožňuje veľmi jednoduchý import 
+            súborov JSON ako Pandas Dátových rámcov. Príklad je uvedený nižšie.</p>
+            <pre>json_data_frame = pd.read_json('stock_prices.json')</pre>
+            <p>Ďalej sa naučíme, ako exportovať súbory JSON.</p>
+            <h4 class="mb-3 mt-5">Ako exportovať súbory .json pomocou Pandas</h4>
+            <p>Ako už iste vieme, pre každú metódu čítania súborov všeobecne existuje aj metóda na uloženie súborov. 
+            To znamená, že Dátový rámec môžeme uložiť aj do JSON súboru pomocou metódy <strong>to_json().</strong></p>
+            <pre>df.to_json('my_new_json.json')</pre>
+            <p>Ďalej sa naučíme, ako pracovať so súbormi programu Excel - ktoré majú príponu súboru .xlsx.</p>
+            <h4 class="mb-3 mt-5">Ako importovať súbory .xlsx pomocou Pandas</h4>
+            <p>Pandas obsahuje metódu nazvanú <strong>read_excel(),</strong> ktorá umožňuje veľmi jednoduchý import 
+            Excel dokumentov ako Pandas Dátových rámcov.</p>
+            <pre>new_data_frame = pd.read_excel('stock_prices.xlsx')</pre>
+            <p>Na rozdiel od metód read_csv() a read_json(), ktoré sme skúmali vyššie, môže metóda read_excel() prijať 
+            druhý argument. Dôvod, prečo read_excel() prijíma viac argumentov, je ten, že Excel tabuľky môžu 
+            obsahovať viac hárkov. Druhý argument určuje, ktorý hárok chceme importovať, a nazýva sa 
+            <strong>sheet_name.</strong></p>
+            <p>Napríklad, ak by náš súbor <strong>stock_prices.xlsx</strong> mal druhý hárok s názvom 
+            <strong>Sheet2,</strong> tento hárok by sme importovali ako Pandas Dátový rámec nasledovne:</p>
+            <pre>new_data_frame.to_excel('stock_prices.xlsx', sheet_name='Sheet2')</pre>
+            <p>Ak nezadáme žiadnu hodnotu pre argument <strong>sheet_name,</strong> tak metóda 
+            <strong>read_excel()</strong> predvolene naimportuje prvý hárok Excel tabuľky.</p>
+            <p>Pri importe Excel dokumentov je veľmi dôležité poznamenať, že Pandas importuje iba dáta. Nemôže 
+            importovať ďalšie funkcie Excelu, ako je formátovanie, vzorce alebo makrá. Pokus o import dát z 
+            Excel dokumentu, ktorý obsahuje tieto funkcie, môže spôsobiť zlyhanie Pandas knižnice.</p>
+            <h4 class="mb-3 mt-5">Ako exportovať súbory .xlsx pomocou Pandas</h4>
+            <p>Export Excel súborov je veľmi podobný ako ich import s rozdielom, že namiesto metódy 
+            <strong>read_excel()</strong> použijeme metódu <strong>to_excel().</strong> Nižšie je uvedený príklad 
+            s použitím nášho náhodne vygenerovaného Dátového rámca <strong>df:</strong></p>
+            <pre>df.to_excel('my_new_excel_file.xlsx')</pre>
+            <p>Rovnako ako <strong>read_excel(),</strong> aj <strong>to_excel()</strong> prijíma druhý argument 
+            s názvom <strong>sheet_name,</strong> ktorý umožňuje určiť názov hárka, ktorý chceme uložiť. 
+            V príklade nižšie sme hárok nového súboru .xlsx pomenovali <strong>My New Sheet!</strong> a do metódy 
+            <strong>to_excel()</strong> ho zadáme nasledovne:</p>
+            <pre>df.to_excel('my_new_excel_file.xlsx', sheet_name='My New Sheet!')</pre>
+            <p>Ak hodnotu pre <strong>sheet_name</strong> nezadáme, tak hárok bude predvolene pomenovaný 
+            <strong>Sheet1</strong> (rovnako ako pri vytváraní nového Excel dokumentu pomocou skutočnej aplikácie).</p>
+            <h2 class="mb-3 mt-5">Vstup a výstup externých dát (I/O) v Pandas</h2>
+            <p>V poslednej časti tohto článku sme sa naučili, ako importovať dáta z .csv, .json a .xlsx súborov, 
+            ktoré boli uložené v našom lokálnom počítači. Budeme pokračovať a ukážeme si, ako môžeme importovať súbory 
+            bez toho, aby sme ich najskôr uložili na lokálny počítač a to sa nazýva externý import.</p>
+            <h4 class="mb-3 mt-5">Čo je externý import a prečo je užitočný?</h4>
+            <p>Externý import znamená vloženie súboru do Python skriptu bez toho, aby sme ho uložili vo svojom 
+            počítači.</p>
+            <p>Na prvý pohľad nemusí byť jasné, prečo by sme chceli radšej použiť externý import. Môže to však byť 
+            veľmi užitočné.</p>
+            <p>Dôvod, prečo je externý import užitočný z definície hovorí, že Python skript bude naďalej fungovať, 
+            aj keď importovaný súbor nie je uložený v našom počítači. To znamená, že môžeme poslať svoj kód kolegom 
+            alebo priateľom a bude stále fungovať správne.</p>
+            <p>V ďalšej časti si ukážeme, ako vykonávať externé importy v Pandas pre .csv, .json a .xlsx. súbory</p>
+            <h4 class="mb-3 mt-5">Ako importovať externé .csv súbory</h4>
+            <p>Najskôr prejdime do GitHub úložiska tohto článku. Otvorme priečinok <strong>stock_prices.</strong> 
+            Klikneme na súbor <strong>stock_prices.csv</strong> a potom klikneme na tlačidlo Raw file, ako je 
+            uvedené nižšie.</p>
+            <p><a href="{% static 'core/images/raw-github-file.png' %}">
+              <img src="{% static 'core/images/raw-github-file.png' %}" alt="Raw-github-file" 
+              class="img-fluid">
+            </a></p>
+            <p>Dostanete sa na novú stránku, ktorá obsahuje dáta zo súboru .csv v rámci stock_prices.csv.</p>
+            <p>Ak chceme importovať tento externý súbor do Python skriptu, musíme najskôr skopírovať jeho URL adresu.</p>
+            <p>URL adresa by mala vyzerať takto:</p>
+            <pre>https://raw.githubusercontent.com/nickmccullum/advanced-python/master/stock_prices/stock_prices.csv</pre>
+            <p>Túto URL adresu môžeme zadať v metóde <strong>read_csv()</strong> ako argument na import dátového setu 
+            do Pandas Dátového rámca bez toho, aby sme najskôr dátový set uložili na svoj počítač:</p>
+            <pre>pd.read_csv('https://raw.githubusercontent.com/nicholasmccullum/advanced-python/master/stock_prices/stock_prices.csv')</pre>
+            <h4 class="mb-3 mt-5">Ako importovať externé .json súbory</h4>
+            <p>Externé .json súbory môžeme importovať podobným spôsobom ako .csv súbory.</p>
+            <p>Najskôr skopírujme nespracovanú URL adresu z GitHubu. Mala by vyzerať takto:</p>
+            <pre>https://raw.githubusercontent.com/nicholasmccullum/advanced-python/master/stock_prices/stock_prices.json</pre>
+            <p>Potom zadáme túto URL adresu do metódy <strong>read_json()</strong> nasledovne:</p>
+            <pre>pd.read_json('https://raw.githubusercontent.com/nicholasmccullum/advanced-python/master/stock_prices/stock_prices.json')</pre>
+            <h4 class="mb-3 mt-5">Ako importovať externé .xlsx súbory</h4>
+            <p>Externé .xlsx súbory môžeme importovať podobným spôsobom ako .csv a .json súbory. Treba si však uvedomiť, 
+            že v GitHub rozhraní budeme musieť kliknúť na trochu iné miesto. Konkrétne budeme musieť kliknúť pravým tlačidlom 
+            myši na položku „View Raw“ a zvoliť možnosť „Copy Link Address,“, ako je uvedené nižšie.</p>
+            <p><a href="{% static 'core/images/raw-excel-file.png' %}">
+              <img src="{% static 'core/images/raw-excel-file.png' %}" alt="Raw-excel-file" 
+              class="img-fluid">
+            </a></p>
+            <p>Nespracovaná URL adresa bude vyzerať takto:</p>
+            <pre>https://github.com/nicholasmccullum/advanced-python/blob/master/stock_prices/stock_prices.xlsx?raw=true</pre>
+            <p>Potom zadáme túto URL adresu do metódy <strong>read_excel()</strong> nasledovne:</p>
+            <pre>d.read_excel('https://github.com/nicholasmccullum/advanced-python/blob/master/stock_prices/stock_prices.xlsx?raw=true')</pre>
+            <h4 class="mb-3 mt-5">Nevýhody externého importu</h4>
+            <p>Externý import znamená, že nemusíme najskôr uložiť importovaný súbor na lokálny počítač, čo je 
+            nepochybná výhoda.</p>
+            <p>Externý import má však aj dve nevýhody:</p>
+            <ol>
+              <li>Na vykonávanie externých importov musíme mať internetové pripojenie</li>
+              <li>Pingovanie URL adresy na získanie dátového setu je pomerne časovo náročné, čo znamená, že 
+              vykonávanie externých importov spomalí rýchlosť nášho Pythonu kódu.</li>
+            </ol>  
+            <h2 class="mb-3 mt-5">Záverečné myšlienky</h2>
+            <p>Ďakujem, že ste si prečítali tento článok o knižnici Pandas, ktorá je jednou z mojich najobľúbenejších 
+            Python knižníc a už len dúfam, že vám bude tento článok nápomocný na ceste k úspešnej kariére dátového 
+            vedca alebo analytika.</p>
+
+            Ak sa chcete dozvedieť viac o možnostiach práce s knižnicou Pandas, pozrite si ich 
+            <a href="https://pandas.pydata.org/docs/" target="_blank">oficiálnu dokumentáciu</a>, kde nájdete podrobný popis 
+            všetkých funkcií.
+
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">python</a>
+                <a href="#" class="tag-cloud-link">pandas</a>
+                <a href="#" class="tag-cloud-link">series-datasets</a>
+                <a href="#" class="tag-cloud-link">jupyter-notebook</a>
+              </div>
+            </div>
+            
+            <div class="about-author d-flex p-4 bg-light">
+              <div class="bio mr-5">
+                <img src="{% static 'core/images/person_1.jpg' %}" alt="Image placeholder" class="img-fluid mb-4">
+              </div>
+              <div class="desc">
+                <h3>Ivan Čiap</h3>
+                <p id="c_action">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+              </div>
+            </div>
+
+            <div class="pt-5 mt-5">
+              <h3 class="mb-5">{{ c_no_3 }} Comments</h3>
+                <div class="comment-list">
+                  {% for comment in comments %}
+                  <li class="comment">
+                    <div class="vcard bio">
+                      <img src="{{ comment.avatar.url }}" alt="Avatar">
+                    </div>
+                    <div class="comment-body">
+                      <h3>{{ comment.name }}</h3>
+                      <div class="meta">{{ comment.created|date:"F d, Y \o H:i" }}</div>
+                      <p class="">{{ comment.message }}</p>
+                      <p><a href="#" class="reply">Reply</a></p>
+                    </div>
+                  {% endfor %}
+                  </li>
+                  <div class="ml-md-10"> 
+                    {% if comments.has_previous %}
+                      <a class="btn btn-outline-info mb-4" href="?page=1#c_action">&lt;&lt;</a>
+                      <a class="btn btn-outline-info mb-4" href="?page={{ comments.previous_page_number }}#c_action">&lt;</a>
+                    {% endif %}
+                    {% for num in comments.paginator.page_range %}
+                      {% if comments.has_other_pages %}
+                        {% if num == comments.number %}
+                          <a class="btn btn-info mb-4" href="?page={{ num }}#c_action">{{ num }}</a>
+                        {% elif num > comments.number|add:'-3' and num < comments.number|add:'3' %}
+                          <a class="btn btn-outline-info mb-4" href="?page={{ num }}#c_action">{{ num }}</a>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                    {% if comments.has_next %}
+                      <a class="btn btn-outline-info mb-4" href="?page={{ comments.next_page_number }}#c_action">&gt;</a>
+                      <a class="btn btn-outline-info mb-4" href="?page={{ comments.paginator.num_pages }}#c_action">&gt;&gt;</a>
+                    {% endif %}
+                  </div>
+                </div>
+
+              <!-- END comment-list -->
+              
+              <div class="comment-form-wrap pt-5">
+                <!--{% if messages %}
+									{% for message in messages %}
+										<div class="alert alert-info" role="alert">{{ message }}</div>
+									{% endfor %}
+								{% endif %}-->
+                <h3 class="mb-5">Napíšte komentár</h3>
+                <form action="{% url 'blog:co_je_kniznica_pandas' %}#c_action" method="POST" class="p-5 bg-light">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="name">Meno *</label>
+                    {{ c_form.name }}
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    {{ c_form.email }}
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    {{ c_form.website }}
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Správa *</label>
+                    {{ c_form.message }}
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Odoslať Komentár" class="btn py-3 px-4 btn-primary">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div> <!-- .col-md-8 -->
+
+          <div class="col-lg-4 sidebar pl-lg-5 ic-animate">
+            <div class="sidebar-box ic-animate">
+              <div class="categories">
+                <h3>Služby</h3>
+                <li><a href="{% url 'sluzby' %}">Django Web/App Development <span class="fa fa-chevron-right"></span></a></li>
+                <li><a href="{% url 'sluzby' %}">Python Dátová Analýza <span class="fa fa-chevron-right"></span></a></li>
+                <li><a href="{% url 'sluzby' %}">Depression Treatment <span class="fa fa-chevron-right"></span></a></li>
+                <li><a href="{% url 'sluzby' %}">Family Problem <span class="fa fa-chevron-right"></span></a></li>
+              </div>
+            </div>
+
+            <div class="sidebar-box ic-animate">
+              <h3>Najnovší Blog</h3>
+              <div class="block-21 mb-4 d-flex">
+                <a href="{% url 'blog:co_je_datova_analyza' %}" class="blog-img mr-4" style="background-image: url({% static 'core/images/blog_1.png' %});"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="{% url 'blog:co_je_datova_analyza' %}">Čo je dátová analýza?</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
+                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
+                    <div><a href="#"><span class="fa fa-comment"></span> {{ k_no_1 }}</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a href="{% url 'blog:co_je_kniznica_numpy' %}" class="blog-img mr-4" style="background-image: url({% static 'core/images/blog_2.png' %});"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="{% url 'blog:co_je_kniznica_numpy' %}">Čo je knižnica Numpy?</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
+                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
+                    <div><a href="#"><span class="fa fa-comment"></span> {{ k_no_2 }}</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a href="{% url 'blog:co_je_kniznica_pandas' %}" class="blog-img mr-4" style="background-image: url({% static 'core/images/blog_3.png' %});"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="{% url 'blog:co_je_kniznica_pandas' %}">Čo je knižnica Pandas?</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
+                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
+                    <div><a href="#"><span class="fa fa-comment"></span> {{ k_no_3 }}</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-box ic-animate">
+              <h3>Tag Cloud</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">python</a>
+                <a href="#" class="tag-cloud-link">data-analysis</a>
+                <a href="#" class="tag-cloud-link">data-science</a>
+                <a href="#" class="tag-cloud-link">numpy</a>
+                <a href="#" class="tag-cloud-link">pandas</a>
+                <a href="#" class="tag-cloud-link">data-visualization</a>
+                <a href="#" class="tag-cloud-link">jupyter-notebook</a>
+                <a href="#" class="tag-cloud-link">flexible</a>
+              </div>
+            </div>
+
+            <div class="sidebar-box ic-animate">
+              <h3>Paragraph</h3>
+              <p>Vývojár Wes McKinney začal pracovať na Pandas v roku 2008 v AQR Capital Management z 
+              dôvodu potreby vysoko výkonného a flexibilného nástroja na vykonávanie kvantitatívnej analýzy 
+              finančných údajov. Pred odchodom z AQR dokázal presvedčiť vedenie, aby sa Pandas stala open-source 
+              knižnicou. Ďalší zamestnanec AQR, Chang She, sa pričinil k tvorbe knižnice v roku 2012 
+              ako druhý hlavný prispievateľ do projektu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> <!-- .section -->
+{% endblock content %}
+    

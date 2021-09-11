@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ic-animate mb-5 text-center">
+          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span>O Mne <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread">O Mne</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ic-section ic-no-pb ic-no-pt">
+			<div class="container">
+				<div class="row ic-sample">
+					<div class="col-md-6 img img-3 d-flex justify-content-center align-items-center" style="background-image: url({% static 'core/images/profile.jpg' %});">
+					</div>
+					<div class="col-md-6 wrap-about px-md-5 ic-animate py-5 bg-light">
+	          <div class="heading-section py-md-5">
+	          	<span class="subheading">WHOAMI</span>
+	            <h2 class="mb-3">Ivan Čiap</h2>
+							<p class="mb-2 contact-info"><em>Jednateľ, Developer, Programátor</em></p>
+							<p class="mb-2 contact-info"><em>+421 910 771 226</em></p>
+							<p class="mb-4 contact-info"><em>ciapivan@gmail.com</em></p>
+
+	            <p>Som tvorcom a majiteľom tejto webovej stránky. Posledných niekoľko rokov sa venujem vývoju, 
+							programovaniu a dátovej analýze prevažne v programovacom jazyku Python. V rámci vývoja webových stránok a aplikácií 
+							používam high level Python framework Django. Vytvoril som aj niekoľko malých aplikácii v microframeworku Flask. Na 
+							dátovú analýzu používam vysoko flexibilné knižnice ako napríklad Numpy, Pandas, či Matplotlib 
+							alebo Seaborn na vizualizáciu analýzy. Nezaostávam ani vo Front-end dizajne webových stránok a aplikácií.</p>
+	            <p>V týchto dňoch sa snažím ďalej rozširovať oblasť vzdelávania v IT sektore a hľadám nové užitočné nástroje, ktoré by 
+							mi mohli uľahčiť moju prácu a samozrejme rád vyhľadávam osoby a tímy ľudí s ktorými by sme spojili sily a podieľali sa na 
+							zaujímavých projektoch.</p>
+
+	          </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ic-counter ic-section ic-no-pt ic-no-pb img bg-light" id="section-counter">
+    	<div class="container">
+    		<div class="row">
+          <div class="col-md-18 col-lg-4 justify-content-center counter-wrap ic-animate">
+            <div class="block-18 py-4 mb-4">
+              <div class="text align-items-center">
+                <span>„Úspešný človek profituje zo svojich chýb a skúša to znova a inak.“ – Dale Cargenie</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ic-section testimony-section">
+    	<div class="img img-bg border" style="background-image: url({% static 'core/images/bg_3.jpg' %});"></div>
+    	<div class="overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section heading-section-white ic-animate">
+          	<span class="subheading">Technológie</span>
+            <h2 class="mb-3">Nástroje ktoré používam</h2>
+          </div>
+        </div>
+        <div class="row ic-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ic-owl">
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url({% static 'core/images/django.png' %});"></div>
+												<p class="name pl-7">Django</p>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url({% static 'core/images/python.png' %});"></div>
+												<p class="name pl-7">Python</p>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url({% static 'core/images/react.png' %});"></div>
+												<p class="name pl-7">React</p>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url({% static 'core/images/mysql.png' %});"></div>
+												<p class="name pl-7">Mysql</p>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url({% static 'core/images/redis.png' %});"></div>
+												<p class="name pl-7">Redis</p>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+		
+		<section class="ic-appointment ic-section img" style="background-image: url({% static 'core/images/bg_2.jpg' %});">
+			<div class="overlay"></div>
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-6 half ic-animate">
+						<div id="alert-box"></div>
+    				<h2 class="mb-4">Ak máte otázky pošlite mi správu!</h2>
+    				<form action="" method="POST" class="appointment" id="confirmform">
+							{% csrf_token %}
+    					<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										{{ form.name }}
+			            </div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										{{ form.email }}
+			            </div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+			    					<div class="form-field">
+	          					<div class="select-wrap">
+	                      <div class="icon"><span class="fa fa-chevron-down"></span></div>
+	                      {{ form.service }}
+	                    </div>
+			              </div>
+			    				</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										{{ form.message }}
+			            </div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="submit" value="Odoslať správu" class="btn btn-primary py-3 px-4">
+			            </div>
+								</div>
+    					</div>
+	          </form>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+{% endblock content %}

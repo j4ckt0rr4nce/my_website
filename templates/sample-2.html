@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ic-animate mb-5 text-center">
+          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'ukazky' %}">Ukážky <i class="fa fa-chevron-right"></i></a></span> <span>List Comprehension <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread">List Comprehension</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		<section class="ic-section ic-degree-bg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-11 ic-animate ic-sample px-5 pb-5">
+            <h2 class="mb-3 mt-4">List Comprehension</h2>
+
+            <p>
+              <img src="{% static 'core/images/sample-2.jpg' %}" alt="" class="img-fluid">
+            </p>
+
+            <p>Python je známy tým, že povzbudzuje vývojárov a programátorov k písaniu efektívneho, ľahko zrozumiteľného a 
+            rovnako ľahko čitateľného kódu. Jedným z najvýraznejších aspektov jazyka je možnosť použiť generátorovú notáciu
+            (List Comprehension). Ďalej budem uvádzať výraz List Comprehension, pretože v anglickom jazyku mi príde výraz 
+            elegantnejší. Vo väčšine prípadov Vám List Comprehension umožní vytvoriť list v jednom riadku kódu.</p>
+            <p>Ukážeme si viacero príkladov použitia List Comprehension, ale najprv si o tom niečo rýchlo povedzme. List je 
+            kolekcia dát ohraničená hranatými zátvorkami a prvky sú oddelené čiarkami. List Comprehension je taktiež ohraničený 
+            hranatými zátvorkami, ale namiesto kolecie dát vnútri vkladáte výraz a za ním <strong>for</strong> cykly a 
+            <strong>if</strong> podmienky.</p>
+
+            <pre><code class="language-python">[expr for val in collection]
+[expr for val in collection if &lt;test&gt;]
+[expr for val in collection if &lt;test1&gt; and &lt;test2&gt;]
+[expr for val1 in collection1 and val2 in collection2]</code></pre>
+
+            <p>Pozrime sa na tradičnú formu for cyklu, ako ho klasicky poznáme:</p>
+
+          	<pre><code class="language-python">my_empty_list = []
+for x in range(11):
+    my_empty_list.append(x)
+
+print(my_empty_list)</code></pre>
+
+            <pre><code class="language-python"># Output
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></pre>
+                
+            <p>Teraz sa pozrime na list comprehension, ktorý vykoná rovnakú úlohu a navyše ešte aj zjednoduší program.</p>
+
+            <pre><code class="language-python">my_empty_list = [x for x in range(11)]
+print(my_empty_list)</code></pre>
+
+            <pre><code class="language-python"># Output
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></pre>
+
+            <p>Náš výraz môžeme samozrejme ďalej rozširovať podľa našej potreby.</p>
+
+            <pre><code class="language-python">my_empty_list = [x*10 for x in range(11)]
+print(my_empty_list)</code></pre>
+
+            <pre><code class="language-python"># Output
+[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]</code></pre>
+
+            <p>V nasledujúcej ukážke si ukážeme List Comprehension za použitia if podmienky.</p>
+            <p>V ukážke máme list a v ňom tuples filmov a režisérov, ktorí ich režírovali. Za pomoci List Comprehension a
+             if podmienky si vyčleníme filmy od režiséra nášho výberu.</p>
+
+            <pre><code class="language-python">films_list = [
+  ('Pulp Fiction', 'Quentin Tarantino'),
+  ('Jaws', 'Steven Spielberg'),
+  ('The Terminator', 'James Cameron'),
+  ('Kill Bill', 'Quentin Tarantino')]
+
+tarantino_list = [(y,x) for x,y in films_list if y == 'Quentin Tarantino']
+print(tarantino_list)</code></pre>
+
+            <pre><code class="language-python"># Output
+[('Quentin Tarantino', 'Pulp Fiction'), ('Quentin Tarantino', 'Kill Bill')]</code></pre>
+
+            <p>Nasledujúci blok kódu obsahuje list prvkov rôzneho typu a program, ktorý vypíše z listu iba čísla(integers) a rozdelí 
+            ich na párne a nepárne použitím aritmetického operátora modulus.</p>
+            <p>Všimnite si však, že na napísanie Nášho bloku kódu sme použili až 10 riadkov kódu.</p>
+
+            <pre><code class="language-python">items_list = [22, 45, 7, 'john', 'sixteen', 100, 7, 99, 'kevin', '47', ['50', '80']]
+
+even_numbers = []
+odd_numbers = []
+
+for x in items_list:
+    if isinstance(x, int) and x % 2 == 0:
+        even_numbers.append(x)
+    elif isinstance(x, int) and x % 2 != 0:
+        odd_numbers.append(x)
+
+print(even_numbers)
+print(odd_numbers)</code></pre>
+
+            <pre><code class="language-python"># Output
+[22, 100]
+[45, 7, 7, 99]</code></pre>
+
+            <p>V nasledujúcej ukážke sme použili na porovnanie List Comprehension a ako ste si určite všimli, použitý kód je 
+            oveľa jednoduchší a navyše sme zredukovali počet riadkov kódu z 10-tich na 5 riadkov, teda o polovicu, čo je v 
+            programovaní podľa môjho názoru veľmi dôležitý aspekt.</p>
+
+            <pre><code class="language-python">items_list = [22, 45, 7, 'john', 'sixteen', 100, 7, 99, 'kevin', '47', ['50', '80']]
+
+even_numbers = [x for x in items_list if isinstance(x, int) and x % 2 == 0]
+odd_numbers = [x for x in items_list if isinstance(x, int) and x % 2 != 0]
+print(even_numbers)
+print(odd_numbers)</code></pre>
+
+            <pre><code class="language-python"># Output
+[22, 100]
+[45, 7, 7, 99]</code></pre>
+
+            <p>List Comprehension môžeme využiť aj pri práci s classmi.</p>
+            <p>V nasledujúcej ukázke sme si vytvorili jednoduchý class Pizza a zadefinovali sme si premenné name a price. Následne
+            sme si vytvorili tri objekty classu Pizza a vložili ich do nášho Pizza listu. Za použitia List Comprehension sme 
+            vypísali ceny objektov classu Pizza z nášho Pizza listu.</p>
+
+            <pre><code class="language-python">class Pizza:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+pizza1 = Pizza('Hawai', 4.90)
+pizza2 = Pizza('Diavola', 6.60)
+pizza3 = Pizza('Pepperone', 6.30)
+
+pizza_list = [pizza1, pizza2, pizza3]
+
+pizza_price_list = [pizza.price for pizza in pizza_list]
+print(pizza_price_list)</code></pre>
+
+            <pre><code class="language-python"># Output
+[4.9, 6.6, 6.3]</code></pre>
+
+            <p>List Comprehension môžeme využiť aj pri práci so slovníkmi(dictionary), teda Dictionary Comprehension.</p>
+            <p>V ukážke nižšie si ukážeme Dictionary Comprehension a následnú implementáciu slovníka(dictionary) do funkcie.</p>
+            <p>Náš slovník(dictionary) obsahuje dvojice čísel a to stringy a číslice. Náš Dictionary Comprehension prehodí
+            stringy zo slovníka za číslice. V nasledujúcej funkcii máme zadaný pin kód v číselnej podobe a naša funkcia nám 
+            číslice za pomoci List a Dictionary Comprehensions prehodí do stringovej podoby.</p>
+
+            <pre><code class="language-python">nums_dict = {
+    'zero': 0,
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9,
+}
+
+reverse_nums_dict = {v: k for k, v in nums_dict.items()}
+
+def translate_pin_to_str(pin):
+    pin_nums = [x for x in pin]
+    pin_str = [reverse_nums_dict[int(x)] for x in pin_nums]
+    translated_pin = "-".join(pin_str)
+    return translated_pin
+
+pin_code = '5586'
+print(translate_pin_to_str(pin_code))</code></pre>
+
+            <pre><code class="language-python"># Output
+five-five-eight-six</code></pre>
+
+            <p>Ak ste niekedy tvorili jednoduché hry ako Sudoku alebo Hľadanie mín, List Comprehension má skvelé využitie aj pri
+            tvorbe hracej plochy.</p>
+            <p>Použitím vnorených(nested) List Comprehensions sme v ukážke vytvorili malú hraciu plochu, vzhľadom na to, 
+            že za pomoci vnorených for cyklov sa tvoria matice(matrix).</p>
+
+            <pre><code class="language-python">number_board = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
+for row in number_board:
+    print('| ' + ' | '.join(row) + ' |')</code></pre>
+
+            <pre><code class="language-python"># Output
+| 0 | 1 | 2 |
+| 3 | 4 | 5 |
+| 6 | 7 | 8 |</code></pre>
+
+            <p>Tak sme to zvládli a v poslednej ukážke si názorne ukážeme, že redukcia riadkov a zjednodušenie kódu nie sú 
+            jediné výhody pri užívaní List Comprehension.</p>
+
+            <p>Ako prvé importujeme Python modul <strong>time</strong>. Zadefinujeme si dve jednoduché funkcie plniace rovnký účel,
+            kde sme v prvej použili tradičný for cyklus a v druhej List Comprehension. V nasledujúcom bloku kódu v podstate iba 
+            zavoláme tieto dve funkcie ohraničené metódou time() a vypíšeme čas, za ktorý python-kompilátor spracuje naše funkcie.</p>
+
+            <pre><code class="language-python">import time
+ 
+def for_loop(n):
+    result = []
+    for i in range(n):
+        result.append(i**2)
+    return result
+ 
+def list_comprehension(n):
+    return [i**2 for i in range(n)]
+ 
+begin = time.time()
+for_loop(10**7)
+end = time.time()
+print('Time taken for_loop:',round(end-begin,2))
+ 
+begin = time.time()
+list_comprehension(10**7)
+end = time.time()
+print('Time taken for list_comprehension:',round(end-begin,2))</code></pre>
+
+            <pre><code class="language-python"># Output
+Time taken for_loop: 3.33
+Time taken for list_comprehension: 2.79</code></pre>
+
+            <p>Ako ste si určite všimli funkcia za použitia List Comprehension bola zkompilovaná rýchlejšie ako funkcia za požitia
+            tradičného for cyklu, z čoho vyplýva, že používanie List Comprehension je oveľa výhodnejšie a efektívnejšie vo väčšine
+            prípadov tvorby listov, ale aj setov a slovníkov(dictionaries).</p>
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-lg-11 ic-animate mt-3">
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">python</a>
+                <a href="#" class="tag-cloud-link">list comprehension</a>
+                <a href="#" class="tag-cloud-link">programming</a>
+                <a href="#" class="tag-cloud-link">sample</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> <!-- .section -->
+{% endblock content %}
+    

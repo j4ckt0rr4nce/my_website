@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ic-animate mb-5 text-center">
+          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'ukazky' %}">Ukážky <i class="fa fa-chevron-right"></i></a></span> <span>Python RegEx <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread">Python RegEx</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		<section class="ic-section ic-degree-bg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 ic-animate ic-sample px-5 pb-5">
+            <h2 class="mb-3 mt-4">Regulárne výrazy (RegEx)</h2>
+            <p>V tejto ukážke sa pozrieme na regulárne výrazy(RegEx) a na prácu s RegEx použijeme modul <strong>re</strong> jazyka 
+            Python. RegEx je postupnosť znakov, ktoré definujú vzor vyhľadávania.</p>
+
+          	<p>
+              <img src="{% static 'core/images/sample-6.jpg' %}" alt="" class="img-fluid mt-4">
+            </p>
+            
+            <p>Prvé, čo musíme urobiť, je importovať Python modul <strong>re</strong> nasledovne:</p>
+
+            <pre><code class="language-python">import re</code></pre>
+
+            <h5 class="mb-3 mt-5">re.findall()</h5>
+            <p>Metóda re.findall() vracia list reťazcov obsahujúcich všetky zhody:</p>
+
+            <pre><code class="language-python"># Program to extract numbers from a string
+import re
+
+string = 'Pizza cost me 10 euro and cheeseburger 8 euro.'
+pattern = '\d+'
+
+result = re.findall(pattern, string) 
+print(result)</code></pre>
+
+            <pre><code class="language-python"># Output
+['10', '8']</code></pre>
+  
+            <p>Ak sa vzor nenájde, re.findall() vráti prázdny list.</p>
+        
+            <h5 class="mb-3 mt-5">re.split()</h5>
+            <p>Metóda re.split() rozdelí reťazec na mieste zhody, a vráti list reťazcov, kde k rozdeleniu došlo:</p>
+
+            <pre><code class="language-python">import re
+
+string = 'pizza:10 cheeseburger:8'
+pattern = '\d+'
+
+result = re.split(pattern, string) 
+print(result)</code></pre>
+
+            <pre><code class="language-python"># Output
+['pizza:', ' cheeseburger:', '']</code></pre>
+
+            <p>Ak sa vzor nenájde, re.split() vráti list obsahujúci pôvodný reťazec.</p>
+            <p>K metóde re.split() môžeme pridať argument <strong>maxsplit</strong>. Je to maximálny počet rozdelení, ku ktorým 
+            dôjde:</p>
+
+            <pre><code class="language-python">import re
+
+string = 'pizza:10 cheeseburger:8'
+pattern = '\d+'
+
+# maxsplit = 1
+# split only at the first occurrence
+result = re.split(pattern, string, 1) 
+print(result)</code></pre>
+
+            <pre><code class="language-python"># Output
+['pizza:', ' cheeseburger:8']</code></pre>
+
+            <p>Mimochodom, predvolená hodnota maxsplit je 0; čo znamená všetky možné rozdelenia.</p>
+            <h5 class="mb-3 mt-5">re.sub()</h5>
+            <p>Syntax re.sub () je:</p>
+
+            <pre><code class="language-python">re.sub(pattern, replace, string)</code></pre>
+
+            <p>Metóda vracia reťazec, v ktorom sú zhody nahradené obsahom premennej <strong>replace</strong>:</p>
+
+            <pre><code class="language-python"># Program to remove all whitespaces
+import re
+
+# multiline string
+string = 'pizza 10\
+cheeseburger 7 \n kebab 8'
+
+# matches all whitespace characters
+pattern = '\s+'
+
+# empty string
+replace = ''
+
+new_string = re.sub(pattern, replace, string) 
+print(new_string)</code></pre>
+
+            <pre><code class="language-python"># Output
+pizza10cheeseburger7kebab8</code></pre>
+
+            <p>Ak sa vzor nenašiel, re.sub() vráti pôvodný reťazec.</p>
+            <p>Metóde re.sub() môžeme odovzdať <strong>count</strong> ako štvrtý parameter. Predvolená hodnota je 0, kde sa nahradia 
+            všetky výskyty:</p>
+
+            <pre><code class="language-python">import re
+
+# multiline string
+string = 'pizza 10\
+cheeseburger 7 \n kebab 8'
+
+# matches all whitespace characters
+pattern = '\s+'
+replace = ''
+
+new_string = re.sub(pattern, replace, string, 1) 
+print(new_string)</code></pre>
+
+            <pre><code class="language-python"># Output
+pizza10cheeseburger 7 
+ kebab 8</code></pre>
+
+            <h5 class="mb-3 mt-5">re.subn()</h5>
+            <p>Metóda re.subn() je podobná metóde re.sub() s tým rozdielom, že vracia tuple 2-och položiek obsahujúcich nový 
+            reťazec a počet vykonaných substitúcií:</p>
+            
+            <pre><code class="language-python">import re
+
+# multiline string
+string = 'pizza 10\
+cheeseburger 7 \n kebab 8'
+
+# matches all whitespace characters
+pattern = '\s+'
+
+# empty string
+replace = ''
+
+new_string = re.subn(pattern, replace, string) 
+print(new_string)</code></pre>
+
+            <pre><code class="language-python"># Output
+('pizza10cheeseburger7kebab8', 4)</code></pre>
+
+            <h5 class="mb-3 mt-5">re.search()</h5>
+            <p>Metóda re.search() berie dva argumenty: vzor a reťazec. Metóda hľadá prvé umiestnenie, kde vzor RegEx vytvára zhodu s reťazcom. </p>
+            <p>Ak je vyhľadávanie úspešné, re.search() vráti objekt zhody; ak nie, vráti hodnotu None:</p>
+
+            <pre><code class="language-python">match = re.search(pattern, str)</code></pre>
+
+            <pre><code class="language-python">import re
+
+string = "Pizza is my favourite."
+
+# check if 'Python' is at the beginning
+match = re.search('\APizza', string)
+
+if match:
+  print("pattern found inside the string")
+else:
+  print("pattern not found")</code></pre>
+
+            <pre><code class="language-python"># Output
+pattern found inside the string</code></pre>
+
+            <p>Metódy a atribúty objektu zhody môžeme získať pomocou funkcie <strong>dir()</strong>.</p>
+            <p>Pozrime sa na niektoré z bežne používaných metód a atribútov objektov zhody.</p>
+            <h5 class="mb-3 mt-5">match.group()</h5>
+            <p>Metóda group() vráti časť reťazca, v ktorej nastala zhoda:</p>
+
+            <pre><code class="language-python">import re
+
+string = '69781 678, 5769 3333'
+
+# Three digit number followed by space followed by two digit number
+pattern = '(\d{3}) (\d{2})'
+
+# match variable contains a Match object.
+match = re.search(pattern, string) 
+
+if match:
+  print(match.group())
+else:
+  print("pattern not found")</code></pre>
+
+            <pre><code class="language-python"># Output
+781 67</code></pre>
+
+            <p>Náš vzor (\ d {3}) (\ d {2}) má dve podskupiny (\ d {3}) a (\ d {2}). Z týchto podskupín môžeme získať časť reťazca.
+            Tu je postup: </p>
+
+            <pre><code class="language-python">>>> match.group(1)
+'781'
+
+>>> match.group(2)
+'67'
+>>> match.group(1, 2)
+('781', '67')
+
+>>> match.groups()
+('781', '67')</code></pre>
+
+            <h5 class="mb-3 mt-5">match.start(), match.end() and match.span()</h5>
+            <p>Funkcia start() vráti index začiatku zodpovedajúceho podreťazca. Podobne end() vráti koncový index 
+            zodpovedajúceho podreťazca:</p>
+
+            <pre><code class="language-python">>>> match.start()
+3
+>>> match.end()
+9</code></pre>
+
+            <p>Funkcia span() vráti tuple obsahujúce počiatočný a koncový index zodpovedajúcej časti:</p>
+
+            <pre><code class="language-python">>>> match.span()
+(3, 9)</code></pre>
+
+            <h5 class="mb-3 mt-5">Using r prefix before RegEx</h5>
+            <p>Ak pred regulárny výraz použíjeme prefix <strong>r</strong> alebo <strong>R</strong>, z výrazu vytvoríme surový 
+            reťazec(raw string). Lomítko <strong>\</strong> sa používa na takzvané "escape charakters" vrátane všetkých metaznakov. Použitím prefixu
+            <strong>r</strong> však lomítko <strong>\</strong> bude považované za normálny znak:</p>
+
+            <pre><code class="language-python">import re
+
+string = '\n and \r are escape sequences.'
+
+result = re.findall(r'[\n\r]', string) 
+print(result)</code></pre>
+
+            <pre><code class="language-python">['\n', '\r']</code></pre>
+
+            <p>Tak sme to zvládli a pokryli sme všetky bežne používané metódy definované v module <strong>re.</strong></p>
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-lg-11 ic-animate mt-3">
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">python</a>
+                <a href="#" class="tag-cloud-link">RegEx</a>
+                <a href="#" class="tag-cloud-link">data-science</a>
+                <a href="#" class="tag-cloud-link">data-visualization</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> <!-- .section -->
+{% endblock content %}

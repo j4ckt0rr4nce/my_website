@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ic-animate mb-5 text-center">
+          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'ukazky' %}">Ukážky <i class="fa fa-chevron-right"></i></a></span> <span>Getters and Setters <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread">Getters and Setters</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		<section class="ic-section ic-degree-bg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 ic-animate ic-sample px-5 pb-5">
+            <h2 class="mb-3 mt-4">Getter a Setter v Pythone</h2>
+            <p>V objektovo orientovaných jazykoch sa na získavanie a aktualizáciu údajov používajú takzvané "getters" a "setters"
+            metódy. Aby som to nekomplikoval tak ponechám vyššie uvedné pojmy v anglickej verzii. Getter metóda získava aktuálnu 
+            hodnotu atribútu objektu, zatiaľ čo setter metóda hodnotu atribútu objektu mení. V tejto ukážke sa pozrieme na niekoľko 
+            príkladov ako getters a setters metódy použiť.</p>
+
+          	<p>
+              <img src="{% static 'core/images/sample-4.jpg' %}" alt="" class="img-fluid mt-4">
+            </p>
+            
+            <p>Getter je metóda, ktoré sa používa v objektovo orientovanom programovaní (OOPS) na prístup k privátnym atribútom 
+            daného classu.</p>
+            <p>Setter je metóda, ktorá sa používa na nastavenie hodnoty objektu daného classu. V objektovo orientovanom programovaní 
+            je možnosť nastavovať alebo meniť hodnotu privátnych atribútov v danom classe veľmi užitočná.</p>
+            <p>Vo všeobecnosti getters a setters metódy sa v objektovo orientovanom programovaní používajú na takzvané zapuzdrenie 
+            údajov.</p>
+            <h5 class="mb-3 mt-5">Funkcionalita metód "getters" a "setters" použitím bežnej funkcie</h5>
+            <p>V ukážke nižšie môžete vidieť, ako využiť funkcionalitu metód getters a setters použitím bežnej 
+            funkcie</p>
+
+            <pre><code class="language-python">class YearOfBirth:   
+    def __init__(self, year_of_birth = 0):   
+         self._year_of_birth = year_of_birth   
+         
+    # using the getter method   
+    def get_year_of_birth(self):   
+        return self._year_of_birth   
+
+    # using the setter method   
+    def set_year_of_birth(self, x):   
+        self._year_of_birth = x   
+    
+Alessanda = YearOfBirth()   
+    
+#using the setter function  
+Alessanda.set_year_of_birth(1981)   
+    
+# using the getter function  
+print(Alessanda.get_year_of_birth())   
+    
+print(Alessanda._year_of_birth)</code></pre>
+
+            <pre><code class="language-python"># Output
+1981
+1981</code></pre>
+
+            <p>Na dosiahnutie tejto funckionality, funkcie <strong>get_year_of_birth()</strong> a <strong>set_year_of_birth()</strong>
+            vo vyššie uvedenom kóde fungujú ako štandardné funkcie nevzťahujúce sa na "getters" a "setters" funkcionalitu. 
+            Python však obsahuje jedinečnú funkciu s názvom <strong>property().</strong></p>
+            <h5 class="mb-3 mt-5">Použitie property() funkcie na dosiahnutie funkcionality metód "getters" a "setters"</h5>
+            <p>Funkcia <strong>property()</strong> je v Pythone vstavanou funkciou na vytváranie a vracanie property objektov. 
+            Na property objekty môžeme použiť tri metódy a to sú: <strong>getter()</strong>, <strong>setter()</strong> a 
+            <strong>delete()</strong>. V Pythone funkcia <strong>property()</strong> berie štyri argumenty: 
+            <strong>property(fget, fset, fdel, doc)</strong>. Na získanie hodnoty atribútu sa používa funkcia fget. 
+            Na nastavenie hodnoty atribútu slúži funkcia fset. Na vymazanie hodnoty atribútu sa používa funkcia fdel.</p>
+            <p>V ukážke nižšie môžete vidieť, ako môžeme použiť funkciu <strong>property()</strong> na dosiahnutie funkcionality 
+            metód getters a setters.</p>
+
+            <pre><code class="language-python">class YearOfBirth:
+    def __init__(self):
+        self._year_of_birth = 0
+
+    # using the get function
+    def get_year_of_birth(self):
+        print("getter called")
+        return self._year_of_birth
+
+    # using the set function
+    def set_year_of_birth(self, x):
+        print("setter called")
+        self._year_of_birth = x
+
+    # using the del function
+    def del_year_of_birth(self):
+        del self._year_of_birth
+    year_of_birth = property(get_year_of_birth, set_year_of_birth, del_year_of_birth)  
+    
+Alessanda = YearOfBirth() 
+    
+Alessanda.year_of_birth = 1981
+    
+print(Alessanda.year_of_birth)</code></pre>
+
+            <pre><code class="language-python"># Output
+setter called
+getter called
+1981</code></pre>
+
+            <p>Vo vyššie uvedenom programe vidíme výstup, ktorý sa skladá z troch riadkov. Program zavolá "setter" metódu 
+            <strong>set_year_of_birth()</strong> a následne "getter" metódu <strong>get_year_of_birth() ako vidíme v prvých dvoch 
+            riadkoch nášho výpisu.</strong>. Vo výsledku je teda <strong>year_of_birth</strong> objekt, ktorý pomáha v zabezpečení 
+            privátneho prístupu k premennej, čo je podstata tejto funkcionality.</p>
+            <h5 class="mb-3 mt-5">Použitie @property dekorátorov na dosiahnutie funkcionality metód "getters" a "setters"</h5>
+            <p>Na dosiahnutie funkcionality metód getters a setters sme v predchádzajúcej metóde použili funkciu 
+            <strong>property()</strong>. Ako však už bolo spomenuté v tomto článku, metódy getters a setters sa používajú aj na 
+            validáciu získavania a nastavovania hodnôt atribútov. Ďalšou metódou na vynútenie <strong>property()</strong> funkcie 
+            je použitie dekorátora. <strong>@property</strong> je jedným z vstavaných dekorátorov v Pythone. Primárnym cieľom každého 
+            dekorátora je upraviť metódy alebo atribúty classu tak, aby používateľ classu nepotreboval meniť svoj kód.</p>
+            <p>Pozrime sa na príklad, aby sme pochopili, ako môžeme <strong>property()</strong> dekorátory použiť na dosiahnutie 
+            funkcionality metód getters a setters.</p>
+
+            <pre><code class="language-python">class YearOfBirth:   
+    def __init__(self):   
+         self._year_of_birth = 0  
+        
+    # using the getter function   
+    @property  
+    def year_of_birth(self):   
+        print("getter called")   
+        return self._year_of_birth   
+        
+    #now, using the setter function   
+    @year_of_birth.setter   
+    def year_of_birth(self, x):   
+        if(x < 1850):   
+           raise ValueError("It is not possible you are alive :D")   
+        print("setter called")   
+        self._year_of_birth = x 
+    
+Alessanda = YearOfBirth()   
+    
+Alessanda.year_of_birth = 1981 
+    
+print(Alessanda.year_of_birth)</code></pre>
+
+            <pre><code class="language-python"># Output
+setter called
+getter called
+1981</code></pre>
+
+            <p>Predchádzajúci kód demonštruje, ako použiť dekorátor <strong>@property</strong> na vytváranie getters a setters v 
+            Pythone. Vyššie uvedený príklad slúži ako overovací kód, kde nám pri pokuse inicializovať rok narodenia s hodnotou 
+            menšou ako <strong>1850</strong> program vyhodí <strong>ValueError.</strong></p>
+            <h5 class="mb-3 mt-5">Nastavenie atribútov na súkromné</h5>
+            <p>Teraz sa pozrime na to, ako vykresliť metódy ako súkromné, aby externe volané funkcie nemohli manipulovať s 
+            premennými v nich. Manipulovať s nimi bolo možné iba pomocou funkcií, ktoré boli definované v rámci classu. Súkromnými 
+            sa stanú pridaním prefixu dvoch podčiarkovníkov.</p>
+
+            <pre><code class="language-python">class YearOfBirth:  
+    def __init__(self, year_of_birth=1850):  
+        self._year_of_birth = year_of_birth
+
+# make the getter method  
+    def get_year_of_birth(self):  
+        return self.__year_of_birth 
+
+# make the setter method  
+    def set_year_of_birth(self, x):  
+        self.__year_of_birth = x 
+
+Alessanda = YearOfBirth() 
+
+print(Alessanda._year_of_birth)  
+
+# Before using setter  
+print(Alessanda.get_year_of_birth()) 
+
+# After using setter  
+Alessanda.set_year_of_birth(1981)  
+print(Alessanda._year_of_birth)</code></pre>
+
+            <pre><code class="language-python"># Output
+1850</code></pre>
+
+            <h5 class="mb-3 mt-5">Čítanie hodnôt zo súkromných metód</h5>
+            <p>Na čítanie hodnôt zo súkromných metód musíme použiť metódu getter. Bez použitia metódy getter nemôžeme použiť property 
+            metódu na prístup k hodnotám súkromných atribútov. Vezmime si príklad na pochopenie tejto metódy.</p>
+
+            <pre><code class="language-python"># A program to read the value from private method  
+class YearOfBirth:  
+    def __init__(self, year_of_birth=1850):  
+        self._year_of_birth = year_of_birth  
+ 
+    @property  
+    def year_birth(self):  
+        return self.__year_of_birth  
+ 
+    @year_birth.setter  
+    def year_birth(self, x):  
+        self.__year_of_birth = x  
+  
+Alessanda = YearOfBirth()  
+print(Alessanda._year_of_birth)  
+  
+Alessanda.year_of_birth = 2020  
+print(Alessanda.year_of_birth)</code></pre>
+
+            <pre><code class="language-python"># Output
+1850
+2020</code></pre>
+
+            <p>Zoberme si ďalší príklad na vytvorenie classu s objektmi. Vytvorili sme niekoľko objektov.</p>
+
+            <pre><code class="language-python">class Pizza:
+    def __init__(self):
+        self.ordered_pizza = "None"
+Alessanda_order = Pizza()
+Adriana_order = Pizza()</code></pre>
+            
+            <pre><code class="language-python"># Output
+1850
+2020</code></pre>
+
+            <p>Namiesto toho, aby sme museli na týchto objektoch nastaviť property metódu priamo sme zostrojili dve metódy: 
+            get_order() a set_order(), vzhľadom na to, že prvá spomenutá možnosť by nebola efektívna metóda.</p>
+
+            <pre><code class="language-python">class Pizza:
+    def __init__(self):
+        self.ordered_pizza = "None"
+
+    def get_order(self):
+        return self.ordered_pizza
+
+    def set_order(self, ordered_pizza):
+        self.ordered_pizza = ordered_pizza
+
+Alessanda_order = Pizza()
+Adriana_order = Pizza()
+
+Alessanda_order.set_order("Prosciutto")
+Adriana_order.set_order("Diavola")
+
+print(Alessanda_order.ordered_pizza)
+print(Adriana_order.ordered_pizza)</code></pre>
+
+            <pre><code class="language-python"># Output
+Prosciutto
+Diavola</code></pre>
+
+          <p>Po spustení kódu získame vyššie uvedený výstup.</p>
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-lg-11 ic-animate mt-3">
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">python</a>
+                <a href="#" class="tag-cloud-link">getter</a>
+                <a href="#" class="tag-cloud-link">setter</a>
+                <a href="#" class="tag-cloud-link">programming</a>
+                <a href="#" class="tag-cloud-link">sample</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> <!-- .section -->
+{% endblock content %}
