@@ -7562,6 +7562,9 @@ button.bg-dark:focus {
   .mr-md-5,
   .mx-md-5 {
     margin-right: 3rem !important; }
+  .mr-md-10,
+  .mx-md-10 {
+    margin-right: 16rem; }
   .mb-md-5,
   .my-md-5 {
     margin-bottom: 3rem !important; }
@@ -7570,7 +7573,7 @@ button.bg-dark:focus {
     margin-left: 3rem !important; }
   .ml-md-10,
   .mx-md-10 {
-    margin-left: 16rem !important; }
+    margin-left: 16rem; }
   .p-md-0 {
     padding: 0 !important; }
   .pt-md-0,
@@ -9791,8 +9794,7 @@ textarea.form-control {
   .testimony-wrap .user-img {
     width: 100px;
     height: 100px;
-    left: 15%;
-    position: relative;
+    margin-left: 50px;
     filter: grayscale(1);
     transition: all .5s ease-in-out;
     /*-webkit-border-radius: 50%;
@@ -9801,19 +9803,25 @@ textarea.form-control {
     /*border-radius: 50%;*/
     }
   .testimony-wrap:hover .user-img {
-    position: relative;
     filter: grayscale(0);
     }
   .testimony-wrap .name {
     font-weight: 500;
     font-size: 30px;
     margin-bottom: 0;
+    margin: 0 auto;
     color: #85929e; }
   .testimony-wrap .position {
     font-size: 16px;
     color: #98a1a1; }
 
-@media (max-width: 767.98px) {
+@media (max-width: 575.98px) {
+  .testimony-wrap .name {
+    font-size: 40px; }
+  .testimony-wrap .user-img {
+    margin-left: 75px; } }
+    
+@media (max-width: 766.98px) {
   .about-image {
     height: 400px;
     margin-bottom: 30px; } }
@@ -10466,4 +10474,11 @@ textarea.form-control {
 	-webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
 	-moz-transition: -moz-transform 0.4s, opacity 0.1s;
 	transition: transform 0.4s, opacity 0.1s;
+}
+
+@media (min-width: 767.98px) and (max-width: 991.98px) {
+  .sample-btn-l {
+    margin-left: 15%; }
+  .sample-btn-r {
+    margin-right: 15%; }
 }
