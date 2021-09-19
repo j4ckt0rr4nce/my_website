@@ -3,10 +3,10 @@ from . import views
 
 app_name = 'ukazky'
 urlpatterns = [
-    path('flask_blueprints', views.Sample1View.as_view(), name='flask_blueprints'),
+    path('flask_blueprint', views.Sample1View.as_view(), name='flask_blueprint'),
     path('list_comprehension', views.Sample2View.as_view(), name='list_comprehension'),
-    path('program_anagram', views.Sample3View.as_view(), name='program_anagram'),
-    path('test3', views.Sample4View.as_view(), name='test3'),
-    path('test4', views.Sample5View.as_view(), name='test4'),
-    path('test5', views.Sample6View.as_view(), name='test5'),
+    path('python_anagram', views.Sample3View.as_view(), name='python_anagram'),
+    path('python_property', views.Sample4View.as_view(), name='python_property'),
+    path('python_matrix', views.Sample5View.as_view(), name='python_matrix'),
+    path('regular_expression', views.Sample6View.as_view(), name='regular_expression'),
 ]

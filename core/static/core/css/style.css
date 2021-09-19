@@ -9018,7 +9018,8 @@ h1, h2, h3, h4, h5,
     margin: 0 auto;
     margin-bottom: 10px;
     z-index: 0; }
-    .services-2 .icon-wrap .number {
+    .services-2 .icon-wrap .number
+     {
       position: absolute;
       top: 0;
       right: 0;
@@ -9315,22 +9316,25 @@ textarea.form-control {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600; }
-  .block-7 .price {
-    margin: 0;
-    padding: 0;
-    display: block; }
-    .block-7 .price sup {
-      font-size: 24px;
-      top: -1em;
-      color: #b3b3b3; }
-    .block-7 .price .number {
-      font-size: 30px;
-      font-weight: 600;
-      color: #1590a6; }
-    .block-7-hover .price .number {
-      font-size: 30px;
-      font-weight: 600;
-      color: #fff; }
+  .block-7 .number {
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+    display: inline-block;
+     }
+  .hash { 
+    font-size:30px;
+  }
+  @media (max-width: 991.98px) {
+    .block-7 .number{
+      font-size: 20px; } 
+    .block-7 .hash{
+      font-size: 15px; } }
+  @media (max-width: 767.98px) {
+    .block-7 .number{
+      font-size: 60px; }
+    .block-7 .hash{
+      font-size: 40px; } }
   .block-7 .excerpt {
     margin-bottom: 20px;
     color: #000000;
@@ -10403,14 +10407,14 @@ textarea.form-control {
 	left: 0;
   border-radius: 3px !important;
   }
-  .sample-front figcaption p {
+  .sample-front, figcaption p {
     color: #fff !important;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
     width: 100%;
-    margin: 0 auto;
+    margin: auto;
   }
 @media (min-width: 767.98px) and (max-width: 991.98px) {
   .sample-front figcaption p {
