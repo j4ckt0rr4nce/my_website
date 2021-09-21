@@ -4,7 +4,9 @@ Django
 isort
 lazy-object-proxy
 mccabe
-pkg-resources
+numpy
+Pillow
+pkg_resources
 pylint
 pytz
 six

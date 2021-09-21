@@ -1,15 +1,14 @@
-(function($) {
+(function ($) {
 
 	"use strict";
 
-	$("#index-more").click(function(){
-		$(document).scrollTop(910) 
+	$("#index-more").click(function () {
+		$(document).scrollTop(910)
 	});
 
 
-	if(window.location.href.includes("mapa"))
-	{
-    $(document).scrollTop(420);
+	if (window.location.href.includes("mapa")) {
+		$(document).scrollTop(420);
 	}
 
 
@@ -26,46 +25,46 @@
 	const csrf = document.getElementsByName('csrfmiddlewaretoken')
 	const url = ""
 
-	const handleAlerts = (type, text) =>{
-    alertBox.innerHTML = `<div class="alert alert-${type}" role="alert">
+	const handleAlerts = (type, text) => {
+		alertBox.innerHTML = `<div class="alert alert-${type}" role="alert">
                             ${text}
                         	</div>`
 	}
 
-  $('#confirmform').submit(function(event){
-    event.preventDefault()
+	$('#confirmform').submit(function (event) {
+		event.preventDefault()
 
 		const fd = new FormData()
-    fd.append('csrfmiddlewaretoken', csrf[0].value)
-    fd.append('name', name.value)
-    fd.append('email', email.value)
+		fd.append('csrfmiddlewaretoken', csrf[0].value)
+		fd.append('name', name.value)
+		fd.append('email', email.value)
 		fd.append('service', service.value)
-    fd.append('message', message.value)
+		fd.append('message', message.value)
 
-    $.ajax({
-        type: 'POST',
-        url: url,
-        enctype: 'multipart/form-data',
-        data: fd,
-        success: function(response){
-            console.log(response)
-            const sText = `Vaša správa bola úspešne odoslaná.`
-            handleAlerts('success', sText)
-            setTimeout(()=>{
-                alertBox.innerHTML = ""
-								name.value = ""
-								email.value = ""
-								message.value = ""
-            }, 6000)
-        },
-        error: function(error){
-            console.log(error)
-            handleAlerts('danger', 'ups..something went wrong')
-        },
-        cache: false,
-        contentType: false,
-        processData: false,
-    })
+		$.ajax({
+			type: 'POST',
+			url: url,
+			enctype: 'multipart/form-data',
+			data: fd,
+			success: function (response) {
+				console.log(response)
+				const sText = `Vaša správa bola úspešne odoslaná.`
+				handleAlerts('success', sText)
+				setTimeout(() => {
+					alertBox.innerHTML = ""
+					name.value = ""
+					email.value = ""
+					message.value = ""
+				}, 6000)
+			},
+			error: function (error) {
+				console.log(error)
+				handleAlerts('danger', 'ups..something went wrong')
+			},
+			cache: false,
+			contentType: false,
+			processData: false,
+		})
 	})
 
 	//$(document).ready(function() {
@@ -73,30 +72,30 @@
 	//		$('.modal').modal('show');
 	//	})
 	//})
-		
-//	$("#confirmform").validate({
-//    submitHandler: function (form) {
-//			$(".modal").modal('show');
-//			$('#SubForm').click(function () {
-//				form.submit();
-//			});
-//		}
-//	});
+
+	//	$("#confirmform").validate({
+	//    submitHandler: function (form) {
+	//			$(".modal").modal('show');
+	//			$('#SubForm').click(function () {
+	//				form.submit();
+	//			});
+	//		}
+	//	});
 
 	$(window).stellar({
-    responsive: true,
-    parallaxBackgrounds: true,
-    parallaxElements: true,
-    horizontalScrolling: false,
-    hideDistantElements: false,
-    scrollProperty: 'scroll'
-  });
+		responsive: true,
+		parallaxBackgrounds: true,
+		parallaxElements: true,
+		horizontalScrolling: false,
+		hideDistantElements: false,
+		scrollProperty: 'scroll'
+	});
 
 
-	var fullHeight = function() {
+	var fullHeight = function () {
 
 		$('.js-fullheight').css('height', $(window).height());
-		$(window).resize(function(){
+		$(window).resize(function () {
 			$('.js-fullheight').css('height', $(window).height());
 		});
 
@@ -104,34 +103,34 @@
 	fullHeight();
 
 	// loader
-	var loader = function() {
-		setTimeout(function() { 
-			if($('#ic-loader').length > 0) {
+	var loader = function () {
+		setTimeout(function () {
+			if ($('#ic-loader').length > 0) {
 				$('#ic-loader').removeClass('show');
 			}
 		}, 1);
 	};
 	loader();
 
-	var carousel = function() {
+	var carousel = function () {
 		$('.carousel-testimony').owlCarousel({
 			center: true,
 			loop: true,
 			autoplay: true,
-			autoplaySpeed:2000,
-			items:1,
+			autoplaySpeed: 2000,
+			items: 1,
 			margin: 30,
 			stagePadding: 0,
 			nav: false,
 			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
-			responsive:{
-				0:{
+			responsive: {
+				0: {
 					items: 1
 				},
-				600:{
+				600: {
 					items: 2
 				},
-				1000:{
+				1000: {
 					items: 3
 				}
 			}
@@ -140,7 +139,7 @@
 	};
 	carousel();
 
-	$('nav .dropdown').hover(function(){
+	$('nav .dropdown').hover(function () {
 		var $this = $(this);
 		// 	 timer;
 		// clearTimeout(timer);
@@ -148,55 +147,55 @@
 		$this.find('> a').attr('aria-expanded', true);
 		// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
 		$this.find('.dropdown-menu').addClass('show');
-	}, function(){
+	}, function () {
 		var $this = $(this);
-			// timer;
+		// timer;
 		// timer = setTimeout(function(){
-			$this.removeClass('show');
-			$this.find('> a').attr('aria-expanded', false);
-			// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
-			$this.find('.dropdown-menu').removeClass('show');
+		$this.removeClass('show');
+		$this.find('> a').attr('aria-expanded', false);
+		// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
+		$this.find('.dropdown-menu').removeClass('show');
 		// }, 100);
 	});
 
 
 	$('#dropdown04').on('show.bs.dropdown', function () {
-	  console.log('show');
+		console.log('show');
 	});
 
 	// scroll
-	var scrollWindow = function() {
-		$(window).scroll(function(){
+	var scrollWindow = function () {
+		$(window).scroll(function () {
 			var $w = $(this),
-					st = $w.scrollTop(),
-					navbar = $('.ic_navbar'),
-					sd = $('.js-scroll-wrap');
+				st = $w.scrollTop(),
+				navbar = $('.ic_navbar'),
+				sd = $('.js-scroll-wrap');
 
 			if (st > 150) {
-				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+				if (!navbar.hasClass('scrolled')) {
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
-				if ( navbar.hasClass('scrolled') ) {
+				if (navbar.hasClass('scrolled')) {
 					navbar.removeClass('scrolled sleep');
 				}
-			} 
-			if ( st > 350 ) {
-				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+			}
+			if (st > 350) {
+				if (!navbar.hasClass('awake')) {
+					navbar.addClass('awake');
 				}
-				
-				if(sd.length > 0) {
+
+				if (sd.length > 0) {
 					sd.addClass('sleep');
 				}
 			}
-			if ( st < 350 ) {
-				if ( navbar.hasClass('awake') ) {
+			if (st < 350) {
+				if (navbar.hasClass('awake')) {
 					navbar.removeClass('awake');
 					navbar.addClass('sleep');
 				}
-				if(sd.length > 0) {
+				if (sd.length > 0) {
 					sd.removeClass('sleep');
 				}
 			}
@@ -204,103 +203,104 @@
 	};
 	scrollWindow();
 
-	var counter = function() {
-		
-		$('#section-counter, .hero-wrap, .ic-counter').waypoint( function( direction ) {
+	var counter = function () {
 
-			if( direction === 'down' && !$(this.element).hasClass('ic-animated') ) {
+		$('#section-counter, .hero-wrap, .ic-counter').waypoint(function (direction) {
+
+			if (direction === 'down' && !$(this.element).hasClass('ic-animated')) {
 
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-				$('.number').each(function(){
+				$('.number').each(function () {
 					var $this = $(this),
 						num = $this.data('number');
-						//console.log(num);
-					$this.animateNumber(
-					  {
-					    number: num,
-					    numberStep: comma_separator_number_step
-					  }, 7000
-					);
+					//console.log(num);
+					$this.animateNumber({
+						number: num,
+						numberStep: comma_separator_number_step
+					}, 7000);
 				});
-				
+
 			}
 
-		} , { offset: '95%' } );
+		}, {
+			offset: '95%'
+		});
 
 	}
 	counter();
 
 
-	var contentWayPoint = function() {
+	var contentWayPoint = function () {
 		var i = 0;
-		$('.ic-animate').waypoint( function( direction ) {
+		$('.ic-animate').waypoint(function (direction) {
 
-			if( direction === 'down' && !$(this.element).hasClass('ic-animated') ) {
-				
+			if (direction === 'down' && !$(this.element).hasClass('ic-animated')) {
+
 				i++;
 
 				$(this.element).addClass('item-animate');
-				setTimeout(function(){
+				setTimeout(function () {
 
-					$('body .ic-animate.item-animate').each(function(k){
+					$('body .ic-animate.item-animate').each(function (k) {
 						var el = $(this);
-						setTimeout( function () {
+						setTimeout(function () {
 							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
+							if (effect === 'fadeIn') {
 								el.addClass('fadeIn ic-animated');
-							} else if ( effect === 'fadeInLeft') {
+							} else if (effect === 'fadeInLeft') {
 								el.addClass('fadeInLeft ic-animated');
-							} else if ( effect === 'fadeInRight') {
+							} else if (effect === 'fadeInRight') {
 								el.addClass('fadeInRight ic-animated');
 							} else {
 								el.addClass('fadeInUp ic-animated');
 							}
 							el.removeClass('item-animate');
-						},  k * 50, 'easeInOutExpo' );
+						}, k * 50, 'easeInOutExpo');
 					});
-					
+
 				}, 100);
-				
+
 			}
 
-		} , { offset: '95%' } );
+		}, {
+			offset: '95%'
+		});
 	};
 	contentWayPoint();
 
 
-	
 	// magnific popup
 	$('.image-popup').magnificPopup({
-    type: 'image',
-    closeOnContentClick: true,
-    closeBtnInside: false,
-    fixedContentPos: true,
-    mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-     gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-    },
-    image: {
-      verticalFit: true
-    },
-    zoom: {
-      enabled: true,
-      duration: 300 // don't foget to change the duration also in CSS
-    }
-  });
+		type: 'image',
+		closeOnContentClick: true,
+		closeBtnInside: false,
+		fixedContentPos: true,
+		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+		},
+		image: {
+			verticalFit: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300 // don't foget to change the duration also in CSS
+		}
+	});
 
-  $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-    disableOn: 700,
-    type: 'iframe',
-    mainClass: 'mfp-fade',
-    removalDelay: 160,
-    preloader: false,
+	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+		disableOn: 700,
+		type: 'iframe',
+		mainClass: 'mfp-fade',
+		removalDelay: 160,
+		preloader: false,
 
-    fixedContentPos: false
-  });
+		fixedContentPos: false
+	});
 
-  $('[data-toggle="popover"]').popover()
+	$('[data-toggle="popover"]').popover()
 	$('[data-toggle="tooltip"]').tooltip()
 
 })(jQuery);
