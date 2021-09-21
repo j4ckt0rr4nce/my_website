@@ -2,291 +2,324 @@
 {% load static %}
 
 {% block content %}
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-end justify-content-center">
-          <div class="col-md-9 ic-animate mb-5 text-center">
-          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'blog' %}">Blog <i class="fa fa-chevron-right"></i></a></span> <span>Čo je knižnica Numpy? <i class="fa fa-chevron-right"></i></span></p>
-            <h1 class="mb-0 bread">Čo je knižnica Numpy?</h1>
-          </div>
-        </div>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ic-animate mb-5 text-center">
+        <p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'blog' %}">Blog <i class="fa fa-chevron-right"></i></a></span> <span>Čo je knižnica Numpy? <i class="fa fa-chevron-right"></i></span></p>
+        <h1 class="mb-0 bread">Čo je knižnica Numpy?</h1>
       </div>
-    </section>
-
-		<section class="ic-section ic-degree-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 ic-animate">
-          	<p>
-              <img src="{% static 'core/images/intro-numpy.png' %}" alt="" class="img-fluid">
-            </p>
-            <h2 class="mb-3 mt-5">Úvod do NumPy</h2>
-            <p>Počas svojej cesty dátového analytika som sa vždy mohol spoľahnúť na knižnicu NumPy v Pythone
-            pri vykonávaní najrôznejších úloh, od základných matematických operácií až po ich použitie na klasifikáciu 
-            obrázkov!</p>
-            <p>Stručne povedané - NumPy je jednou z najzákladnejších knižníc v Pythone a možno tou najužitočnejšou zo 
-            všetkých. NumPy zvláda prácu s rozsiahlymi dátovými setmi s vysokou efektivitou. Ako dátový analytik alebo 
-            ctižiadostivý profesionál v oblasti dátovej analýzy je nevyhnutné mať dôkladný prehľad o knižnici NumPy a ako 
-            táto knižnica funguje v Pythone.</p>
-            <p>V tomto článku na úvod popíšem, čo je knižnica NumPy a prečo by ste ju mali uprednostňovať pred 
-            všadeprítomnými, ale ťažkopádnymi listami v Pythone. Potom pokryjeme niektoré z najzákladnejších operácií 
-            NumPy, vďaka ktorým získate prehľad o tejto úžasnej knižnici!</p>
-            <h2 class="mb-3 mt-5">NumPy sa naučíme nasledovným spôsobom:</h2>
-            <ul>
-              <li>Čo je knižnica NumPy v Pythone?</li>
-              <li>Python listy vs NumPy polia - aký je rozdiel?</li>
-              <li>Tvorba NumPy poľa</li>
-                <ul>
-                  <li>Základné ndarray pole</li>
-                  <li>Nulové polia</li>
-                  <li>Jednotkové polia</li>
-                  <li>Náhodné čísla v ndarray poli</li>
-                  <li>Pole podľa vášho výberu</li>
-                  <li>Imatica v NumPy</li>
-                  <li>Rovnomerne rozložené ndarray pole</li>
-                </ul>
-              </li>
-              <li>Tvar a zmena tvaru NumPy poľa</li>
-                <ul>
-                  <li>Dimenzie NumPy poľa</li>
-                  <li>Tvar NumPy poľa</li>
-                  <li>Veľkosť NumPy poľa</li>
-                  <li>Zmena tvaru NumPy poľa</li>
-                  <li>Zarovnanie NumPy poľa</li>
-                  <li>Transpozícia NumPy poľa</li>
-                </ul>
-              <li>Rozšírenie a zredukovanie NumPy poľa</li>
-               <ul>
-                  <li>Rozšírenie NumPy poľa</li>
-                  <li>Zredukovanie NumPy poľa</li>
-                </ul>
-              <li>Index a segmentácia NumPy poľa</li>
-               <ul>
-                  <li>Segmentácia 1-D NumPy polí</li>
-                  <li>Segmentácia 2-D NumPy polí</li>
-                  <li>Segmentácia 3-D NumPy polí</li>
-                  <li>Negatívna segmentácia NumPy polí</li>
-                </ul>
-              <li>Skladanie a zlučovanie NumPy polí</li>
-               <ul>
-                  <li>Skladanie ndarray polí</li>
-                  <li>Zlučovanie ndarray polí</li>
-                </ul>
-              <li>Vysielanie v NumPy poliach</li>
-              <li>NumPy Ufuncs - Tajomstvo ich úspechu!</li>
-              <li>Matematické úkony s NumPy poliami</li>
-                <ul>
-                  <li>Základné aritmetické operácie s NumPy poliami</li>
-                  <li>Priemerná, stredná a štandardná odchýlka</li>
-                  <li>Min-Max hodnoty a ich indexy</li>
-                </ul>
-              <li>Triedenie v NumPy poliach</li>
-              <li>NumPy polia a obrázky</li>
-            </ul>
-            <h2 class="mb-3 mt-5">Čo je knižnica NumPy v Pythone?</h2>
-            <p>NumPy je skratka pre Numerical Python a je jednou z najužitočnejších vedeckých knižníc v Python 
-            programovaní. Poskytuje podporu pre rozsiahle objekty viacrozmerných polí a rôzne nástroje na prácu 
-            s nimi. Na báze tejto úžasnej knižnice sú vytvorené rôzne ďalšie knižnice ako Pandas, Matplotlib 
-            a Scikit-learn.</p>
-            <p>Polia sú kolekciou prvkov / hodnôt, ktoré môžu mať jednu alebo viac dimenzií. Jednorozmerné pole sa 
-            nazýva Vektor, zatiaľ čo dvojrozmerné sa nazýva Matica.</p>
-            <p>NumPy polia sa nazývajú ndarray alebo N-rozmerné polia a sú v nich uložené prvky rovnakého typu a 
-            veľkosti. Sú známe pre svoj vysoký výkon a poskytujú efektívne úložné a dátové operácie pri rastúcej 
-            veľkosti polí.</p>
-            <p>NumPy je predinštalovaný pri sťiahnutí aplikácie Anaconda. Ak však chcete nainštalovať NumPy osobitne 
-            na svoj počítač, zadajte do terminálu nasledujúci príkaz:</p>
-            <pre style="font-style: italic;">pip install numpy</pre>
-            <p>Teraz musíte importovať knižnicu:</p>
-            <pre style="font-style: italic;">import numpy as np</pre>
-            <p style="font-style: italic;"><strong>np</strong> je de facto skratka pre NumPy používaná komunitou 
-            dátových vedcov a analytikov.</p>
-            <h2 class="mb-3 mt-5">Python listy vs NumPy polia - aký je rozdiel?</h2>
-            <p>Ak vám nieje cudzí programovací jazyk Python, možno vás bude zaujímať, prečo sa používajú NumPy polia 
-            a nie Python listy a obzvlášť, keď tieto listy v Pythone fungujú rovnako ako NumPy polia, ktoré dokáže 
-            ukladať prvky rôznych typov. Je to úplne oprávnená otázka a odpoveď na ňu je skrytá v spôsobe, akým Python 
-            ukladá objekty do pamäte.</p>
-            <p>Python objekt je vlastne ukazovateľ na miesto v pamäti, kde sú uložené všetky podrobnosti o objekte, ako
-             napríklad bajty a hodnota. Aj keď táto extra informácia robí z Pythonu dynamicky písaný jazyk, má to istú
-            nevýhodu, ktorá sa prejaví pri ukladaní veľkej kolekcii objektov, ako napríklad pri poli.</p>
-            <p>Python listy sú v podstate poľom ukazovateľov, z ktorých každý ukazuje na miesto, ktoré obsahuje
-            informácie týkajúce sa prvku. Nieje to zrovna efektívne prevedenie, pokiaľ ide o pamäť a výpočty, pretože 
-            väčšina z týchto informácií sa stanú nadbytočnými, vzhľadom na to, že sú všetky objekty uložené v liste 
-            rovnakého typu!</p>
-            <p><strong>Na prekonanie tohto problému používame preto NumPy polia, ktoré obsahujú iba homogénne prvky,
-            </strong> t. j. Prvky, ktoré majú rovnaký dátový typ. Tímto sa ukladanie a manipulácia s poľom stávajú 
-            výrazne efektívnejšie. Tento rozdiel je hlavne viditeľný, keď pole obsahuje veľké množstvo prvkov, napríklad
-            tisíce až milióny. <strong>S NumPy poliami môžete vykonávať taktiež elementárne operácie, čo nie je možné 
-            pomocou Python listov!</strong></p>
-            <p>Toto je dôvod, prečo sa pri vykonávaní matematických operácií s veľkým množstvom dát uprednostňujú NumPy 
-            polia pred Python listami.</p>
-            <h2 class="mb-3 mt-5">Tvorba NumPy poľa</h2>
-            <h4 class="mb-3 mt-5">Základné ndarray pole</h4>
-            <p>NumPy polia sa vytvárajú veľmi ľahko vzhľadom na zložité problémy, ktoré riešia. Na vytvorenie základného
-            ndarray poľa použijete metódu <strong>np.array().</strong> Stačí len zadať hodnoty poľa ako pri liste:</p>
-            <pre>np.array([1,2,3,4])</pre>
-            <p><strong>Výstup:</strong></p>
-            <pre>array([1, 2, 3, 4])</pre>
-            <p>Toto pole obsahuje celočíselné hodnoty. Dátový typ môžeme zadať pomocou dtype argumentu:</p>
-            <pre>np.array([1,2,3,4],dtype=np.float32)</pre>
-            <p><strong>Výstup:</strong></p>
-            <pre>array([1., 2., 3., 4.], dtype=float32)</pre>
-            <p>Pretože NumPy polia môžu obsahovať iba homogénne dátové typy, ak sa nezhodujú, dátové typy hodnôt sa 
-            prispôsobia:</p>
-            <pre>np.array([1,2.0,3,4])</pre>
-            <p><strong>Výstup:</strong></p>
-            <pre>array([1., 2., 3., 4.])</pre>
-            <p>V tomto príklade NumPy prispôsobil celočíselné hodnoty na desatinné hodnoty.</p>
-            <p><strong>NumPy polia môžu byť taktiež viacrozmerné.</strong></p>
-            <pre>np.array([[1,2,3,4],[5,6,7,8]])</pre>
-            <pre>array([[1, 2, 3, 4],
+    </div>
+  </div>
+</section>
+<section class="ic-section ic-degree-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 ic-animate">
+        <p>
+          <img src="{% static 'core/images/intro-numpy.png' %}" alt="" class="img-fluid">
+        </p>
+        <h2 class="mb-3 mt-5">Úvod do NumPy</h2>
+        <p>Počas svojej cesty dátového analytika som sa vždy mohol spoľahnúť na knižnicu NumPy v Pythone
+          pri vykonávaní najrôznejších úloh, od základných matematických operácií až po ich použitie na klasifikáciu 
+          obrázkov!
+        </p>
+        <p>Stručne povedané - NumPy je jednou z najzákladnejších knižníc v Pythone a možno tou najužitočnejšou zo 
+          všetkých. NumPy zvláda prácu s rozsiahlymi dátovými setmi s vysokou efektivitou. Ako dátový analytik alebo 
+          ctižiadostivý profesionál v oblasti dátovej analýzy je nevyhnutné mať dôkladný prehľad o knižnici NumPy a ako 
+          táto knižnica funguje v Pythone.
+        </p>
+        <p>V tomto článku na úvod popíšem, čo je knižnica NumPy a prečo by ste ju mali uprednostňovať pred 
+          všadeprítomnými, ale ťažkopádnymi listami v Pythone. Potom pokryjeme niektoré z najzákladnejších operácií 
+          NumPy, vďaka ktorým získate prehľad o tejto úžasnej knižnici!
+        </p>
+        <h2 class="mb-3 mt-5">NumPy sa naučíme nasledovným spôsobom:</h2>
+        <ul>
+          <li>Čo je knižnica NumPy v Pythone?</li>
+          <li>Python listy vs NumPy polia - aký je rozdiel?</li>
+          <li>Tvorba NumPy poľa</li>
+          <ul>
+            <li>Základné ndarray pole</li>
+            <li>Nulové polia</li>
+            <li>Jednotkové polia</li>
+            <li>Náhodné čísla v ndarray poli</li>
+            <li>Pole podľa vášho výberu</li>
+            <li>Imatica v NumPy</li>
+            <li>Rovnomerne rozložené ndarray pole</li>
+          </ul>
+          </li>
+          <li>Tvar a zmena tvaru NumPy poľa</li>
+          <ul>
+            <li>Dimenzie NumPy poľa</li>
+            <li>Tvar NumPy poľa</li>
+            <li>Veľkosť NumPy poľa</li>
+            <li>Zmena tvaru NumPy poľa</li>
+            <li>Zarovnanie NumPy poľa</li>
+            <li>Transpozícia NumPy poľa</li>
+          </ul>
+          <li>Rozšírenie a zredukovanie NumPy poľa</li>
+          <ul>
+            <li>Rozšírenie NumPy poľa</li>
+            <li>Zredukovanie NumPy poľa</li>
+          </ul>
+          <li>Index a segmentácia NumPy poľa</li>
+          <ul>
+            <li>Segmentácia 1-D NumPy polí</li>
+            <li>Segmentácia 2-D NumPy polí</li>
+            <li>Segmentácia 3-D NumPy polí</li>
+            <li>Negatívna segmentácia NumPy polí</li>
+          </ul>
+          <li>Skladanie a zlučovanie NumPy polí</li>
+          <ul>
+            <li>Skladanie ndarray polí</li>
+            <li>Zlučovanie ndarray polí</li>
+          </ul>
+          <li>Vysielanie v NumPy poliach</li>
+          <li>NumPy Ufuncs - Tajomstvo ich úspechu!</li>
+          <li>Matematické úkony s NumPy poliami</li>
+          <ul>
+            <li>Základné aritmetické operácie s NumPy poliami</li>
+            <li>Priemerná, stredná a štandardná odchýlka</li>
+            <li>Min-Max hodnoty a ich indexy</li>
+          </ul>
+          <li>Triedenie v NumPy poliach</li>
+          <li>NumPy polia a obrázky</li>
+        </ul>
+        <h2 class="mb-3 mt-5">Čo je knižnica NumPy v Pythone?</h2>
+        <p>NumPy je skratka pre Numerical Python a je jednou z najužitočnejších vedeckých knižníc v Python 
+          programovaní. Poskytuje podporu pre rozsiahle objekty viacrozmerných polí a rôzne nástroje na prácu 
+          s nimi. Na báze tejto úžasnej knižnice sú vytvorené rôzne ďalšie knižnice ako Pandas, Matplotlib 
+          a Scikit-learn.
+        </p>
+        <p>Polia sú kolekciou prvkov / hodnôt, ktoré môžu mať jednu alebo viac dimenzií. Jednorozmerné pole sa 
+          nazýva Vektor, zatiaľ čo dvojrozmerné sa nazýva Matica.
+        </p>
+        <p>NumPy polia sa nazývajú ndarray alebo N-rozmerné polia a sú v nich uložené prvky rovnakého typu a 
+          veľkosti. Sú známe pre svoj vysoký výkon a poskytujú efektívne úložné a dátové operácie pri rastúcej 
+          veľkosti polí.
+        </p>
+        <p>NumPy je predinštalovaný pri sťiahnutí aplikácie Anaconda. Ak však chcete nainštalovať NumPy osobitne 
+          na svoj počítač, zadajte do terminálu nasledujúci príkaz:
+        </p>
+        <pre style="font-style: italic;">pip install numpy</pre>
+        <p>Teraz musíte importovať knižnicu:</p>
+        <pre style="font-style: italic;">import numpy as np</pre>
+        <p style="font-style: italic;"><strong>np</strong> je de facto skratka pre NumPy používaná komunitou 
+          dátových vedcov a analytikov.
+        </p>
+        <h2 class="mb-3 mt-5">Python listy vs NumPy polia - aký je rozdiel?</h2>
+        <p>Ak vám nieje cudzí programovací jazyk Python, možno vás bude zaujímať, prečo sa používajú NumPy polia 
+          a nie Python listy a obzvlášť, keď tieto listy v Pythone fungujú rovnako ako NumPy polia, ktoré dokáže 
+          ukladať prvky rôznych typov. Je to úplne oprávnená otázka a odpoveď na ňu je skrytá v spôsobe, akým Python 
+          ukladá objekty do pamäte.
+        </p>
+        <p>Python objekt je vlastne ukazovateľ na miesto v pamäti, kde sú uložené všetky podrobnosti o objekte, ako
+          napríklad bajty a hodnota. Aj keď táto extra informácia robí z Pythonu dynamicky písaný jazyk, má to istú
+          nevýhodu, ktorá sa prejaví pri ukladaní veľkej kolekcii objektov, ako napríklad pri poli.
+        </p>
+        <p>Python listy sú v podstate poľom ukazovateľov, z ktorých každý ukazuje na miesto, ktoré obsahuje
+          informácie týkajúce sa prvku. Nieje to zrovna efektívne prevedenie, pokiaľ ide o pamäť a výpočty, pretože 
+          väčšina z týchto informácií sa stanú nadbytočnými, vzhľadom na to, že sú všetky objekty uložené v liste 
+          rovnakého typu!
+        </p>
+        <p><strong>Na prekonanie tohto problému používame preto NumPy polia, ktoré obsahujú iba homogénne prvky,
+          </strong> t. j. Prvky, ktoré majú rovnaký dátový typ. Tímto sa ukladanie a manipulácia s poľom stávajú 
+          výrazne efektívnejšie. Tento rozdiel je hlavne viditeľný, keď pole obsahuje veľké množstvo prvkov, napríklad
+          tisíce až milióny. <strong>S NumPy poliami môžete vykonávať taktiež elementárne operácie, čo nie je možné 
+          pomocou Python listov!</strong>
+        </p>
+        <p>Toto je dôvod, prečo sa pri vykonávaní matematických operácií s veľkým množstvom dát uprednostňujú NumPy 
+          polia pred Python listami.
+        </p>
+        <h2 class="mb-3 mt-5">Tvorba NumPy poľa</h2>
+        <h4 class="mb-3 mt-5">Základné ndarray pole</h4>
+        <p>NumPy polia sa vytvárajú veľmi ľahko vzhľadom na zložité problémy, ktoré riešia. Na vytvorenie základného
+          ndarray poľa použijete metódu <strong>np.array().</strong> Stačí len zadať hodnoty poľa ako pri liste:
+        </p>
+        <pre>np.array([1,2,3,4])</pre>
+        <p><strong>Výstup:</strong></p>
+        <pre>array([1, 2, 3, 4])</pre>
+        <p>Toto pole obsahuje celočíselné hodnoty. Dátový typ môžeme zadať pomocou dtype argumentu:</p>
+        <pre>np.array([1,2,3,4],dtype=np.float32)</pre>
+        <p><strong>Výstup:</strong></p>
+        <pre>array([1., 2., 3., 4.], dtype=float32)</pre>
+        <p>Pretože NumPy polia môžu obsahovať iba homogénne dátové typy, ak sa nezhodujú, dátové typy hodnôt sa 
+          prispôsobia:
+        </p>
+        <pre>np.array([1,2.0,3,4])</pre>
+        <p><strong>Výstup:</strong></p>
+        <pre>array([1., 2., 3., 4.])</pre>
+        <p>V tomto príklade NumPy prispôsobil celočíselné hodnoty na desatinné hodnoty.</p>
+        <p><strong>NumPy polia môžu byť taktiež viacrozmerné.</strong></p>
+        <pre>np.array([[1,2,3,4],[5,6,7,8]])</pre>
+        <pre>array([[1, 2, 3, 4],
        [5, 6, 7, 8]])</pre>
-            <p>V tomto príklade sme vytvorili dvojrozmerné pole hodnôt.</p>
-            <p style="font-style: italic;">Poznámka: Matica je v podstate obdĺžnikové pole čísel s tvarom N x M, 
-            kde N je počet riadkov a M je počet stĺpcov v matici. Vyššie ste mohli vidieť maticu 2 x 4.</p>
-            <h4 class="mb-3 mt-5">Nulové polia</h4>
-            <p>NumPy nám umožňuje vytvoriť pole, kde všetky hodnoty pozostávajú z núl pomocou metódy <strong>np.zeros().
-            </strong> Stačí zadať tvar požadovaného poľa:</p>
-            <pre>np.zeros(5)</pre>
-            <pre>array([0., 0., 0., 0., 0.])</pre>
-            <p>Vyššie vidíme 1-D pole, zatiaľ čo nižšie vidíme 2-D pole:</p>
-            <pre>np.zeros((2,3))</pre>
-            <pre>array([[0., 0., 0.],
+        <p>V tomto príklade sme vytvorili dvojrozmerné pole hodnôt.</p>
+        <p style="font-style: italic;">Poznámka: Matica je v podstate obdĺžnikové pole čísel s tvarom N x M, 
+          kde N je počet riadkov a M je počet stĺpcov v matici. Vyššie ste mohli vidieť maticu 2 x 4.
+        </p>
+        <h4 class="mb-3 mt-5">Nulové polia</h4>
+        <p>NumPy nám umožňuje vytvoriť pole, kde všetky hodnoty pozostávajú z núl pomocou metódy <strong>np.zeros().
+          </strong> Stačí zadať tvar požadovaného poľa:
+        </p>
+        <pre>np.zeros(5)</pre>
+        <pre>array([0., 0., 0., 0., 0.])</pre>
+        <p>Vyššie vidíme 1-D pole, zatiaľ čo nižšie vidíme 2-D pole:</p>
+        <pre>np.zeros((2,3))</pre>
+        <pre>array([[0., 0., 0.],
        [0., 0., 0.]])</pre>
-            <h4 class="mb-3 mt-5">Jednotkové polia</h4>
-            <p>Taktiež môžeme vytvoriť pole, kde všetky hodnoty pozostávajú z jednotiek s pomocou metódy <strong>np.ones():
-            </strong></p>
-            <pre>np.ones(5,dtype=np.int32)</pre>
-            <pre>array([1, 1, 1, 1, 1])</pre>
-            <h4 class="mb-3 mt-5">Náhodné čísla v ndarray poli</h4>
-            <p>Ďalšou veľmi často používanou metódou na vytváranie ndarray polí je metóda <strong>np.random.rand().
-            </strong> Vytvára pole daného tvaru s náhodnými hodnotami od [0,1]:</p>
-            <pre># random 
+        <h4 class="mb-3 mt-5">Jednotkové polia</h4>
+        <p>Taktiež môžeme vytvoriť pole, kde všetky hodnoty pozostávajú z jednotiek s pomocou metódy <strong>np.ones():
+          </strong>
+        </p>
+        <pre>np.ones(5,dtype=np.int32)</pre>
+        <pre>array([1, 1, 1, 1, 1])</pre>
+        <h4 class="mb-3 mt-5">Náhodné čísla v ndarray poli</h4>
+        <p>Ďalšou veľmi často používanou metódou na vytváranie ndarray polí je metóda <strong>np.random.rand().
+          </strong> Vytvára pole daného tvaru s náhodnými hodnotami od [0,1]:
+        </p>
+        <pre># random 
 np.random.rand(2,3)</pre>
-            <pre>array([[0.95580785, 0.98378873, 0.65133872],
+        <pre>array([[0.95580785, 0.98378873, 0.65133872],
        [0.38330437, 0.16033608, 0.13826526]])</pre>
-            <h4 class="mb-3 mt-5">Pole podľa vášho výberu</h4>
-            <p>Ďalej môžeme vytvoriť pole, kde všetky hodnoty pozostávajú z ľubovoľnej danej hodnoty pomocou metódy 
-            <strong>np.full().</strong> Stačí zadať tvar požadovaného poľa a požadovanú hodnotu:</p>
-            <pre>np.full((2,2),7)</pre>
-            <pre>array([[7, 7],
+        <h4 class="mb-3 mt-5">Pole podľa vášho výberu</h4>
+        <p>Ďalej môžeme vytvoriť pole, kde všetky hodnoty pozostávajú z ľubovoľnej danej hodnoty pomocou metódy 
+          <strong>np.full().</strong> Stačí zadať tvar požadovaného poľa a požadovanú hodnotu:
+        </p>
+        <pre>np.full((2,2),7)</pre>
+        <pre>array([[7, 7],
        [7, 7]])</pre>
-            <h4 class="mb-3 mt-5">Imatica v NumPy</h4>
-            <p>Ďalšou skvelou metódou je <strong>np.eye()</strong>, ktorá vytvorí pole s jednotkami pozdĺž celej 
-            diagonály a nulami na ostatných miestach.</p>
-            <p style="font-style: italic;">Identická matica je štvorcová matica, ktorá má jednotky pozdĺž svojej hlavnej
-            diagonály a nuly na ostatných miestach.. Nižšie je uvedená identická matica tvaru 3 x 3.</p>
-            <p style="font-style: italic;">Poznámka: Štvorcová matica má tvar N x N. To znamená, že má rovnaký počet 
-            riadkov a stĺpcov.</p>
-            <pre># identity matrix
+        <h4 class="mb-3 mt-5">Imatica v NumPy</h4>
+        <p>Ďalšou skvelou metódou je <strong>np.eye()</strong>, ktorá vytvorí pole s jednotkami pozdĺž celej 
+          diagonály a nulami na ostatných miestach.
+        </p>
+        <p style="font-style: italic;">Identická matica je štvorcová matica, ktorá má jednotky pozdĺž svojej hlavnej
+          diagonály a nuly na ostatných miestach.. Nižšie je uvedená identická matica tvaru 3 x 3.
+        </p>
+        <p style="font-style: italic;">Poznámka: Štvorcová matica má tvar N x N. To znamená, že má rovnaký počet 
+          riadkov a stĺpcov.
+        </p>
+        <pre># identity matrix
 np.eye(3)</pre>
-            <pre>array([[1., 0., 0.],
+        <pre>array([[1., 0., 0.],
        [0., 1., 0.],
        [0., 0., 1.]])</pre>
-            <p>Navyše vám NumPy dáva flexibilitu zmeniť diagonálu, pozdĺž ktorej hodnoty pozostávajú z jednotiek. 
-            Môžete ich presunúť nad hlavnú diagonálu:</p>
-            <pre># not an identity matrix</pre>
-            <pre>np.eye(3,k=1)</pre>
-            <pre>array([[0., 1., 0.],
+        <p>Navyše vám NumPy dáva flexibilitu zmeniť diagonálu, pozdĺž ktorej hodnoty pozostávajú z jednotiek. 
+          Môžete ich presunúť nad hlavnú diagonálu:
+        </p>
+        <pre># not an identity matrix</pre>
+        <pre>np.eye(3,k=1)</pre>
+        <pre>array([[0., 1., 0.],
        [0., 0., 1.],
        [0., 0., 0.]])</pre>
-            <p>Alebo ich presunúť pod hlavnú diagonálu:</p>
-            <pre>np.eye(3,k=-2)</pre>
-            <pre>array([[0., 0., 0.],
+        <p>Alebo ich presunúť pod hlavnú diagonálu:</p>
+        <pre>np.eye(3,k=-2)</pre>
+        <pre>array([[0., 0., 0.],
        [0., 0., 0.],
        [1., 0., 0.]])</pre>
-            <p>Poznámka: Matica sa nazýva identická matica iba v prípade, keď sú jednotky pozdĺž hlavnej diagonály 
-            a nie inej!</p>
-            <h4 class="mb-3 mt-5">Rovnomerne rozložené ndarray pole</h4>
-            <p>Rovnomerne rozložené pole čísel dostaneme metódou <strong>np.arange():</strong></p>
-            <pre>np.arange(5)</pre>
-            <pre>array([0, 1, 2, 3, 4])</pre>
-            <p>Začiatok, koniec a dané kroky intervalu hodnôt je možné explicitne definovať zadaním troch čísel ako 
-            argumentov pre tieto hodnoty. Tu je potrebné poznamenať, že interval je definovaný ako [začiatok, koniec], 
-            kde posledné číslo nebude zahrnuté v poli:</p>
-            <pre>np.arange(2,10,2)</pre>
-            <pre>array([2, 4, 6, 8])</pre>
-            <p>Výstup tvoria alternatívne prvky, pretože kroky intervalu boli definované hodnotou 2. Všimnite si, 
-            že hodnota 10 vo výstupe nieje, pretože bola posledným prvkom intervalu.</p>
-            <p>Ďalšou podobnou funkciou je <strong>np.linspace()</strong>, ale namiesto veľkosti kroku intervalu 
-            zadávame počet vzoriek, ktoré chceme z intervalu dostať. Tu je potrebné poznamenať, že posledné číslo 
-            je zahrnuté do výstupu hodnôt, na rozdiel od prípadu np.arange().</p>
-            <pre>np.linspace(0,1,5)</pre>
-            <pre>array([0.  , 0.25, 0.5 , 0.75, 1.  ])</pre>
-            <p>Skvelé! Teraz viete, ako vytvoriť polia pomocou NumPy. Taktiež je ale dôležité poznať tvar poľa.</p>
-            <h2 class="mb-3 mt-5">Tvar a zmena tvaru NumPy poľa</h2>
-            <p>Po vytvorení ndarray poľa ďalšia vec, ktorú by ste chceli skontrolovať je počet osí, tvar a veľkosť ndarray 
-            poľa.</p>
-            <h4 class="mb-3 mt-5">Dimenzie NumPy poľa</h4>
-            <p>Počet dimenzií alebo osí NumPy poľa môžeme ľahko určiť pomocou atribútu <strong>ndim:</strong></p>
-            <pre>
+        <p>Poznámka: Matica sa nazýva identická matica iba v prípade, keď sú jednotky pozdĺž hlavnej diagonály 
+          a nie inej!
+        </p>
+        <h4 class="mb-3 mt-5">Rovnomerne rozložené ndarray pole</h4>
+        <p>Rovnomerne rozložené pole čísel dostaneme metódou <strong>np.arange():</strong></p>
+        <pre>np.arange(5)</pre>
+        <pre>array([0, 1, 2, 3, 4])</pre>
+        <p>Začiatok, koniec a dané kroky intervalu hodnôt je možné explicitne definovať zadaním troch čísel ako 
+          argumentov pre tieto hodnoty. Tu je potrebné poznamenať, že interval je definovaný ako [začiatok, koniec], 
+          kde posledné číslo nebude zahrnuté v poli:
+        </p>
+        <pre>np.arange(2,10,2)</pre>
+        <pre>array([2, 4, 6, 8])</pre>
+        <p>Výstup tvoria alternatívne prvky, pretože kroky intervalu boli definované hodnotou 2. Všimnite si, 
+          že hodnota 10 vo výstupe nieje, pretože bola posledným prvkom intervalu.
+        </p>
+        <p>Ďalšou podobnou funkciou je <strong>np.linspace()</strong>, ale namiesto veľkosti kroku intervalu 
+          zadávame počet vzoriek, ktoré chceme z intervalu dostať. Tu je potrebné poznamenať, že posledné číslo 
+          je zahrnuté do výstupu hodnôt, na rozdiel od prípadu np.arange().
+        </p>
+        <pre>np.linspace(0,1,5)</pre>
+        <pre>array([0.  , 0.25, 0.5 , 0.75, 1.  ])</pre>
+        <p>Skvelé! Teraz viete, ako vytvoriť polia pomocou NumPy. Taktiež je ale dôležité poznať tvar poľa.</p>
+        <h2 class="mb-3 mt-5">Tvar a zmena tvaru NumPy poľa</h2>
+        <p>Po vytvorení ndarray poľa ďalšia vec, ktorú by ste chceli skontrolovať je počet osí, tvar a veľkosť ndarray 
+          poľa.
+        </p>
+        <h4 class="mb-3 mt-5">Dimenzie NumPy poľa</h4>
+        <p>Počet dimenzií alebo osí NumPy poľa môžeme ľahko určiť pomocou atribútu <strong>ndim:</strong></p>
+        <pre>
 # number of axis
 a = np.array([[5,10,15],[20,25,20]])
 print('Array :','\n',a)
 print('Dimensions :','\n',a.ndim)
 </pre>
-            <pre>Array : 
+        <pre>Array : 
  [[ 5 10 15]
  [20 25 20]]
 Dimensions : 
  2</pre>
-            <p>Toto pole je dvojrozmerné: 2 riadky a 3 stĺpce.</p>
-            <h4 class="mb-3 mt-5">Tvar NumPy poľa</h4>
-            <p>Tvar(<strong>shape</strong>) je atribút NumPy poľa, ktorý zobrazuje, koľko riadkov prvkov je pozdĺž každej dimenzie. 
-            Ďalej môžete zobraziť index tvaru, ktorého výstup je ndarray pole, na získanie hodnoty pozdĺž každej 
-            dimenzie:</p>
-            <pre>a = np.array([[1,2,3],[4,5,6]])
+        <p>Toto pole je dvojrozmerné: 2 riadky a 3 stĺpce.</p>
+        <h4 class="mb-3 mt-5">Tvar NumPy poľa</h4>
+        <p>Tvar(<strong>shape</strong>) je atribút NumPy poľa, ktorý zobrazuje, koľko riadkov prvkov je pozdĺž každej dimenzie. 
+          Ďalej môžete zobraziť index tvaru, ktorého výstup je ndarray pole, na získanie hodnoty pozdĺž každej 
+          dimenzie:
+        </p>
+        <pre>a = np.array([[1,2,3],[4,5,6]])
 print('Array :','\n',a)
 print('Shape :','\n',a.shape)
 print('Rows = ',a.shape[0])
 print('Columns = ',a.shape[1])</pre>
-            <pre>Array : 
+        <pre>Array : 
  [[1 2 3]
  [4 5 6]]
 Shape : 
  (2, 3)
 Rows =  2
 Columns =  3</pre>
-            <h4 class="mb-3 mt-5">Veľkosť NumPy poľa</h4>
-            <p>Pomocou atribútu <strong>size</strong> môžeme určiť, koľko je v poli hodnôt. V podstate iba vynásobí počet riadkov počtom 
-            stĺpcov v ndarray poli:</p>
-            <pre>
+        <h4 class="mb-3 mt-5">Veľkosť NumPy poľa</h4>
+        <p>Pomocou atribútu <strong>size</strong> môžeme určiť, koľko je v poli hodnôt. V podstate iba vynásobí počet riadkov počtom 
+          stĺpcov v ndarray poli:
+        </p>
+        <pre>
 # size of array
 a = np.array([[5,10,15],[20,25,20]])
 print('Size of array :',a.size)
 print('Manual determination of size of array :',a.shape[0]*a.shape[1])
 </pre>
-            <pre>Size of array : 6
+        <pre>Size of array : 6
 Manual determination of size of array : 6</pre>
-            <h4 class="mb-3 mt-5">Zmena tvaru NumPy poľa</h4>
-            <p>Zmena tvaru ndarray poľa sa dá vykonať pomocou metódy <strong>np.reshape().</strong> Zmení tvar ndarray poľa 
-            bez toho, aby boli dáta v ndarray poli zmenené:</p>
-            <pre>
+        <h4 class="mb-3 mt-5">Zmena tvaru NumPy poľa</h4>
+        <p>Zmena tvaru ndarray poľa sa dá vykonať pomocou metódy <strong>np.reshape().</strong> Zmení tvar ndarray poľa 
+          bez toho, aby boli dáta v ndarray poli zmenené:
+        </p>
+        <pre>
 # reshape
 a = np.array([3,6,9,12])
 np.reshape(a,(2,2))
 </pre>
-            <pre>array([[ 3,  6],
+        <pre>array([[ 3,  6],
        [ 9, 12]])</pre>
-            <p>V tomto príklade sme zmenili ndarray pole z 1-D na 2-D ndarray pole.</p>
-            <p>Ak si počas zmeny tvaru nie ste istí tvarom ktorejkoľvek z osí, zadajte iba -1. NumPy automaticky 
-            vypočíta tvar poľa:</p>
-            <pre>
+        <p>V tomto príklade sme zmenili ndarray pole z 1-D na 2-D ndarray pole.</p>
+        <p>Ak si počas zmeny tvaru nie ste istí tvarom ktorejkoľvek z osí, zadajte iba -1. NumPy automaticky 
+          vypočíta tvar poľa:
+        </p>
+        <pre>
 a = np.array([3,6,9,12,18,24])
 print('Three rows :','\n',np.reshape(a,(3,-1)))
 print('Three columns :','\n',np.reshape(a,(-1,3)))
 </pre>
-            <pre>Three rows : 
+        <pre>Three rows : 
  [[ 3  6]
  [ 9 12]
  [18 24]]
 Three columns : 
  [[ 3  6  9]
  [12 18 24]]</pre>
-            <h4 class="mb-3 mt-5">Zarovnanie NumPy poľa</h4>
-            <p>Sú prípady kedy máme viacrozmerné pole a chceme ho pretvoriť do jednorozmerného poľa. V takom prípade 
-            môžeme použiť buď metódu <strong>flatten()</strong>, alebo <strong>ravel():</strong></p>
-            <pre>a = np.ones((2,2))
+        <h4 class="mb-3 mt-5">Zarovnanie NumPy poľa</h4>
+        <p>Sú prípady kedy máme viacrozmerné pole a chceme ho pretvoriť do jednorozmerného poľa. V takom prípade 
+          môžeme použiť buď metódu <strong>flatten()</strong>, alebo <strong>ravel():</strong>
+        </p>
+        <pre>a = np.ones((2,2))
 b = a.flatten()
 c = a.ravel()
 print('Original shape :', a.shape)
@@ -295,7 +328,7 @@ print('Shape after flatten :',b.shape)
 print('Array :','\n', b)
 print('Shape after ravel :',c.shape)
 print('Array :','\n', c)</pre>
-            <pre>Original shape : (2, 2)
+        <pre>Original shape : (2, 2)
 Array : 
  [[1. 1.]
  [1. 1.]]
@@ -305,36 +338,41 @@ Array :
 Shape after ravel : (4,)
 Array : 
  [1. 1. 1. 1.]</pre>
-            <p>Dôležitým rozdielom medzi flatten() a ravel() metódou je, že prvá metóda vráti kópiu pôvodného poľa, 
-            zatiaľ čo druhá metóda vráti odkaz na pôvodné pole. To znamená, že všetky zmeny vykonané v poli vo výstupe 
-            ravel() metódou sa prejavia aj v pôvodnom poli, zatiaľ čo v prípade flatten() metódy tomu tak nieje.</p>
-            <pre>b[0] = 0
+        <p>Dôležitým rozdielom medzi flatten() a ravel() metódou je, že prvá metóda vráti kópiu pôvodného poľa, 
+          zatiaľ čo druhá metóda vráti odkaz na pôvodné pole. To znamená, že všetky zmeny vykonané v poli vo výstupe 
+          ravel() metódou sa prejavia aj v pôvodnom poli, zatiaľ čo v prípade flatten() metódy tomu tak nieje.
+        </p>
+        <pre>b[0] = 0
 print(a)</pre>
-            <pre>[[1. 1.]
+        <pre>[[1. 1.]
  [1. 1.]]</pre>
-            <p>Vykonaná zmena sa v pôvodnom poli neprejavila.</p>
-            <pre>c[0] = 0
+        <p>Vykonaná zmena sa v pôvodnom poli neprejavila.</p>
+        <pre>c[0] = 0
 print(a)</pre>
-            <pre>[[0. 1.]
+        <pre>[[0. 1.]
  [1. 1.]]</pre>
-            <p>Ale v tomto prípade sa zmenená hodnota prejaví aj v pôvodnom ndarray poli.</p>
-            <p>Pre vysvetlenie metóda flatten() vytvorí <strong>Hlbokú kópiu</strong> ndarray poľa, zatiaľ čo metóda 
-            ravel() vytvorí <strong>Plytkú kópiu</strong> ndarray poľa.</p>
-            <p>Hlboká kópia znamená, že sa v pamäti vytvorí úplne nové ndarray pole a na toto miesto v pamäti teraz 
-            odkazuje ndarray objekt vrátený funkciou flatten(). Preto sa vykonané zmeny v pôvodnom ndarray poli 
-            neprejavia.</p>
-            <p>Plytká kópia na druhej strane odkazuje na pôvodné miesto v pamäti. To znamená, že objekt vrátený 
-            funkciou ravel() odkazuje na rovnaké miesto v pamäti ako pôvodný objekt ndarray. Takže všetky zmeny 
-            vykonané v tomto ndarray poli sa s istotou prejavia aj v pôvodnom ndarray poli.</p>
-            <h4 class="mb-3 mt-5">Transpozícia NumPy poľa</h4>
-            <p>Ďalšou veľmi zaujímavou metódou zmeny tvaru v NumPy je metóda <strong>transpose().</strong> Vezme 
-            vstupné pole a zamení hodnoty riadkov s hodnotami stĺpcov a hodnoty stĺpcov s hodnotami riadkov:</p>
-            <pre>a = np.array([[1,2,3],
+        <p>Ale v tomto prípade sa zmenená hodnota prejaví aj v pôvodnom ndarray poli.</p>
+        <p>Pre vysvetlenie metóda flatten() vytvorí <strong>Hlbokú kópiu</strong> ndarray poľa, zatiaľ čo metóda 
+          ravel() vytvorí <strong>Plytkú kópiu</strong> ndarray poľa.
+        </p>
+        <p>Hlboká kópia znamená, že sa v pamäti vytvorí úplne nové ndarray pole a na toto miesto v pamäti teraz 
+          odkazuje ndarray objekt vrátený funkciou flatten(). Preto sa vykonané zmeny v pôvodnom ndarray poli 
+          neprejavia.
+        </p>
+        <p>Plytká kópia na druhej strane odkazuje na pôvodné miesto v pamäti. To znamená, že objekt vrátený 
+          funkciou ravel() odkazuje na rovnaké miesto v pamäti ako pôvodný objekt ndarray. Takže všetky zmeny 
+          vykonané v tomto ndarray poli sa s istotou prejavia aj v pôvodnom ndarray poli.
+        </p>
+        <h4 class="mb-3 mt-5">Transpozícia NumPy poľa</h4>
+        <p>Ďalšou veľmi zaujímavou metódou zmeny tvaru v NumPy je metóda <strong>transpose().</strong> Vezme 
+          vstupné pole a zamení hodnoty riadkov s hodnotami stĺpcov a hodnoty stĺpcov s hodnotami riadkov:
+        </p>
+        <pre>a = np.array([[1,2,3],
 [4,5,6]])
 b = np.transpose(a)
 print('Original','\n','Shape',a.shape,'\n',a)
 print('Expand along columns:','\n','Shape',b.shape,'\n',b)</pre>
-            <pre>Original 
+        <pre>Original 
  Shape (2, 3) 
  [[1 2 3]
  [4 5 6]]
@@ -343,19 +381,20 @@ Expand along columns:
  [[1 4]
  [2 5]
  [3 6]]</pre>
-            <p>Pri transpozícii poľa 2 x 3 sme dostali pole 3 x 2. Transpozícia má veľký význam v lineárnej algebre.</p>
-            <h2 class="mb-3 mt-5">Rozšírenie a zredukovanie NumPy poľa</h2>
-            <h4 class="mb-3 mt-5">Rozšírenie NumPy poľa</h4>
-            <p>Pomocou metódy <strong>expand_dims()</strong> môžeme pridať novú os do poľa tak, že zadáme pole a os, 
-            pozdĺž ktorej sa bude pole rozširovať:</p>
-            <pre># expand dimensions
+        <p>Pri transpozícii poľa 2 x 3 sme dostali pole 3 x 2. Transpozícia má veľký význam v lineárnej algebre.</p>
+        <h2 class="mb-3 mt-5">Rozšírenie a zredukovanie NumPy poľa</h2>
+        <h4 class="mb-3 mt-5">Rozšírenie NumPy poľa</h4>
+        <p>Pomocou metódy <strong>expand_dims()</strong> môžeme pridať novú os do poľa tak, že zadáme pole a os, 
+          pozdĺž ktorej sa bude pole rozširovať:
+        </p>
+        <pre># expand dimensions
 a = np.array([1,2,3])
 b = np.expand_dims(a,axis=0)
 c = np.expand_dims(a,axis=1)
 print('Original:','\n','Shape',a.shape,'\n',a)
 print('Expand along columns:','\n','Shape',b.shape,'\n',b)
 print('Expand along rows:','\n','Shape',c.shape,'\n',c)</pre>
-            <pre>Original: 
+        <pre>Original: 
  Shape (3,) 
  [1 2 3]
 Expand along columns: 
@@ -366,17 +405,18 @@ Expand along rows:
  [[1]
  [2]
  [3]]</pre>
-            <h4 class="mb-3 mt-5">Zredukovanie NumPy poľa</h4>
-            <p>Na druhej strane, ak chceme zmenšiť os poľa, použijeme metódu <strong>squeeze().</strong> Odstráni os, 
-            ktorá má jediný vstup. To znamená, že ak ste vytvorili maticu 2 x 3 x 1, metóda squeeze() odstráni z 
-            matice tretiu dimenziu:</p>
-            <pre># squeeze
+        <h4 class="mb-3 mt-5">Zredukovanie NumPy poľa</h4>
+        <p>Na druhej strane, ak chceme zmenšiť os poľa, použijeme metódu <strong>squeeze().</strong> Odstráni os, 
+          ktorá má jediný vstup. To znamená, že ak ste vytvorili maticu 2 x 3 x 1, metóda squeeze() odstráni z 
+          matice tretiu dimenziu:
+        </p>
+        <pre># squeeze
 a = np.array([[[1,2,3],
                [4,5,6]]])
 b = np.squeeze(a, axis=0)
 print('Original','\n','Shape',a.shape,'\n',a)
 print('Squeeze array:','\n','Shape',b.shape,'\n',b)</pre>
-            <pre>Original 
+        <pre>Original 
  Shape (1, 2, 3) 
  [[[1 2 3]
   [4 5 6]]]
@@ -384,60 +424,67 @@ Squeeze array:
  Shape (2, 3) 
  [[1 2 3]
  [4 5 6]]</pre>
-            <p>Ak ste však už mali maticu 2 x 3, použitie squeeze() metódy by vám v takom prípade spôsobilo chybu:</p>
-            <pre># squeeze
+        <p>Ak ste však už mali maticu 2 x 3, použitie squeeze() metódy by vám v takom prípade spôsobilo chybu:</p>
+        <pre># squeeze
 a = np.array([[1,2,3],
               [4,5,6]])
 b = np.squeeze(a, axis=0)
 print('Original','\n','Shape',a.shape,'\n',a)
 print('Squeeze array:','\n','Shape',b.shape,'\n',b)</pre>
-          <a href="{% static 'core/images/error_1.jpg' %}">
-            <img src="{% static 'core/images/error_1.jpg' %}" alt="Error" class="img-fluid">
-          </a>
-          <h2 class="mb-3 mt-5">Index a segmentácia NumPy poľa</h2>
-          <p>Doteraz sme videli, ako vytvoriť NumPy pole a ako sa pohrať s jeho tvarom. V tejto časti uvidíme, ako 
-          extrahovať konkrétne hodnoty z poľa pomocou indexu a segmentácie.</p>
-          <h4 class="mb-3 mt-5">Segmentácia 1-D NumPy polí</h4>
-          <p>Segmentácia znamená načítanie prvkov od nejakého indexu po ďalší index. Stačí zadať začiatočný a konečný 
-          bod indexu nasledovne: [start: end].</p>
-          <p>Môžeme zadať ešte aj veľkosť kroku. Čo to je? Predpokladajme, že chceme vo výstupe každý druhý prvok z 
+        <a href="{% static 'core/images/error_1.jpg' %}">
+        <img src="{% static 'core/images/error_1.jpg' %}" alt="Error" class="img-fluid">
+        </a>
+        <h2 class="mb-3 mt-5">Index a segmentácia NumPy poľa</h2>
+        <p>Doteraz sme videli, ako vytvoriť NumPy pole a ako sa pohrať s jeho tvarom. V tejto časti uvidíme, ako 
+          extrahovať konkrétne hodnoty z poľa pomocou indexu a segmentácie.
+        </p>
+        <h4 class="mb-3 mt-5">Segmentácia 1-D NumPy polí</h4>
+        <p>Segmentácia znamená načítanie prvkov od nejakého indexu po ďalší index. Stačí zadať začiatočný a konečný 
+          bod indexu nasledovne: [start: end].
+        </p>
+        <p>Môžeme zadať ešte aj veľkosť kroku. Čo to je? Predpokladajme, že chceme vo výstupe každý druhý prvok z 
           poľa. Veľkosť kroku by sme definovali ako 2, čo znamená, že by sme dostali prvok o 2 miesta ďalej od 
-          súčasného indexu.</p>
-          <p>Začlenenie tohto všetkého do jedného indexu by vyzeralo asi takto: [start: end: step-size].</p>
-          <pre>a = np.array([1,2,3,4,5,6])
+          súčasného indexu.
+        </p>
+        <p>Začlenenie tohto všetkého do jedného indexu by vyzeralo asi takto: [start: end: step-size].</p>
+        <pre>a = np.array([1,2,3,4,5,6])
 print(a[1:5:2])</pre>
-          <pre>[2 4]</pre>
-          <p>Všimnite si, že posledný prvok nebol braný do úvahy. <span style="font-style: italic;">Je to tak preto, 
-          lebo segmentácia zahŕňa počiatočný index, ale nezahŕňa koncový index.</span></p>
-          <p>Obísť to môžeme tak, že zadáme najvyššiu hodnotu z poľa ako konečnú hodnotu indexu, ktorú chceme dostať:</p>
-          <pre>a = np.array([1,2,3,4,5,6])
+        <pre>[2 4]</pre>
+        <p>Všimnite si, že posledný prvok nebol braný do úvahy. <span style="font-style: italic;">Je to tak preto, 
+          lebo segmentácia zahŕňa počiatočný index, ale nezahŕňa koncový index.</span>
+        </p>
+        <p>Obísť to môžeme tak, že zadáme najvyššiu hodnotu z poľa ako konečnú hodnotu indexu, ktorú chceme dostať:</p>
+        <pre>a = np.array([1,2,3,4,5,6])
 print(a[1:6:2])</pre>
-          <pre>[2 4 6]</pre>
-          <p>Ak nezadáme počiatočný alebo koncový index, predvolená hodnota sa nastaví ako 0 alebo veľkosť poľa. 
-          Predvolená hodnota veľkosti kroku je štandardne 1.</p>
-          <pre>a = np.array([1,2,3,4,5,6])
+        <pre>[2 4 6]</pre>
+        <p>Ak nezadáme počiatočný alebo koncový index, predvolená hodnota sa nastaví ako 0 alebo veľkosť poľa. 
+          Predvolená hodnota veľkosti kroku je štandardne 1.
+        </p>
+        <pre>a = np.array([1,2,3,4,5,6])
 print(a[:6:2])
 print(a[1::2])
 print(a[1:6:])</pre>
-          <pre>[1 3 5]
+        <pre>[1 3 5]
 [2 4 6]
 [2 3 4 5 6]</pre>
-          <h4 class="mb-3 mt-5">Segmentácia 2-D NumPy polí</h4>
-          <p>Ako vieme 2-D pole má riadky a stĺpce, takže môže byť trochu zložitejšie deliť 2-D polia. Ale akonáhle to 
-          pochopíte, môžete rozdelovať akékoľvek dimenzionálne pole!</p>
-          <p>Predtým, ako sa naučíme, ako rozdeliť 2-D pole, pozrime sa, ako načítať prvok z 2-D poľa:</p>
-          <pre>a = np.array([[1,2,3],
+        <h4 class="mb-3 mt-5">Segmentácia 2-D NumPy polí</h4>
+        <p>Ako vieme 2-D pole má riadky a stĺpce, takže môže byť trochu zložitejšie deliť 2-D polia. Ale akonáhle to 
+          pochopíte, môžete rozdelovať akékoľvek dimenzionálne pole!
+        </p>
+        <p>Predtým, ako sa naučíme, ako rozdeliť 2-D pole, pozrime sa, ako načítať prvok z 2-D poľa:</p>
+        <pre>a = np.array([[1,2,3],
               [4,5,6]])
 print(a[0,0])
 print(a[1,2])
 print(a[1,0])</pre>
-          <pre>1
+        <pre>1
 6
 4</pre>
-          <p>V tomto prípade zadávame hodnotu riadku a hodnotu stĺpca na identifikáciu prvku, ktorý chceme extrahovať. 
-          V 1-D poli zadávame iba hodnotu stĺpca, pretože 1-D pole má len 1 riadok.</p>
-          <p>Ak chceme rozdeliť 2-D pole, musíme zadať index segmentácie pre riadok aj stĺpec:</p>
-          <pre>a = np.array([[1,2,3],[4,5,6]])
+        <p>V tomto prípade zadávame hodnotu riadku a hodnotu stĺpca na identifikáciu prvku, ktorý chceme extrahovať. 
+          V 1-D poli zadávame iba hodnotu stĺpca, pretože 1-D pole má len 1 riadok.
+        </p>
+        <p>Ak chceme rozdeliť 2-D pole, musíme zadať index segmentácie pre riadok aj stĺpec:</p>
+        <pre>a = np.array([[1,2,3],[4,5,6]])
 # print first row values
 print('First row values :','\n',a[0:1,:])
 # with step-size for columns
@@ -445,7 +492,7 @@ print('Alternate values from first row:','\n',a[0:1,::2])
 # 
 print('Second column values :','\n',a[:,1::2])
 print('Arbitrary values :','\n',a[0:1,1:3])</pre>
-          <pre>First row values : 
+        <pre>First row values : 
  [[1 2 3]]
 Alternate values from first row: 
  [[1 3]]
@@ -454,14 +501,14 @@ Second column values :
  [5]]
 Arbitrary values : 
  [[2 3]]</pre>
-          <h4 class="mb-3 mt-5">Segmentácia 3-D NumPy polí</h4>
-          <p>Doteraz sme zatiaľ nevideli 3-D pole. Poďme si najskôr predstaviť, ako vyzerá 3-D pole:</p>
-          <pre>a = np.array([[[ 1, 2],[ 3, 4],[ 5, 6]],# first axis array
+        <h4 class="mb-3 mt-5">Segmentácia 3-D NumPy polí</h4>
+        <p>Doteraz sme zatiaľ nevideli 3-D pole. Poďme si najskôr predstaviť, ako vyzerá 3-D pole:</p>
+        <pre>a = np.array([[[ 1, 2],[ 3, 4],[ 5, 6]],# first axis array
               [[ 7, 8],[ 9,10],[11,12]],# second axis array
               [[13,14],[15,16],[17,18]]])# third axis array
 # 3-D array
 print(a)</pre>
-          <pre>[[[ 1  2]
+        <pre>[[[ 1  2]
   [ 3  4]
   [ 5  6]]
 
@@ -472,113 +519,122 @@ print(a)</pre>
  [[13 14]
   [15 16]
   [17 18]]]</pre>
-          <p>Okrem riadkov a stĺpcov, ako v 2-D poli, má 3-D pole tiež hĺbkovú os, kde ukladá jedno 2-D pole za druhé. 
+        <p>Okrem riadkov a stĺpcov, ako v 2-D poli, má 3-D pole tiež hĺbkovú os, kde ukladá jedno 2-D pole za druhé. 
           Keď teda delíme 3-D pole, musíme tiež spomenúť, ktoré 2-D pole delíme. Zvyčajne je to prvá hodnota v 
-          indexe:</p>
-          <pre># value
+          indexe:
+        </p>
+        <pre># value
 print('First array, first row, first column value :','\n',a[0,0,0])
 print('First array last column :','\n',a[0,:,1])
 print('First two rows for second and third arrays :','\n',a[1:,0:2,0:2])</pre>
-          <pre>First array, first row, first column value : 
+        <pre>First array, first row, first column value : 
  1
 First array last column : 
  [2 4 6]
 First two rows for second and third arrays : 
  [[[ 7  8]
-  [ 9 10]]
+   [ 9 10]]
 
  [[13 14]
   [15 16]]]</pre>
-          <p>V prípade ak potrebujete hodnoty ako jednorozmerné pole, môžeme kedykoľvek použiť metódu flatten()!</p>
-          <pre>print('Printing as a single array :','\n',a[1:,0:2,0:2].flatten())</pre>
-          <pre>Printing as a single array : 
+        <p>V prípade ak potrebujete hodnoty ako jednorozmerné pole, môžeme kedykoľvek použiť metódu flatten()!</p>
+        <pre>print('Printing as a single array :','\n',a[1:,0:2,0:2].flatten())</pre>
+        <pre>Printing as a single array : 
  [ 7  8  9 10 13 14 15 16]
 </pre>
-          <h4 class="mb-3 mt-5">Negatívna segmentácia NumPy polí</h4>
-          <p>Zaujímavý spôsob, ako rozdeliť pole, je negatívna segmentácia. Výstup negatívnej segmentácie 
-          tvoria prvky viacmenej od konca ako od začiatku. Pozrite nižšie:</p>
-          <pre>a = np.array([[1,2,3,4,5],
+        <h4 class="mb-3 mt-5">Negatívna segmentácia NumPy polí</h4>
+        <p>Zaujímavý spôsob, ako rozdeliť pole, je negatívna segmentácia. Výstup negatívnej segmentácie 
+          tvoria prvky viacmenej od konca ako od začiatku. Pozrite nižšie:
+        </p>
+        <pre>a = np.array([[1,2,3,4,5],
               [6,7,8,9,10]])
 print(a[:,-1])</pre>
-          <pre>[ 5 10]</pre>
-          <p>V tomto príklade sme dostali poslednú hodnotu z každého riadku. Ak by sme však chceli extrahovať od konca, 
-          museli by sme výslovne uviesť negatívnu veľkosť kroku, inak by sme dostali prázdny list.</p>
-          <pre>print(a[:,-1:-3:-1])</pre>
-          <pre>[[ 5  4]
+        <pre>[ 5 10]</pre>
+        <p>V tomto príklade sme dostali poslednú hodnotu z každého riadku. Ak by sme však chceli extrahovať od konca, 
+          museli by sme výslovne uviesť negatívnu veľkosť kroku, inak by sme dostali prázdny list.
+        </p>
+        <pre>print(a[:,-1:-3:-1])</pre>
+        <pre>[[ 5  4]
  [10  9]]</pre>
-          <p>Z uvedeného vyplýva, že základná logika segmentácie zostáva rovnaká, t.j. koncový index nie je nikdy 
-          zahrnutý do výstupu.</p>
-          <p style="font-style: italic;">Zaujímavým využitím zápornej segmentácie je obrátenie pôvodného poľa.</p>
-          <pre>a = np.array([[1,2,3,4,5],
+        <p>Z uvedeného vyplýva, že základná logika segmentácie zostáva rovnaká, t.j. koncový index nie je nikdy 
+          zahrnutý do výstupu.
+        </p>
+        <p style="font-style: italic;">Zaujímavým využitím zápornej segmentácie je obrátenie pôvodného poľa.</p>
+        <pre>a = np.array([[1,2,3,4,5],
               [6,7,8,9,10]])
 print('Original array :','\n',a)
 print('Reversed array :','\n',a[::-1,::-1])</pre>
-          <pre>Original array : 
+        <pre>Original array : 
  [[ 1  2  3  4  5]
- [ 6  7  8  9 10]]
+  [ 6  7  8  9 10]]
 Reversed array : 
  [[10  9  8  7  6]
- [ 5  4  3  2  1]]</pre>
-          <p>Na obrátenie ndarray poľa môžeme tiež použiť metódu <strong>flip()</strong> .</p>
-          <pre>a = np.array([[1,2,3,4,5],
+  [ 5  4  3  2  1]]</pre>
+        <p>Na obrátenie ndarray poľa môžeme tiež použiť metódu <strong>flip()</strong> .</p>
+        <pre>a = np.array([[1,2,3,4,5],
               [6,7,8,9,10]])
 print('Original array :','\n',a)
 print('Reversed array vertically :','\n',np.flip(a,axis=1))
 print('Reversed array horizontally :','\n',np.flip(a,axis=0))</pre>
-          <pre>Original array : 
+        <pre>Original array : 
  [[ 1  2  3  4  5]
- [ 6  7  8  9 10]]
+  [ 6  7  8  9 10]]
 Reversed array vertically : 
  [[ 5  4  3  2  1]
- [10  9  8  7  6]]
+  [10  9  8  7  6]]
 Reversed array horizontally : 
  [[ 6  7  8  9 10]
- [ 1  2  3  4  5]]</pre>
-          <h2 class="mb-3 mt-5">Skladanie a zlučovanie NumPy polí</h2>
-          <h4 class="mb-3 mt-5">Skladanie ndarray polí</h4>
-          <p>Nové pole môžeme vytvoriť kombináciou existujúcich polí. Môžeme to urobiť dvoma spôsobmi:</p>
-          <ul>
-            <li>Polia môžeme skombinovať vertikálne (t.j. pozdĺž riadkov) pomocou metódy <strong>vstack()</strong>, čím 
-            zvýšime počet riadkov vo výslednom poli</li>
-            <li>Alebo môžeme polia skombinovať horizontálne (t.j. pozdĺž stĺpcov) pomocou metódy 
-            <strong>hstack()</strong>, čím zvýšime počet stĺpcov vo výslednom poli</li>
-          </ul>
-          <pre>a = np.arange(0,5)
+  [ 1  2  3  4  5]]</pre>
+        <h2 class="mb-3 mt-5">Skladanie a zlučovanie NumPy polí</h2>
+        <h4 class="mb-3 mt-5">Skladanie ndarray polí</h4>
+        <p>Nové pole môžeme vytvoriť kombináciou existujúcich polí. Môžeme to urobiť dvoma spôsobmi:</p>
+        <ul>
+          <li>Polia môžeme skombinovať vertikálne (t.j. pozdĺž riadkov) pomocou metódy <strong>vstack()</strong>, čím 
+            zvýšime počet riadkov vo výslednom poli
+          </li>
+          <li>Alebo môžeme polia skombinovať horizontálne (t.j. pozdĺž stĺpcov) pomocou metódy 
+            <strong>hstack()</strong>, čím zvýšime počet stĺpcov vo výslednom poli
+          </li>
+        </ul>
+        <pre>a = np.arange(0,5)
 b = np.arange(5,10)
 print('Array 1 :','\n',a)
 print('Array 2 :','\n',b)
 print('Vertical stacking :','\n',np.vstack((a,b)))
 print('Horizontal stacking :','\n',np.hstack((a,b)))</pre>
-          <pre>Array 1 : 
+        <pre>Array 1 : 
  [0 1 2 3 4]
 Array 2 : 
  [5 6 7 8 9]
 Vertical stacking : 
  [[0 1 2 3 4]
- [5 6 7 8 9]]
+  [5 6 7 8 9]]
 Horizontal stacking : 
  [0 1 2 3 4 5 6 7 8 9]</pre>
-          <p>Tu je potrebné poznamenať, že os, pozdĺž ktorej kombinujeme pole, by mala mať rovnakú veľkosť, inak by 
-          sme mohli dostať chybu!</p>
-          <pre>a = np.arange(0,5)
+        <p>Tu je potrebné poznamenať, že os, pozdĺž ktorej kombinujeme pole, by mala mať rovnakú veľkosť, inak by 
+          sme mohli dostať chybu!
+        </p>
+        <pre>a = np.arange(0,5)
 b = np.arange(5,9)
 print('Array 1 :','\n',a)
 print('Array 2 :','\n',b)
 print('Vertical stacking :','\n',np.vstack((a,b)))
 print('Horizontal stacking :','\n',np.hstack((a,b)))</pre>
-          <p><a href="{% static 'core/images/error_2.jpg' %}">
-            <img src="{% static 'core/images/error_2.jpg' %}" alt="Error" class="img-fluid">
-          </a></p>
-          <p>Ďalším zaujímavým spôsobom, ako skombinovať polia, je metóda <strong>dstack().</strong> Kombinuje prvky 
-          poľa index po indexe kde ich skladá pozdĺž hĺbkovej osi:</p>
-          <pre>a = [[1,2],[3,4]]
+        <p><a href="{% static 'core/images/error_2.jpg' %}">
+          <img src="{% static 'core/images/error_2.jpg' %}" alt="Error" class="img-fluid">
+          </a>
+        </p>
+        <p>Ďalším zaujímavým spôsobom, ako skombinovať polia, je metóda <strong>dstack().</strong> Kombinuje prvky 
+          poľa index po indexe kde ich skladá pozdĺž hĺbkovej osi:
+        </p>
+        <pre>a = [[1,2],[3,4]]
 b = [[5,6],[7,8]]
 c = np.dstack((a,b))
 print('Array 1 :','\n',a)
 print('Array 2 :','\n',b)
 print('Dstack :','\n',c)
 print(c.shape)</pre>
-          <pre>Array 1 : 
+        <pre>Array 1 : 
  [[1, 2], [3, 4]]
 Array 2 : 
  [[5, 6], [7, 8]]
@@ -589,187 +645,213 @@ Dstack :
  [[3 7]
   [4 8]]]
 (2, 2, 2)</pre>
-          <h4 class="mb-3 mt-5">Zlučovanie ndarray polí</h4>
-          <p>Zatiaľ čo skladanie polí je jedným zo spôsobov kombinácie pôvodných polí na získanie nových, 
+        <h4 class="mb-3 mt-5">Zlučovanie ndarray polí</h4>
+        <p>Zatiaľ čo skladanie polí je jedným zo spôsobov kombinácie pôvodných polí na získanie nových, 
           môžeme tiež použiť metódu <strong>concatenate()</strong>, kde sú zadané polia zlúčené pozdĺž existujúcej
-          osi:</p>
-          <pre>a = np.arange(0,5).reshape(1,5)
+          osi:
+        </p>
+        <pre>a = np.arange(0,5).reshape(1,5)
 b = np.arange(5,10).reshape(1,5)
 print('Array 1 :','\n',a)
 print('Array 2 :','\n',b)
 print('Concatenate along rows :','\n',np.concatenate((a,b),axis=0))
 print('Concatenate along columns :','\n',np.concatenate((a,b),axis=1))</pre>
-          <pre>Array 1 : 
+        <pre>Array 1 : 
  [[0 1 2 3 4]]
 Array 2 : 
  [[5 6 7 8 9]]
 Concatenate along rows : 
  [[0 1 2 3 4]
- [5 6 7 8 9]]
+  [5 6 7 8 9]]
 Concatenate along columns : 
  [[0 1 2 3 4 5 6 7 8 9]]</pre>
-          <p>Nevýhodou tejto metódy je, že pôvodné pole musí mať os, pozdĺž ktorej chceme kombinovať. V opačnom prípade 
-          sa pripravte na to, že vás privíta chyba.</p>
-          <p>Ďalšou veľmi užitočnou funkciou je metóda <strong>append</strong>, ktorá pridáva nové prvky na koniec 
+        <p>Nevýhodou tejto metódy je, že pôvodné pole musí mať os, pozdĺž ktorej chceme kombinovať. V opačnom prípade 
+          sa pripravte na to, že vás privíta chyba.
+        </p>
+        <p>Ďalšou veľmi užitočnou funkciou je metóda <strong>append</strong>, ktorá pridáva nové prvky na koniec 
           ndarray poľa. Metóda je užitočná v prípade, keď už máme existujúce ndarray pole, ale chceme k nemu pridať 
-          nové hodnoty.</p>
-          <pre># append values to ndarray
+          nové hodnoty.
+        </p>
+        <pre># append values to ndarray
 a = np.array([[1,2],
               [3,4]])
 np.append(a,[[5,6]], axis=0)</pre>
-          <pre>array([[1, 2],
+        <pre>array([[1, 2],
        [3, 4],
        [5, 6]])</pre>
-          <h2 class="mb-3 mt-5">Vysielanie v NumPy poliach</h2>
-          <p>Vysielanie je jednou z najlepších vlastností ndarray polí. Umožňuje nám vykonávať aritmetické operácie 
-          medzi ndarray poľami rôznych veľkostí alebo medzi ndarray poľom a jednoduchým číslom!</p>
-          <p>Vysielanie v podstate roztiahne menšie ndarray pole tak, aby zodpovedalo tvaru väčšieho ndarray poľa:</p>
-          <pre>a = np.arange(10,20,2)
+        <h2 class="mb-3 mt-5">Vysielanie v NumPy poliach</h2>
+        <p>Vysielanie je jednou z najlepších vlastností ndarray polí. Umožňuje nám vykonávať aritmetické operácie 
+          medzi ndarray poľami rôznych veľkostí alebo medzi ndarray poľom a jednoduchým číslom!
+        </p>
+        <p>Vysielanie v podstate roztiahne menšie ndarray pole tak, aby zodpovedalo tvaru väčšieho ndarray poľa:</p>
+        <pre>a = np.arange(10,20,2)
 b = np.array([[2],[2]])
 print('Adding two different size arrays :','\n',a+b)
 print('Multiplying an ndarray and a number :',a*2)</pre>
-          <pre>Adding two different size arrays : 
+        <pre>Adding two different size arrays : 
  [[12 14 16 18 20]
- [12 14 16 18 20]]
+  [12 14 16 18 20]]
 Multiplying an ndarray and a number : [20 24 28 32 36]</pre>
-          <p>Vysielanie možno považovať za rozťahovanie alebo vytváranie kópií skaláru, [2, 2, 2] tak, aby 
+        <p>Vysielanie možno považovať za rozťahovanie alebo vytváranie kópií skaláru, [2, 2, 2] tak, aby 
           zodpovedali tvaru ndarray poľa a následne vysielanie vykonáva operácie po jednotlivých prvkoch. Tieto 
-          kópie sa ale nevytvárajú. Je to len spôsob uvažovania o tom, ako vysielanie funguje.</p>
-          <p>Je to veľmi užitočné, pretože je efektívnejšie vynásobiť pole skalárnou hodnotou ako iným poľom! Ďalej je 
-          dôležité si uvedomiť, že dve polia môžu spoločne vysielať iba vtedy, ak sú kompatibilné.</p>
-          <p>Ndarray polia sú kompatibilné, keď:</p>
-          <ol>
-            <li>Obe majú rovnaké rozmery</li>
-            <li>Každé pole je jednorozmerné. Pole, ktoré je jednorozmerné je vysielané tak, aby vyhovovalo 
-            požadovanej veľkosti väčšieho ndarray poľa</li>
-          </ol>  
-          <p>V prípade, že polia nie sú kompatibilné, dostaneme ValueError.</p>
-          <pre>a = np.ones((3,3))
+          kópie sa ale nevytvárajú. Je to len spôsob uvažovania o tom, ako vysielanie funguje.
+        </p>
+        <p>Je to veľmi užitočné, pretože je efektívnejšie vynásobiť pole skalárnou hodnotou ako iným poľom! Ďalej je 
+          dôležité si uvedomiť, že dve polia môžu spoločne vysielať iba vtedy, ak sú kompatibilné.
+        </p>
+        <p>Ndarray polia sú kompatibilné, keď:</p>
+        <ol>
+          <li>Obe majú rovnaké rozmery</li>
+          <li>Každé pole je jednorozmerné. Pole, ktoré je jednorozmerné je vysielané tak, aby vyhovovalo 
+            požadovanej veľkosti väčšieho ndarray poľa
+          </li>
+        </ol>
+        <p>V prípade, že polia nie sú kompatibilné, dostaneme ValueError.</p>
+        <pre>a = np.ones((3,3))
 b = np.array([2])
 a+b</pre>
-          <pre>array([[3., 3., 3.],
+        <pre>array([[3., 3., 3.],
        [3., 3., 3.],
        [3., 3., 3.]])</pre>
-          <p>V tomto príklade bolo druhé ndarray pole hypoteticky roztiahnuté na tvar 3 x 3 a následne sa vypočítal 
-          výsledok.</p>
-          <h2 class="mb-3 mt-5">NumPy Ufuncs - Tajomstvo ich úspechu!</h2>
-          <p>Python je dynamicky písaný jazyk. To znamená, že dátový typ premennej nemusí byť známy v čase priradenia. 
+        <p>V tomto príklade bolo druhé ndarray pole hypoteticky roztiahnuté na tvar 3 x 3 a následne sa vypočítal 
+          výsledok.
+        </p>
+        <h2 class="mb-3 mt-5">NumPy Ufuncs - Tajomstvo ich úspechu!</h2>
+        <p>Python je dynamicky písaný jazyk. To znamená, že dátový typ premennej nemusí byť známy v čase priradenia. 
           Python to určí automaticky za behu. Aj keď to znamená čistejší a jednoduchší zápis kódu, taktiež to Python 
-          spomalý.</p>
-          <p>Tento problém sa prejavuje, keď musí Python robiť veľa operácií opakovane, napríklad sčítaním dvoch polí. 
+          spomalý.
+        </p>
+        <p>Tento problém sa prejavuje, keď musí Python robiť veľa operácií opakovane, napríklad sčítaním dvoch polí. 
           Je to tak preto, lebo zakaždým, keď je potrebné vykonať operáciu, musí Python skontrolovať dátový typ prvku. 
-          NumPy tento problém rieši pomocou funkcie <strong>ufuncs.</strong></p>
-          <p>NumPy robí túto prácu rýchlejšou pomocou <strong>vektorizácie.</strong> Vektorizácia vykonáva v ndarray 
+          NumPy tento problém rieši pomocou funkcie <strong>ufuncs.</strong>
+        </p>
+        <p>NumPy robí túto prácu rýchlejšou pomocou <strong>vektorizácie.</strong> Vektorizácia vykonáva v ndarray 
           poli rovnakú operáciu spôsobom prvok po prvku v kompilovanom kóde. Takže nie je potrebné zakaždým určovať 
-          dátové typy prvkov, čo činí operácie značne rýchlejšími.</p>
-          <p><strong>ufuncs</strong> teda <strong>Univerzálne funkcie</strong> v NumPy sú v jednoduchosti matematické
+          dátové typy prvkov, čo činí operácie značne rýchlejšími.
+        </p>
+        <p><strong>ufuncs</strong> teda <strong>Univerzálne funkcie</strong> v NumPy sú v jednoduchosti matematické
           funkcie. Plnia rýchle funkcie po prvkoch. Zavolajú sa automaticky, keď vykonávame jednoduché aritmetické 
-          operácie v NumPy poliach, pretože fungujú ako obaly pre NumPy ufuncs.</p>
-          <p>Napríklad keď sčítavame dve NumPy polia pomocou operátora „+“, za oponou sa automaticky zavolá funkcia 
-          NumPy ufunc add() a potichu činí svoje kúzlo:</p>
-          <pre>a = [1,2,3,4,5]
+          operácie v NumPy poliach, pretože fungujú ako obaly pre NumPy ufuncs.
+        </p>
+        <p>Napríklad keď sčítavame dve NumPy polia pomocou operátora „+“, za oponou sa automaticky zavolá funkcia 
+          NumPy ufunc add() a potichu činí svoje kúzlo:
+        </p>
+        <pre>a = [1,2,3,4,5]
 b = [6,7,8,9,10]
 %timeit a+b</pre>
-          <p>
-            <img src="{% static 'core/images/numpy_time_1.jpg' %}" alt="Error" class="img-fluid">
-          </p>
-          <pre>a = np.arange(1,6)
+        <p>
+          <img src="{% static 'core/images/numpy_time_1.jpg' %}" alt="Error" class="img-fluid">
+        </p>
+        <pre>a = np.arange(1,6)
 b = np.arange(6,11)
 %timeit a+b</pre>
-          <p>
-            <img src="{% static 'core/images/numpy_time_2.jpg' %}" alt="Error" class="img-fluid">
-          </p>
-          <p>Vyššie môžeme vidieť, ako sa sčítanie rovnakých dvoch polí uskutočnilo za podstatne kratší čas 
-          pomocou NumPy ufuncs!</p>
-          <h2 class="mb-3 mt-5">Matematické úkony s NumPy poliami</h2>
-          <p>Tu sú niektoré z najdôležitejších a najužitočnejších operácií, ktoré budeme potrebovať pri NumPy 
-          poliach .</p>
-          <h4 class="mb-3 mt-5">Základné aritmetické operácie s NumPy poliami</h4>
-          <p>Základné aritmetické operácie s NumPy poliami možno vykonať veľmi jednoducho. Je ale potrebné pamätať na to, 
-          že tieto jednoduché operačné aritmetické symboly slúžia iba ako obaly pre NumPy ufuncs.</p>
-          <pre>print('Subtract :',a-5)
+        <p>
+          <img src="{% static 'core/images/numpy_time_2.jpg' %}" alt="Error" class="img-fluid">
+        </p>
+        <p>Vyššie môžeme vidieť, ako sa sčítanie rovnakých dvoch polí uskutočnilo za podstatne kratší čas 
+          pomocou NumPy ufuncs!
+        </p>
+        <h2 class="mb-3 mt-5">Matematické úkony s NumPy poliami</h2>
+        <p>Tu sú niektoré z najdôležitejších a najužitočnejších operácií, ktoré budeme potrebovať pri NumPy 
+          poliach .
+        </p>
+        <h4 class="mb-3 mt-5">Základné aritmetické operácie s NumPy poliami</h4>
+        <p>Základné aritmetické operácie s NumPy poliami možno vykonať veľmi jednoducho. Je ale potrebné pamätať na to, 
+          že tieto jednoduché operačné aritmetické symboly slúžia iba ako obaly pre NumPy ufuncs.
+        </p>
+        <pre>print('Subtract :',a-5)
 print('Multiply :',a*5)
 print('Divide :',a/5)
 print('Power :',a**2)
 print('Remainder :',a%5)</pre>
-          <pre>Subtract : [-4 -3 -2 -1 0]
+        <pre>Subtract : [-4 -3 -2 -1 0]
 Multiply : [ 5 10 15 20 25]
 Divide : [0.2 0.4 0.6 0.8 1. ]
 Power : [ 1 4 9 16 25]
 Remainder : [1 2 3 4 0]</pre>
-          <h4 class="mb-3 mt-5">Priemerná, stredná a štandardná odchýlka</h4>
-          <p>Na vyhľadanie priemernej, štandardnej a strednej odchýlky NumPy poľa slúžia metódy <strong>mean()</strong>,
-          <strong>std()</strong> a <strong>median():</strong></p>
-          <pre>a = np.arange(5,15,2)
+        <h4 class="mb-3 mt-5">Priemerná, stredná a štandardná odchýlka</h4>
+        <p>Na vyhľadanie priemernej, štandardnej a strednej odchýlky NumPy poľa slúžia metódy <strong>mean()</strong>,
+          <strong>std()</strong> a <strong>median():</strong>
+        </p>
+        <pre>a = np.arange(5,15,2)
 print('Mean :',np.mean(a))
 print('Standard deviation :',np.std(a))
 print('Median :',np.median(a))</pre>
-          <pre>Mean : 9.0
+        <pre>Mean : 9.0
 Standard deviation : 2.8284271247461903
 Median : 9.0</pre>
-          <h4 class="mb-3 mt-5">Min-Max hodnoty a ich indexy</h4>
-          <p>Minimálne a maximálne hodnoty v ndarray poli možno ľahko nájsť pomocou metód <strong>min()</strong>
-          a <strong>max():</strong></p>
-          <pre>a = np.array([[1,6],
+        <h4 class="mb-3 mt-5">Min-Max hodnoty a ich indexy</h4>
+        <p>Minimálne a maximálne hodnoty v ndarray poli možno ľahko nájsť pomocou metód <strong>min()</strong>
+          a <strong>max():</strong>
+        </p>
+        <pre>a = np.array([[1,6],
               [4,3]])
 # minimum along a column
 print('Min :',np.min(a,axis=0))
 # maximum along a row
 print('Max :',np.max(a,axis=1))</pre>
-          <pre>Min : [1 3]
+        <pre>Min : [1 3]
 Max : [6 4]</pre>
-          <p>Taktiež môžeme ľahko určiť index minimálnej alebo maximálnej hodnoty v ndarray poli pozdĺž konkrétnej 
-          osi pomocou metód <strong>argmin()</strong> a <strong>argmax():</strong></p>
-          <pre>a = np.array([[1,6,5],
+        <p>Taktiež môžeme ľahko určiť index minimálnej alebo maximálnej hodnoty v ndarray poli pozdĺž konkrétnej 
+          osi pomocou metód <strong>argmin()</strong> a <strong>argmax():</strong>
+        </p>
+        <pre>a = np.array([[1,6,5],
               [4,3,7]])
 # minimum along a column
 print('Min :',np.argmin(a,axis=0))
 # maximum along a row
 print('Max :',np.argmax(a,axis=1))</pre>
-          <pre>Min : [0 1 0]
+        <pre>Min : [0 1 0]
 Max : [1 2]</pre>
-          <p>Dovoľte mi, aby som vám vysvetlil daný výstup. Minimálna hodnota pre prvý stĺpec je prvý prvok v stĺpci. 
-          Pre druhý stĺpec je to druhý prvok. A pre tretí stĺpec je to prvý prvok.</p>
-          <p>Podobne môžeme určiť, čo indikuje výstup pre maximálne hodnoty.</p>
-          <h2 class="mb-3 mt-5">Triedenie v NumPy poliach</h2>
-          <p>Pre každého programátora je prvoradá časová komplexnosť každého algoritmu. Triedenie je základná a veľmi 
+        <p>Dovoľte mi, aby som vám vysvetlil daný výstup. Minimálna hodnota pre prvý stĺpec je prvý prvok v stĺpci. 
+          Pre druhý stĺpec je to druhý prvok. A pre tretí stĺpec je to prvý prvok.
+        </p>
+        <p>Podobne môžeme určiť, čo indikuje výstup pre maximálne hodnoty.</p>
+        <h2 class="mb-3 mt-5">Triedenie v NumPy poliach</h2>
+        <p>Pre každého programátora je prvoradá časová komplexnosť každého algoritmu. Triedenie je základná a veľmi 
           dôležitá operácia, ktorá sa využíva na dennej báze. Je preto dôležité používať správny triediaci 
-          algoritmus s minimálnou časovou komplexnosťou.</p>
-          <p>Knižnica NumPy je legendou, pokiaľ ide o triedenie prvkov poľa. Obsahuje sortiment triediacich funkcií, 
+          algoritmus s minimálnou časovou komplexnosťou.
+        </p>
+        <p>Knižnica NumPy je legendou, pokiaľ ide o triedenie prvkov poľa. Obsahuje sortiment triediacich funkcií, 
           ktoré môžeme použiť na triedenie prvkov poľa. Knižnica má implementovaný quicksort, heapsort, mergesort 
-          a timesort pri použití metódy <strong>sort():</strong></p>
-          <pre>a = np.array([1,4,2,5,3,6,8,7,9])
+          a timesort pri použití metódy <strong>sort():</strong>
+        </p>
+        <pre>a = np.array([1,4,2,5,3,6,8,7,9])
 np.sort(a, kind='quicksort')</pre>
-          <pre>array([1, 2, 3, 4, 5, 6, 7, 8, 9])</pre>
-          <p>Môžeme dokonca zoradiť pole podľa ľubovoľnej osi:</p>
-          <pre>
+        <pre>array([1, 2, 3, 4, 5, 6, 7, 8, 9])</pre>
+        <p>Môžeme dokonca zoradiť pole podľa ľubovoľnej osi:</p>
+        <pre>
 a = np.array([[5,6,7,4],
               [9,2,3,7]])# sort along the column
 print('Sort along column :','\n',np.sort(a, kind='mergresort',axis=1))
 # sort along the row
 print('Sort along row :','\n',np.sort(a, kind='mergresort',axis=0))
 </pre>
-          <pre>Sort along column : 
+        <pre>Sort along column : 
  [[4 5 6 7]
- [2 3 7 9]]
+  [2 3 7 9]]
 Sort along row : 
  [[5 2 3 4]
- [9 6 7 7]]
+  [9 6 7 7]]
 </pre>
-          <h2 class="mb-3 mt-5">NumPy polia a obrázky</h2>
-          <p>NumPy polia nachádzajú široké využitie pri ukladaní a manipulácii s obrazovými dátami. Čo sú však 
-          obrazové dáta v skutočnosti?</p>
-          <p>Obrázky sú tvorené pixelmi, ktoré sú uložené vo forme poľa. Každý pixel má hodnotu v rozmedzí od 0 do 255
+        <h2 class="mb-3 mt-5">NumPy polia a obrázky</h2>
+        <p>NumPy polia nachádzajú široké využitie pri ukladaní a manipulácii s obrazovými dátami. Čo sú však 
+          obrazové dáta v skutočnosti?
+        </p>
+        <p>Obrázky sú tvorené pixelmi, ktoré sú uložené vo forme poľa. Každý pixel má hodnotu v rozmedzí od 0 do 255
           - 0, označuje čierny pixel, a 255, označuje biely pixel. Farebný obrázok sa skladá z troch 2-D polí, 
           jedno pole pre každý z farebných kanálov: červeného, zeleného a modrého, čím sa vytvára 3-D pole. Každá 
-          hodnota v poli predstavuje hodnotu pixelu. Veľkosť poľa teda závisí od počtu pixelov pozdĺž každej dimenzie.</p>
-          <p>Pozrime sa na obrázok nižšie:</p>
-          <p><a href="{% static 'core/images/turtle.jpg' %}">
-            <img src="{% static 'core/images/turtle.jpg' %}" alt="Turtle" class="img-fluid">
-          </a></p>
-          <p>Python dokáže načítať obrázok ako pole pomocou metódy <strong>cv2.imread()</strong> z knižnice 
-          cv2. Následne vo výstupe dostaneme jednoducho 3-D pole obsahujúce hodnoty pixelov:</p>
-          <pre>import numpy as np
+          hodnota v poli predstavuje hodnotu pixelu. Veľkosť poľa teda závisí od počtu pixelov pozdĺž každej dimenzie.
+        </p>
+        <p>Pozrime sa na obrázok nižšie:</p>
+        <p><a href="{% static 'core/images/turtle.jpg' %}">
+          <img src="{% static 'core/images/turtle.jpg' %}" alt="Turtle" class="img-fluid">
+          </a>
+        </p>
+        <p>Python dokáže načítať obrázok ako pole pomocou metódy <strong>cv2.imread()</strong> z knižnice 
+          cv2. Následne vo výstupe dostaneme jednoducho 3-D pole obsahujúce hodnoty pixelov:
+        </p>
+        <pre>import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 
@@ -777,7 +859,7 @@ import cv2
 im = cv2.imread('./turtle.jpg')
 # image
 im</pre>
-          <pre>array([[[127, 132,   9],
+        <pre>array([[[127, 132,   9],
         [130, 135,  12],
         [127, 132,   9],
         ...,
@@ -826,24 +908,27 @@ im</pre>
         [161, 143,   2],
         [160, 142,   1],
         [158, 140,   0]]], dtype=uint8)</pre>
-          <p>Môžeme skontrolovať tvar a typ tohto NumPy poľa:</p>
-          <pre>print(im.shape)
+        <p>Môžeme skontrolovať tvar a typ tohto NumPy poľa:</p>
+        <pre>print(im.shape)
 type(im)</pre>
-          <pre>(1440, 1920, 3)
+        <pre>(1440, 1920, 3)
 numpy.ndarray</pre>
-          <p>Teraz, keď je obrázok iba pole, môžeme s ním ľahko manipulovať pomocou funkcie poľa, ktorú už poznáme 
-          z nášho článku. Obrázok vodorovne prevrátime pomocou metódy <strong>np.flip():</strong></p>
-          <p style="font-style: italic;">Poznámka: cv2 načítava farby obrázkov opačne ako matplotlib a to napravíme príkazom nižšie.</p>
-          <pre>im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+        <p>Teraz, keď je obrázok iba pole, môžeme s ním ľahko manipulovať pomocou funkcie poľa, ktorú už poznáme 
+          z nášho článku. Obrázok vodorovne prevrátime pomocou metódy <strong>np.flip():</strong>
+        </p>
+        <p style="font-style: italic;">Poznámka: cv2 načítava farby obrázkov opačne ako matplotlib a to napravíme príkazom nižšie.</p>
+        <pre>im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
 # flip
 plt.imshow(np.flip(im, axis=1))</pre>
-          <p><a href="{% static 'core/images/flipped_turtle.jpg' %}">
-            <img src="{% static 'core/images/flipped_turtle.jpg' %}" alt="Flipped_Turtle" class="img-fluid">
-          </a></p>
-          <p>Alebo môžeme normalizovať alebo zmeniť rozsah hodnôt pixelov. V niektorých prípadoch je to užitočné 
-          pre rýchlejšie výpočty.</p>
-          <pre>im/255</pre>
-          <pre>array([[[0.03529412, 0.51764706, 0.49803922],
+        <p><a href="{% static 'core/images/flipped_turtle.jpg' %}">
+          <img src="{% static 'core/images/flipped_turtle.jpg' %}" alt="Flipped_Turtle" class="img-fluid">
+          </a>
+        </p>
+        <p>Alebo môžeme normalizovať alebo zmeniť rozsah hodnôt pixelov. V niektorých prípadoch je to užitočné 
+          pre rýchlejšie výpočty.
+        </p>
+        <pre>im/255</pre>
+        <pre>array([[[0.03529412, 0.51764706, 0.49803922],
         [0.04705882, 0.52941176, 0.50980392],
         [0.03529412, 0.51764706, 0.49803922],
         ...,
@@ -892,177 +977,173 @@ plt.imshow(np.flip(im, axis=1))</pre>
         [0.00784314, 0.56078431, 0.63137255],
         [0.00392157, 0.55686275, 0.62745098],
         [0.        , 0.54901961, 0.61960784]]])</pre>
-          <p>Pamätajte, aj tu sa používa rovnaký koncept funkcií ufuncs a vysielania, ako sme sa naučili v 
-          našom článku!</p>
-          <h2 class="mb-3 mt-5">Záver</h2>
-          <p>Tak a máme to za sebou. Pokryli sme značnú časť možností ako pracovať s knižnicou NumPy a ja už len
-          dúfam, že vám bude tento článok nápomocný na ceste k úspešnej kariére dátového vedca alebo analytika.</p>
-          <p>Ak sa chcete dozvedieť viac o akejkoľvek NumPy funkcii, pozrite si ich 
+        <p>Pamätajte, aj tu sa používa rovnaký koncept funkcií ufuncs a vysielania, ako sme sa naučili v 
+          našom článku!
+        </p>
+        <h2 class="mb-3 mt-5">Záver</h2>
+        <p>Tak a máme to za sebou. Pokryli sme značnú časť možností ako pracovať s knižnicou NumPy a ja už len
+          dúfam, že vám bude tento článok nápomocný na ceste k úspešnej kariére dátového vedca alebo analytika.
+        </p>
+        <p>Ak sa chcete dozvedieť viac o akejkoľvek NumPy funkcii, pozrite si ich 
           <a href="https://numpy.org/doc/" target="_blank">oficiálnu dokumentáciu</a>, kde nájdete podrobný popis 
-          všetkých funkcií.</p>
-          
-            <div class="tag-widget post-tag-container mb-5 mt-5">
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">python</a>
-                <a href="#" class="tag-cloud-link">numpy</a>
-                <a href="#" class="tag-cloud-link">ndarray</a>
-                <a href="#" class="tag-cloud-link">flexible</a>
+          všetkých funkcií.
+        </p>
+        <div class="tag-widget post-tag-container mb-5 mt-5">
+          <div class="tagcloud">
+            <a href="#" class="tag-cloud-link">python</a>
+            <a href="#" class="tag-cloud-link">numpy</a>
+            <a href="#" class="tag-cloud-link">ndarray</a>
+            <a href="#" class="tag-cloud-link">flexible</a>
+          </div>
+        </div>
+        <div class="about-author d-flex p-4 bg-light">
+          <div class="bio mr-5">
+            <img src="{% static 'core/images/person_1.jpg' %}" alt="Image placeholder" class="img-fluid mb-4">
+          </div>
+          <div class="desc">
+            <h3>Ivan Čiap</h3>
+            <p id="c_action">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+          </div>
+        </div>
+        <div class="pt-5 mt-5">
+          <h3 class="mb-5">{{ c_no_2 }} Comments</h3>
+          <div class="comment-list">
+            {% for comment in comments %}
+            <li class="comment">
+              <div class="vcard bio">
+                <img src="{{ comment.avatar.url }}" alt="Avatar">
               </div>
+              <div class="comment-body">
+                <h3>{{ comment.name }}</h3>
+                <div class="meta">{{ comment.created|date:"F d, Y \o H:i" }}</div>
+                <p class="">{{ comment.message }}</p>
+                <p><a href="#" class="reply">Reply</a></p>
+              </div>
+              {% endfor %}
+            </li>
+            <div class="ml-md-10"> 
+              {% if comments.has_previous %}
+              <a class="btn btn-outline-info mb-4" href="?page=1#c_action">&lt;&lt;</a>
+              <a class="btn btn-outline-info mb-4" href="?page={{ comments.previous_page_number }}#c_action">&lt;</a>
+              {% endif %}
+              {% for num in comments.paginator.page_range %}
+              {% if comments.has_other_pages %}
+              {% if num == comments.number %}
+              <a class="btn btn-info mb-4" href="?page={{ num }}#c_action">{{ num }}</a>
+              {% elif num > comments.number|add:'-3' and num < comments.number|add:'3' %}
+              <a class="btn btn-outline-info mb-4" href="?page={{ num }}#c_action">{{ num }}</a>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+              {% if comments.has_next %}
+              <a class="btn btn-outline-info mb-4" href="?page={{ comments.next_page_number }}#c_action">&gt;</a>
+              <a class="btn btn-outline-info mb-4" href="?page={{ comments.paginator.num_pages }}#c_action">&gt;&gt;</a>
+              {% endif %}
             </div>
-            
-            <div class="about-author d-flex p-4 bg-light">
-              <div class="bio mr-5">
-                <img src="{% static 'core/images/person_1.jpg' %}" alt="Image placeholder" class="img-fluid mb-4">
+          </div>
+          <!-- END comment-list -->
+          <div class="comment-form-wrap pt-5">
+            <!--{% if messages %}
+              {% for message in messages %}
+              	<div class="alert alert-info" role="alert">{{ message }}</div>
+              {% endfor %}
+              {% endif %}-->
+            <h3 class="mb-5">Napíšte komentár</h3>
+            <form action="{% url 'blog:co_je_kniznica_numpy' %}#c_action" method="POST" class="p-5 bg-light">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="name">Meno *</label>
+                {{ c_form.name }}
               </div>
-              <div class="desc">
-                <h3>Ivan Čiap</h3>
-                <p id="c_action">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                {{ c_form.email }}
               </div>
-            </div>
-
-            <div class="pt-5 mt-5">
-              <h3 class="mb-5">{{ c_no_2 }} Comments</h3>
-                <div class="comment-list">
-                  {% for comment in comments %}
-                  <li class="comment">
-                    <div class="vcard bio">
-                      <img src="{{ comment.avatar.url }}" alt="Avatar">
-                    </div>
-                    <div class="comment-body">
-                      <h3>{{ comment.name }}</h3>
-                      <div class="meta">{{ comment.created|date:"F d, Y \o H:i" }}</div>
-                      <p class="">{{ comment.message }}</p>
-                      <p><a href="#" class="reply">Reply</a></p>
-                    </div>
-                  {% endfor %}
-                  </li>
-                  <div class="ml-md-10"> 
-                    {% if comments.has_previous %}
-                      <a class="btn btn-outline-info mb-4" href="?page=1#c_action">&lt;&lt;</a>
-                      <a class="btn btn-outline-info mb-4" href="?page={{ comments.previous_page_number }}#c_action">&lt;</a>
-                    {% endif %}
-                    {% for num in comments.paginator.page_range %}
-                      {% if comments.has_other_pages %}
-                        {% if num == comments.number %}
-                          <a class="btn btn-info mb-4" href="?page={{ num }}#c_action">{{ num }}</a>
-                        {% elif num > comments.number|add:'-3' and num < comments.number|add:'3' %}
-                          <a class="btn btn-outline-info mb-4" href="?page={{ num }}#c_action">{{ num }}</a>
-                        {% endif %}
-                      {% endif %}
-                    {% endfor %}
-                    {% if comments.has_next %}
-                      <a class="btn btn-outline-info mb-4" href="?page={{ comments.next_page_number }}#c_action">&gt;</a>
-                      <a class="btn btn-outline-info mb-4" href="?page={{ comments.paginator.num_pages }}#c_action">&gt;&gt;</a>
-                    {% endif %}
-                  </div>
-                </div>
-
-              <!-- END comment-list -->
-              
-              <div class="comment-form-wrap pt-5">
-                <!--{% if messages %}
-									{% for message in messages %}
-										<div class="alert alert-info" role="alert">{{ message }}</div>
-									{% endfor %}
-								{% endif %}-->
-                <h3 class="mb-5">Napíšte komentár</h3>
-                <form action="{% url 'blog:co_je_kniznica_numpy' %}#c_action" method="POST" class="p-5 bg-light">
-                  {% csrf_token %}
-                  <div class="form-group">
-                    <label for="name">Meno *</label>
-                    {{ c_form.name }}
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email *</label>
-                    {{ c_form.email }}
-                  </div>
-                  <div class="form-group">
-                    <label for="website">Website</label>
-                    {{ c_form.website }}
-                  </div>
-                  <div class="form-group">
-                    <label for="message">Správa *</label>
-                    {{ c_form.message }}
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" value="Odoslať Komentár" class="btn py-3 px-4 btn-primary">
-                  </div>
-                </form>
+              <div class="form-group">
+                <label for="website">Website</label>
+                {{ c_form.website }}
               </div>
-            </div>
-          </div> <!-- .col-md-8 -->
-
-          <div class="col-lg-4 sidebar pl-lg-5 ic-animate">
-            <div class="sidebar-box ic-animate">
-              <div class="categories">
-                <h3>Služby</h3>
-                <li><a href="{% url 'sluzby' %}">Django Web/App Development <span class="fa fa-chevron-right"></span></a></li>
-                <li><a href="{% url 'sluzby' %}">Python Dátová Analýza <span class="fa fa-chevron-right"></span></a></li>
-                <li><a href="{% url 'sluzby' %}">Depression Treatment <span class="fa fa-chevron-right"></span></a></li>
-                <li><a href="{% url 'sluzby' %}">Family Problem <span class="fa fa-chevron-right"></span></a></li>
+              <div class="form-group">
+                <label for="message">Správa *</label>
+                {{ c_form.message }}
               </div>
-            </div>
-
-            <div class="sidebar-box ic-animate">
-              <h3>Najnovší Blog</h3>
-              <div class="block-21 mb-4 d-flex">
-                <a href="{% url 'blog:co_je_datova_analyza' %}" class="blog-img mr-4" style="background-image: url({% static 'core/images/blog_1.png' %});"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="{% url 'blog:co_je_datova_analyza' %}">Čo je dátová analýza?</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
-                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
-                    <div><a href="#"><span class="fa fa-comment"></span> {{ k_no_1 }}</a></div>
-                  </div>
-                </div>
+              <div class="form-group">
+                <input type="submit" value="Odoslať Komentár" class="btn py-3 px-4 btn-primary">
               </div>
-              <div class="block-21 mb-4 d-flex">
-                <a href="{% url 'blog:co_je_kniznica_numpy' %}" class="blog-img mr-4" style="background-image: url({% static 'core/images/blog_2.png' %});"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="{% url 'blog:co_je_kniznica_numpy' %}">Čo je knižnica Numpy?</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
-                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
-                    <div><a href="#"><span class="fa fa-comment"></span> {{ k_no_2 }}</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="block-21 mb-4 d-flex">
-                <a href="{% url 'blog:co_je_kniznica_pandas' %}" class="blog-img mr-4" style="background-image: url({% static 'core/images/blog_3.png' %});"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="{% url 'blog:co_je_kniznica_pandas' %}">Čo je knižnica Pandas?</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
-                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
-                    <div><a href="#"><span class="fa fa-comment"></span> {{ k_no_3 }}</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="sidebar-box ic-animate">
-              <h3>Tag Cloud</h3>
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">python</a>
-                <a href="#" class="tag-cloud-link">data-analysis</a>
-                <a href="#" class="tag-cloud-link">data-science</a>
-                <a href="#" class="tag-cloud-link">numpy</a>
-                <a href="#" class="tag-cloud-link">pandas</a>
-                <a href="#" class="tag-cloud-link">data-visualization</a>
-                <a href="#" class="tag-cloud-link">jupyter-notebook</a>
-                <a href="#" class="tag-cloud-link">flexible</a>
-              </div>
-            </div>
-
-            <div class="sidebar-box ic-animate">
-              <h3>Paragraph</h3>
-              <p>Predchodcu NumPy, Numeric, vytvoril pôvodne Jim Hugunin s prispením niekoľkých ďalších 
-              vývojárov. NumPy vytvoril v roku 2005 Travis Oliphant začlenením funkcií konkurenčného Numarray 
-              do Numeric s rozsiahlymi úpravami. NumPy je open-source softvér a má veľa prispievateľov.</p>
-            </div>
+            </form>
           </div>
         </div>
       </div>
-    </section> <!-- .section -->
+      <!-- .col-md-8 -->
+      <div class="col-lg-4 sidebar pl-lg-5 ic-animate">
+        <div class="sidebar-box ic-animate">
+          <div class="categories">
+            <h3>Služby</h3>
+            <li><a href="{% url 'sluzby' %}">Django Web/App Development <span class="fa fa-chevron-right"></span></a></li>
+            <li><a href="{% url 'sluzby' %}">Python Dátová Analýza <span class="fa fa-chevron-right"></span></a></li>
+            <li><a href="{% url 'sluzby' %}">Depression Treatment <span class="fa fa-chevron-right"></span></a></li>
+            <li><a href="{% url 'sluzby' %}">Family Problem <span class="fa fa-chevron-right"></span></a></li>
+          </div>
+        </div>
+        <div class="sidebar-box ic-animate">
+          <h3>Najnovší Blog</h3>
+          <div class="block-21 mb-4 d-flex">
+            <a href="{% url 'blog:co_je_datova_analyza' %}" class="blog-img mr-4" style="background-image: url({% static 'core/images/blog_1.png' %});"></a>
+            <div class="text">
+              <h3 class="heading"><a href="{% url 'blog:co_je_datova_analyza' %}">Čo je dátová analýza?</a></h3>
+              <div class="meta">
+                <div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
+                <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
+                <div><a href="#"><span class="fa fa-comment"></span> {{ k_no_1 }}</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="block-21 mb-4 d-flex">
+            <a href="{% url 'blog:co_je_kniznica_numpy' %}" class="blog-img mr-4" style="background-image: url({% static 'core/images/blog_2.png' %});"></a>
+            <div class="text">
+              <h3 class="heading"><a href="{% url 'blog:co_je_kniznica_numpy' %}">Čo je knižnica Numpy?</a></h3>
+              <div class="meta">
+                <div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
+                <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
+                <div><a href="#"><span class="fa fa-comment"></span> {{ k_no_2 }}</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="block-21 mb-4 d-flex">
+            <a href="{% url 'blog:co_je_kniznica_pandas' %}" class="blog-img mr-4" style="background-image: url({% static 'core/images/blog_3.png' %});"></a>
+            <div class="text">
+              <h3 class="heading"><a href="{% url 'blog:co_je_kniznica_pandas' %}">Čo je knižnica Pandas?</a></h3>
+              <div class="meta">
+                <div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
+                <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
+                <div><a href="#"><span class="fa fa-comment"></span> {{ k_no_3 }}</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-box ic-animate">
+          <h3>Tag Cloud</h3>
+          <div class="tagcloud">
+            <a href="#" class="tag-cloud-link">python</a>
+            <a href="#" class="tag-cloud-link">data-analysis</a>
+            <a href="#" class="tag-cloud-link">data-science</a>
+            <a href="#" class="tag-cloud-link">numpy</a>
+            <a href="#" class="tag-cloud-link">pandas</a>
+            <a href="#" class="tag-cloud-link">data-visualization</a>
+            <a href="#" class="tag-cloud-link">jupyter-notebook</a>
+            <a href="#" class="tag-cloud-link">flexible</a>
+          </div>
+        </div>
+        <div class="sidebar-box ic-animate">
+          <h3>Paragraph</h3>
+          <p>Predchodcu NumPy, Numeric, vytvoril pôvodne Jim Hugunin s prispením niekoľkých ďalších 
+            vývojárov. NumPy vytvoril v roku 2005 Travis Oliphant začlenením funkcií konkurenčného Numarray 
+            do Numeric s rozsiahlymi úpravami. NumPy je open-source softvér a má veľa prispievateľov.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- .section -->
 {% endblock content %}
-    

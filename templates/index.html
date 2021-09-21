@@ -1,551 +1,552 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}  
-    <div class="hero-wrap filtered" style="background-image: url({% static 'core/images/bg_1.jpg' %}); max-width:1700px; " data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-				<div class="pt-4">
-					<img src="{% static 'core/images/index-python.png' %}" width='200'>
-				</div>
-        <div class="row no-gutters slider-text align-items-center">
-          <div class="col-md-6 ic-animate d-flex align-items-end">
-          	<div class="text w-100">
-	          	<h1 class="mb-4">Python Web Development and Data Analysis</h1>
-	          	<p class="mb-4">Sortiment služieb vo vysokoúrovňovom, dynamickom programovacom jazyku Python.</p>
-	          	<p><a href="{% url 'kontakt' %}#mapa" class="btn btn-primary py-3 px-4 lol">Kontakt</a> <a id="index-more" class="btn btn-white py-3 px-4">Zistiť viac</a></p>
-          	</div>
-					</div>	
-        </div>
-    	</div>
+{% block content %}
+<div class="hero-wrap filtered" style="background-image: url({% static 'core/images/bg_1.jpg' %}); max-width:1700px; " data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="pt-4">
+      <img src="{% static 'core/images/index-python.png' %}" width='200'>
     </div>
-
-
-    <section class="ic-intro">
-    	<div class="container">
-    		<div class="row no-gutters">
-    			<div class="col-md-4 d-flex">
-    				<div class="intro aside-stretch d-lg-flex w-100">
-    					<div class="icon">
-    						<span class="flaticon-checklist"></span>
-    					</div>
-    					<div class="text">
-    						<h2>100% Dôveryhodnosť</h2>
-    						<p></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4 d-flex">
-    				<div class="intro color-1 d-lg-flex w-100">
-    					<div class="icon">
-    						<span class="flaticon-employee"></span>
-    					</div>
-    					<div class="text">
-    						<h2>Spoľahlivosť</h2>
-    						<p></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4 d-flex">
-    				<div class="intro color-2 d-lg-flex w-100">
-    					<div class="icon">
-    						<span class="flaticon-umbrella"></span>
-    					</div>
-    					<div class="text">
-    						<h2>Individuálny Prístup</h2>
-    						<p></p>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-		<section class="ic-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-7 heading-section text-center ic-animate">
-          	<span class="subheading">Služby</span>
-            <h2>Ako to funguje</h2>
-          </div>
+    <div class="row no-gutters slider-text align-items-center">
+      <div class="col-md-6 ic-animate d-flex align-items-end">
+        <div class="text w-100">
+          <h1 class="mb-4">Python Web Development and Data Analysis</h1>
+          <p class="mb-4">Sortiment služieb vo vysokoúrovňovom, dynamickom programovacom jazyku Python.</p>
+          <p><a href="{% url 'kontakt' %}#mapa" class="btn btn-primary py-3 px-4 lol">Kontakt</a> <a id="index-more" class="btn btn-white py-3 px-4">Zistiť viac</a></p>
         </div>
-    		<div class="row">
-    			<div class="col-md-4 d-flex align-items-stretch ic-animate">
-    				<div class="services-2 text-center">
-    					<div class="icon-wrap">
-    						<div class="number d-flex align-items-center justify-content-center"><span>01</span></div>
-	    					<div class="icon d-flex align-items-center justify-content-center">
-	    						<span class="flaticon-calendar"></span>
-	    					</div>
-    					</div>
-    					<h2>Vytvoríme plán</h2>
-    					<p>V závislosti na vami požadovanej službe vytvoríme plán podľa vašich kritérií a požiadaviek.</p>
-    				</div>
-    			</div>
-    			<div class="col-md-4 d-flex align-items-stretch ic-animate">
-    				<div class="services-2 text-center">
-    					<div class="icon-wrap">
-    						<div class="number d-flex align-items-center justify-content-center"><span>02</span></div>
-	    					<div class="icon d-flex align-items-center justify-content-center">
-	    						<span class="flaticon-qa"></span>
-	    					</div>
-    					</div>
-    					<h2>Zahájime diskusiu</h2>
-  						<p>Počas práce na vami vybranej službe budeme neustále v kontakte a v rámci diskusie sa zameriame na detaily projektu.</p>
-    				</div>
-    			</div>
-    			<div class="col-md-4 d-flex align-items-stretch ic-animate">
-    				<div class="services-2 text-center">
-    					<div class="icon-wrap">
-    						<div class="number d-flex align-items-center justify-content-center"><span>03</span></div>
-	    					<div class="icon d-flex align-items-center justify-content-center">
-	    						<span class="flaticon-checklist"></span>
-	    					</div>
-    					</div>
-    					<h2>Naplníme plán</h2>
-  						<p>Zameriame sa postupne na všetky body vašich požiadaviek poďľa vytvoreného plánu projektu až po jeho naplnenie.</p>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-    <section class="ic-section ic-no-pb ic-no-pt">
-			<div class="container">
-				<div class="row ic-sample">
-					<div class="col-md-6 img img-3 d-flex justify-content-center align-items-center" style="background-image: url({% static 'core/images/profile.jpg' %});">
-					</div>
-					<div class="col-md-6 wrap-about px-md-5 ic-animate py-5 bg-light">
-	          <div class="heading-section py-md-5">
-	          	<span class="subheading">WHOAMI</span>
-	            <h2 class="mb-3">Ivan Čiap</h2>
-							<p class="mb-2 contact-info"><em>Jednateľ, Developer, Programátor</em></p>
-							<p class="mb-2 contact-info"><em>+421 910 771 226</em></p>
-							<p class="mb-4 contact-info"><em>ciapivan@gmail.com</em></p>
-
-	            <p>Som tvorcom a majiteľom tejto webovej stránky. Posledných niekoľko rokov sa venujem vývoju, 
-							programovaniu a dátovej analýze prevažne v programovacom jazyku Python. V rámci vývoja webových stránok a aplikácií 
-							používam high level Python framework Django. Vytvoril som aj niekoľko malých aplikácii v microframeworku Flask. Na 
-							dátovú analýzu používam vysoko flexibilné knižnice ako napríklad Numpy, Pandas, či Matplotlib 
-							alebo Seaborn na vizualizáciu analýzy. Nezaostávam ani vo Front-end dizajne webových stránok a aplikácií.</p>
-	            <p>V týchto dňoch sa snažím ďalej rozširovať oblasť vzdelávania v IT sektore a hľadám nové užitočné nástroje, ktoré by 
-							mi mohli uľahčiť moju prácu a samozrejme rád vyhľadávam osoby a tímy ľudí s ktorými by sme spojili sily a podieľali sa na 
-							zaujímavých projektoch.</p>
-
-	          </div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="ic-section">
-			<div class="container">
-				<div class="row justify-content-center mb-5">
-          <div class="col-md-8 text-center heading-section ic-animate">
-          	<span class="subheading">Služby</span>
-            <h2 class="mb-3">Pomôcť vám môžem s nasledujúcimi službami</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="ic-intro">
+  <div class="container">
+    <div class="row no-gutters">
+      <div class="col-md-4 d-flex">
+        <div class="intro aside-stretch d-lg-flex w-100">
+          <div class="icon">
+            <span class="flaticon-checklist"></span>
           </div>
-        </div>
-				<div class="row tabulation mt-4 ic-animate">
-  				<div class="col-md-4">
-						<ul class="nav nav-pills nav-fill d-md-flex d-block flex-column">
-						  <li class="nav-item text-left">
-						    <a class="nav-link active py-4" data-toggle="tab" href="#services-1">Django Web/App Development</a>
-						  </li>
-						  <li class="nav-item text-left">
-						    <a class="nav-link py-4" data-toggle="tab" href="#services-2">Flask Web/App Development</a>
-						  </li>
-						  <li class="nav-item text-left">
-						    <a class="nav-link py-4" data-toggle="tab" href="#services-3">Python Dátová Analýza</a>
-						  </li>
-						  <li class="nav-item text-left">
-						    <a class="nav-link py-4" data-toggle="tab" href="#services-4">Frontend Development</a>
-						  </li>
-							<li class="nav-item text-left">
-						    <a class="nav-link py-4" data-toggle="tab" href="#services-5">Web Scraping / Crawling</a>
-						  </li>
-							<li class="nav-item text-left">
-						    <a class="nav-link py-4" data-toggle="tab" href="#services-6">Python Basic Scripting</a>
-						  </li>
-						</ul>
-					</div>
-					<div class="col-md-8">
-						<div class="tab-content">
-						  <div class="tab-pane container p-0 active" id="services-1">
-						  	<div class="img" style="background-image: url({% static 'core/images/index-services-django.png' %});"></div>
-						  	<h3><a href="#">Django Web/App Development</a></h3>
-						  	<p>Vývoj webových stránok alebo aplikácii vo frameworku Django. Django je high-level Python webový 
-								framework, ktorý podporuje rýchly vývoj a čistý, pragmatický dizajn. Dominuje predovšetkým svojou 
-								jednoduchosťou, flexibilitou, spoľahlivosťou a širokou škálou rozšíriteľnosti od MVP produktov
-								až po škálovateľné podnikové produkty.</p>
-						  </div>
-							<div class="tab-pane container p-0 fade" id="services-2">
-						  	<div class="img" style="background-image: url({% static 'core/images/index-services-flask.png' %});"></div>
-						  	<h3><a href="#">Flask Web/App Development</a></h3>
-						  	<p>Vývoj webových aplikácii vo frameworku Flask. Flask je mikro webový framework napísaný v programovacom jazyku 
-								Python. Flask závisí od template enginu Jinja a sady nástrojov Werkzeug WSGI. Prednostné vlastnosti frameworku 
-								Flask: lightweight, open source a ponúka za pomoci minima kódu vývoj skvelých aplikácií.</p>
-						  </div>
-						  <div class="tab-pane container p-0 fade" id="services-3">
-						  	<div class="img" style="background-image: url({% static 'core/images/index-services-data-analysis.png' %});"></div>
-						  	<h3><a href="#">Python Dátová Analýza</a></h3>
-						  	<p>Dátová Analýza v jazyku Python za použitia flexibilných knižníc ako NumPy, Pandas, Matplotlib, či 
-								Seaborn. Efektívne spracovanie dátových setov formou získania, čistenia, párovania a kombinovania dát. 
-								Bez dát to v dnešnej dobe nejde a preto stále viac spoločností sleduje, analyzuje a využíva náhľady, ktoré 
-								ich vedú k lepším rozhodnutiam.</p>
-						  </div>
-						  <div class="tab-pane container p-0 fade" id="services-4">
-						  	<div class="img" style="background-image: url({% static 'core/images/index-services-frontend.png' %});"></div>
-						  	<h3><a href="#">Front-end Web Development</a></h3>
-						  	<p>Ľahká a príjemná interakcia návštevníkov s webovými stránkami je pri tvorbe dizajnu prioritou. Tvorba dizajnu 
-								zahŕňa nasledovné: Optimalizácia užívateľského dojmu, Využitie HTML, JavaScript a CSS na uvedenie konceptov 
-								do živej podoby, Vývoj užívateľského rozhrania a v neposlednom rade Implementácia responzívneho dizajnu.</p>
-						  </div>
-							<div class="tab-pane container p-0 fade" id="services-5">
-						  	<div class="img" style="background-image: url({% static 'core/images/index-services-web-scraping.png' %});"></div>
-						  	<h3><a href="#">Web Scraping / Crawling</a></h3>
-						  	<p>Web scraping/crawling je technika automatického prístupu a extrakcie veľkého množstva informácií z webových 
-								stránok, čo môže ušetriť obrovské množstvo času a úsilia a to dosiahneme využitím obľúbenej Python knižnice Beautiful 
-								Soup, ktorá poskytuje idiomatické spôsoby navigácie, vyhľadávania a úpravy rozloženia potrebných údajov.</p>
-						  </div>
-							<div class="tab-pane container p-0 fade" id="services-6">
-						  	<div class="img" style="background-image: url({% static 'core/images/index-services-python.png' %});"></div>
-						  	<h3><a href="#">Python Basic Scripting</a></h3>
-						  	<p>Python je skriptovací, univerzálny, vysokoúrovňový a interpretovaný programovací jazyk. Vzhľadom na to môže byť 
-								určený na vykonávanie úloh na základe automatizácie opakovaných úloh a to tak, že zahŕňa rovnaké typy krokov pri 
-								implementácii postupu alebo programu. Skracuje čas a ďalej znižuje náklady. Automatizácia úloh má veľmi širokú oblasť
-								využitia.</p>
-						  </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-    <section class="ic-section testimony-section">
-    	<div class="img img-bg border" style="background-image: url({% static 'core/images/bg_3.jpg' %});"></div>
-    	<div class="overlay"></div>
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center heading-section heading-section-white ic-animate">
-          	<span class="subheading">Technológie</span>
-            <h2 class="mb-3">Nástroje ktoré používam</h2>
-          </div>
-        </div>
-        <div class="row ic-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ic-owl">
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/django.png' %});"></div>
-												<p class="name ">Django</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/python.png' %});"></div>
-												<p class="name ">Python</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/flask.png' %});"></div>
-												<p class="name ">Flask</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/numpy.png' %});"></div>
-												<p class="name">Numpy</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-							<div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/pandas.png' %});"></div>
-												<p class="name">Pandas</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-							<div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/matplotlib.png' %});"></div>
-												<p class="name">Matplotlib</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-							<div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/seaborn.png' %});"></div>
-												<p class="name">Seaborn</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-							<div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/mysql.png' %});"></div>
-												<p class="name">Mysql</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-							<div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/postgresql.png' %});"></div>
-												<p class="name">Postgres</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-							<div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/sqlite.png' %});"></div>
-												<p class="name">SQLite</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-							<div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/jinja.png' %});"></div>
-												<p class="name">Jinja</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-							<div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/docker.png' %});"></div>
-												<p class="name">Docker</p>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-							<div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'core/images/redis.png' %});"></div>
-												<p class="name">Redis</p>
-	                  </div>
-                  </div>
-                </div>
-							</div>	
-            </div>
+          <div class="text">
+            <h2>100% Dôveryhodnosť</h2>
+            <p></p>
           </div>
         </div>
       </div>
-    </section>
-
-		<section class="ic-section bg-light">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ic-animate">
-          	<span class="subheading">Ukážky</span>
-            <h2>Jednoduché ukážky</h2>
+      <div class="col-md-4 d-flex">
+        <div class="intro color-1 d-lg-flex w-100">
+          <div class="icon">
+            <span class="flaticon-employee"></span>
+          </div>
+          <div class="text">
+            <h2>Spoľahlivosť</h2>
+            <p></p>
           </div>
         </div>
-    		<div class="row">
-    			<div class="col-md-4 ic-animate d-flex sample-front cs-style-3">
-	          <div class="block-7 w-100" style="background-image: url({% static 'core/images/samples-python.png' %});">
-	            <div class="text-center">
-		            <div>
-									<div class="number"><span class="hash">#</span>1</div>
-									<img style="vertical-align: super;" src="{% static 'core/images/python.png' %}" width="18%">
-								</div>
-								<figure>
-                  <div><img src="{% static 'core/images/sample-1.png' %}" width="100%" alt=""></div>
-                  <figcaption>
-										<p class="py-2">Flask Blueprint</p>
-                   	<a href="{% url 'ukazky:flask_blueprint' %}" id="action" class="btn btn-primary d-block px-2 py-3">Zisti Viac</a>
-                  </figcaption>
-                </figure>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-4 ic-animate d-flex sample-front cs-style-3">
-	          <div class="block-7 w-100" style="background-image: url({% static 'core/images/samples-python.png' %});">
-	            <div class="text-center">
-		           	<div>
-									<div class="number"><span class="hash">#</span>2</div>
-									<img style="vertical-align: super;" src="{% static 'core/images/python.png' %}" width="18%">
-								</div>
-								<figure>
-                  <div><img src="{% static 'core/images/sample-2.png' %}" width="100%" alt=""></div>
-                  <figcaption>
-										<p class="py-2">List Comprehension</p>
-                   	<a href="{% url 'ukazky:list_comprehension' %}" id="action" class="btn btn-primary d-block px-2 py-3">Zisti Viac</a>
-                  </figcaption>
-                </figure>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-4 ic-animate d-flex sample-front cs-style-3">
-	          <div class="block-7 w-100" style="background-image: url({% static 'core/images/samples-python.png' %});">
-	            <div class="text-center">
-								<div>
-									<div class="number"><span class="hash">#</span>3</div>
-									<img style="vertical-align: super;" src="{% static 'core/images/python.png' %}" width="18%">
-								</div>
-								<figure>
-                  <div><img src="{% static 'core/images/sample-3.png' %}" width="100%" alt=""></div>
-                  <figcaption>
-										<p class="py-2">Python Anagram</p>
-                  	<a href="{% url 'ukazky:python_anagram' %}" id="action" class="btn btn-primary d-block px-2 py-3">Zisti Viac</a>
-                  </figcaption>
-                </figure>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-    	</div>
-    </section>
-		
-		<section class="ic-appointment ic-section img" style="background-image: url({% static 'core/images/bg_2.jpg' %});">
-			<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-6 half ic-animate">
-						<div id="alert-box"></div>
-    				<h2 class="mb-4">Ak máte otázky pošlite mi správu!</h2>
-    				<form action="" method="POST" class="appointment" id="confirmform">>
-							{% csrf_token %}
-    					<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										{{ form.name }}
-			            </div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										{{ form.email }}
-			            </div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-			    					<div class="form-field">
-	          					<div class="select-wrap">
-	                      <div class="icon"><span class="fa fa-chevron-down"></span></div>
-	                      {{ form.service }}
-	                    </div>
-			              </div>
-			    				</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										{{ form.message }}
-			            </div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input type="submit" value="Odoslať správu" class="btn btn-primary py-3 px-4">
-			            </div>
-								</div>
-    					</div>
-	          </form>
-    			</div>
-    		</div>
-    	</div>
-		</section>
-		
-    <section class="ic-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 heading-section text-center ic-animate">
-          	<span class="subheading">Blog</span>
-            <h2>Najnovší Blog</h2>
+      </div>
+      <div class="col-md-4 d-flex">
+        <div class="intro color-2 d-lg-flex w-100">
+          <div class="icon">
+            <span class="flaticon-umbrella"></span>
+          </div>
+          <div class="text">
+            <h2>Individuálny Prístup</h2>
+            <p></p>
           </div>
         </div>
-        <div class="row d-flex">
-					<div class="col-md-4 d-flex ic-animate">
-          	<div class="blog-entry justify-content-end">
-              <div class="text text-center">
-              	<a href="{% url 'blog:co_je_kniznica_pandas' %}" class="block-20 img" style="background-image: url({% static 'core/images/blog_3.png' %});">
-	              </a>
-	              <div class="meta text-center mb-2 d-flex align-items-center justify-content-center">
-                	<div>
-                		<span class="day">19</span>
-                		<span class="mos">Január</span>
-                		<span class="yr">2021</span>
-                	</div>
-                </div>
-                <h3 class="heading mb-3"><a href="{% url 'blog:co_je_kniznica_pandas' %}">Čo je knižnica Pandas?</a mb-3></h3>
-								<p>Na spracovanie, čistenie a úpravu dát používame moju obľúbenú knižnicu Pandas. V tomto článku môžete 
-								nahliadnúť, čo všetko táto knižnica ponúka.</p>            
-							</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ic-section">
+  <div class="container">
+    <div class="row justify-content-center pb-5">
+      <div class="col-md-7 heading-section text-center ic-animate">
+        <span class="subheading">Služby</span>
+        <h2>Ako to funguje</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-stretch ic-animate">
+        <div class="services-2 text-center">
+          <div class="icon-wrap">
+            <div class="number d-flex align-items-center justify-content-center"><span>01</span></div>
+            <div class="icon d-flex align-items-center justify-content-center">
+              <span class="flaticon-calendar"></span>
             </div>
           </div>
-					<div class="col-md-4 d-flex ic-animate">
-          	<div class="blog-entry justify-content-end">
-              <div class="text text-center">
-              	<a href="{% url 'blog:co_je_kniznica_numpy' %}" class="block-20 img" style="background-image: url({% static 'core/images/blog_2.png' %});">
-	              </a>
-	              <div class="meta text-center mb-2 d-flex align-items-center justify-content-center">
-                	<div>
-                		<span class="day">05</span>
-                		<span class="mos">Január</span>
-                		<span class="yr">2021</span>
-                	</div>
+          <h2>Vytvoríme plán</h2>
+          <p>V závislosti na vami požadovanej službe vytvoríme plán podľa vašich kritérií a požiadaviek.</p>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-stretch ic-animate">
+        <div class="services-2 text-center">
+          <div class="icon-wrap">
+            <div class="number d-flex align-items-center justify-content-center"><span>02</span></div>
+            <div class="icon d-flex align-items-center justify-content-center">
+              <span class="flaticon-qa"></span>
+            </div>
+          </div>
+          <h2>Zahájime diskusiu</h2>
+          <p>Počas práce na vami vybranej službe budeme neustále v kontakte a v rámci diskusie sa zameriame na detaily projektu.</p>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-stretch ic-animate">
+        <div class="services-2 text-center">
+          <div class="icon-wrap">
+            <div class="number d-flex align-items-center justify-content-center"><span>03</span></div>
+            <div class="icon d-flex align-items-center justify-content-center">
+              <span class="flaticon-checklist"></span>
+            </div>
+          </div>
+          <h2>Naplníme plán</h2>
+          <p>Zameriame sa postupne na všetky body vašich požiadaviek poďľa vytvoreného plánu projektu až po jeho naplnenie.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ic-section ic-no-pb ic-no-pt">
+  <div class="container">
+    <div class="row ic-sample">
+      <div class="col-md-6 img img-3 d-flex justify-content-center align-items-center" style="background-image: url({% static 'core/images/profile.jpg' %});">
+      </div>
+      <div class="col-md-6 wrap-about px-md-5 ic-animate py-5 bg-light">
+        <div class="heading-section py-md-5">
+          <span class="subheading">WHOAMI</span>
+          <h2 class="mb-3">Ivan Čiap</h2>
+          <p class="mb-2 contact-info"><em>Jednateľ, Developer, Programátor</em></p>
+          <p class="mb-2 contact-info"><em>+421 910 771 226</em></p>
+          <p class="mb-4 contact-info"><em>ciapivan@gmail.com</em></p>
+          <p>Som tvorcom a majiteľom tejto webovej stránky. Posledných niekoľko rokov sa venujem vývoju, 
+            programovaniu a dátovej analýze prevažne v programovacom jazyku Python. V rámci vývoja webových stránok a aplikácií 
+            používam high level Python framework Django. Vytvoril som aj niekoľko malých aplikácii v microframeworku Flask. Na 
+            dátovú analýzu používam vysoko flexibilné knižnice ako napríklad Numpy, Pandas, či Matplotlib 
+            alebo Seaborn na vizualizáciu analýzy. Nezaostávam ani vo Front-end dizajne webových stránok a aplikácií.
+          </p>
+          <p>V týchto dňoch sa snažím ďalej rozširovať oblasť vzdelávania v IT sektore a hľadám nové užitočné nástroje, ktoré by 
+            mi mohli uľahčiť moju prácu a samozrejme rád vyhľadávam osoby a tímy ľudí s ktorými by sme spojili sily a podieľali sa na 
+            zaujímavých projektoch.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ic-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-8 text-center heading-section ic-animate">
+        <span class="subheading">Služby</span>
+        <h2 class="mb-3">Pomôcť vám môžem s nasledujúcimi službami</h2>
+      </div>
+    </div>
+    <div class="row tabulation mt-4 ic-animate">
+      <div class="col-md-4">
+        <ul class="nav nav-pills nav-fill d-md-flex d-block flex-column">
+          <li class="nav-item text-left">
+            <a class="nav-link active py-4" data-toggle="tab" href="#services-1">Django Web/App Development</a>
+          </li>
+          <li class="nav-item text-left">
+            <a class="nav-link py-4" data-toggle="tab" href="#services-2">Flask Web/App Development</a>
+          </li>
+          <li class="nav-item text-left">
+            <a class="nav-link py-4" data-toggle="tab" href="#services-3">Python Dátová Analýza</a>
+          </li>
+          <li class="nav-item text-left">
+            <a class="nav-link py-4" data-toggle="tab" href="#services-4">Frontend Development</a>
+          </li>
+          <li class="nav-item text-left">
+            <a class="nav-link py-4" data-toggle="tab" href="#services-5">Web Scraping / Crawling</a>
+          </li>
+          <li class="nav-item text-left">
+            <a class="nav-link py-4" data-toggle="tab" href="#services-6">Python Basic Scripting</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-8">
+        <div class="tab-content">
+          <div class="tab-pane container p-0 active" id="services-1">
+            <div class="img" style="background-image: url({% static 'core/images/index-services-django.png' %});"></div>
+            <h3><a href="#">Django Web/App Development</a></h3>
+            <p>Vývoj webových stránok alebo aplikácii vo frameworku Django. Django je high-level Python webový 
+              framework, ktorý podporuje rýchly vývoj a čistý, pragmatický dizajn. Dominuje predovšetkým svojou 
+              jednoduchosťou, flexibilitou, spoľahlivosťou a širokou škálou rozšíriteľnosti od MVP produktov
+              až po škálovateľné podnikové produkty.
+            </p>
+          </div>
+          <div class="tab-pane container p-0 fade" id="services-2">
+            <div class="img" style="background-image: url({% static 'core/images/index-services-flask.png' %});"></div>
+            <h3><a href="#">Flask Web/App Development</a></h3>
+            <p>Vývoj webových aplikácii vo frameworku Flask. Flask je mikro webový framework napísaný v programovacom jazyku 
+              Python. Flask závisí od template enginu Jinja a sady nástrojov Werkzeug WSGI. Prednostné vlastnosti frameworku 
+              Flask: lightweight, open source a ponúka za pomoci minima kódu vývoj skvelých aplikácií.
+            </p>
+          </div>
+          <div class="tab-pane container p-0 fade" id="services-3">
+            <div class="img" style="background-image: url({% static 'core/images/index-services-data-analysis.png' %});"></div>
+            <h3><a href="#">Python Dátová Analýza</a></h3>
+            <p>Dátová Analýza v jazyku Python za použitia flexibilných knižníc ako NumPy, Pandas, Matplotlib, či 
+              Seaborn. Efektívne spracovanie dátových setov formou získania, čistenia, párovania a kombinovania dát. 
+              Bez dát to v dnešnej dobe nejde a preto stále viac spoločností sleduje, analyzuje a využíva náhľady, ktoré 
+              ich vedú k lepším rozhodnutiam.
+            </p>
+          </div>
+          <div class="tab-pane container p-0 fade" id="services-4">
+            <div class="img" style="background-image: url({% static 'core/images/index-services-frontend.png' %});"></div>
+            <h3><a href="#">Front-end Web Development</a></h3>
+            <p>Ľahká a príjemná interakcia návštevníkov s webovými stránkami je pri tvorbe dizajnu prioritou. Tvorba dizajnu 
+              zahŕňa nasledovné: Optimalizácia užívateľského dojmu, Využitie HTML, JavaScript a CSS na uvedenie konceptov 
+              do živej podoby, Vývoj užívateľského rozhrania a v neposlednom rade Implementácia responzívneho dizajnu.
+            </p>
+          </div>
+          <div class="tab-pane container p-0 fade" id="services-5">
+            <div class="img" style="background-image: url({% static 'core/images/index-services-web-scraping.png' %});"></div>
+            <h3><a href="#">Web Scraping / Crawling</a></h3>
+            <p>Web scraping/crawling je technika automatického prístupu a extrakcie veľkého množstva informácií z webových 
+              stránok, čo môže ušetriť obrovské množstvo času a úsilia a to dosiahneme využitím obľúbenej Python knižnice Beautiful 
+              Soup, ktorá poskytuje idiomatické spôsoby navigácie, vyhľadávania a úpravy rozloženia potrebných údajov.
+            </p>
+          </div>
+          <div class="tab-pane container p-0 fade" id="services-6">
+            <div class="img" style="background-image: url({% static 'core/images/index-services-python.png' %});"></div>
+            <h3><a href="#">Python Basic Scripting</a></h3>
+            <p>Python je skriptovací, univerzálny, vysokoúrovňový a interpretovaný programovací jazyk. Vzhľadom na to môže byť 
+              určený na vykonávanie úloh na základe automatizácie opakovaných úloh a to tak, že zahŕňa rovnaké typy krokov pri 
+              implementácii postupu alebo programu. Skracuje čas a ďalej znižuje náklady. Automatizácia úloh má veľmi širokú oblasť
+              využitia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ic-section testimony-section">
+  <div class="img img-bg border" style="background-image: url({% static 'core/images/bg_3.jpg' %});"></div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center heading-section heading-section-white ic-animate">
+        <span class="subheading">Technológie</span>
+        <h2 class="mb-3">Nástroje ktoré používam</h2>
+      </div>
+    </div>
+    <div class="row ic-animate">
+      <div class="col-md-12">
+        <div class="carousel-testimony owl-carousel ic-owl">
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/django.png' %});"></div>
+                  <p class="name ">Django</p>
                 </div>
-                <h3 class="heading mb-3"><a href="{% url 'blog:co_je_kniznica_numpy' %}">Čo je knižnica Numpy?</a></h3>
-                <p>V tomto článku vám prinášam náhľad do Python knižnice NumPy, kde sa môžete oboznámiť s jej 
-                najdôležitejšími funkciami.</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 d-flex ic-animate">
-          	<div class="blog-entry justify-content-end">
-              <div class="text text-center">
-              	<a href="{% url 'blog:co_je_datova_analyza' %}" class="block-20 img" style="background-image: url({% static 'core/images/blog_1.png' %});">
-	              </a>
-	              <div class="meta text-center mb-2 d-flex align-items-center justify-content-center">
-                	<div>
-                		<span class="day">07</span>
-                		<span class="mos">December</span>
-                		<span class="yr">2020</span>
-                	</div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/python.png' %});"></div>
+                  <p class="name ">Python</p>
                 </div>
-                <h3 class="heading mb-3"><a href="{% url 'blog:co_je_datova_analyza' %}">Čo je dátová analýza?</a></h3>
-                <p>Ak chcete vedieť čo je dátová analýza a prečo je dôležitá, tak v tomto článku sa môžete dozvedieť 
-								niečo viac.</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/flask.png' %});"></div>
+                  <p class="name ">Flask</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/numpy.png' %});"></div>
+                  <p class="name">Numpy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/pandas.png' %});"></div>
+                  <p class="name">Pandas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/matplotlib.png' %});"></div>
+                  <p class="name">Matplotlib</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/seaborn.png' %});"></div>
+                  <p class="name">Seaborn</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/mysql.png' %});"></div>
+                  <p class="name">Mysql</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/postgresql.png' %});"></div>
+                  <p class="name">Postgres</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/sqlite.png' %});"></div>
+                  <p class="name">SQLite</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/jinja.png' %});"></div>
+                  <p class="name">Jinja</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/docker.png' %});"></div>
+                  <p class="name">Docker</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/redis.png' %});"></div>
+                  <p class="name">Redis</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-		</section>
+    </div>
+  </div>
+</section>
+<section class="ic-section bg-light">
+  <div class="container">
+    <div class="row justify-content-center pb-5 mb-3">
+      <div class="col-md-7 heading-section text-center ic-animate">
+        <span class="subheading">Ukážky</span>
+        <h2>Jednoduché ukážky</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 ic-animate d-flex sample-front cs-style-3">
+        <div class="block-7 w-100" style="background-image: url({% static 'core/images/samples-python.png' %});">
+          <div class="text-center">
+            <div>
+              <div class="number"><span class="hash">#</span>1</div>
+              <img style="vertical-align: super;" src="{% static 'core/images/python.png' %}" width="18%">
+            </div>
+            <figure>
+              <div><img src="{% static 'core/images/sample-1.png' %}" width="100%" alt=""></div>
+              <figcaption>
+                <p class="py-2">Flask Blueprint</p>
+                <a href="{% url 'ukazky:flask_blueprint' %}" id="action" class="btn btn-primary d-block px-2 py-3">Zisti Viac</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 ic-animate d-flex sample-front cs-style-3">
+        <div class="block-7 w-100" style="background-image: url({% static 'core/images/samples-python.png' %});">
+          <div class="text-center">
+            <div>
+              <div class="number"><span class="hash">#</span>2</div>
+              <img style="vertical-align: super;" src="{% static 'core/images/python.png' %}" width="18%">
+            </div>
+            <figure>
+              <div><img src="{% static 'core/images/sample-2.png' %}" width="100%" alt=""></div>
+              <figcaption>
+                <p class="py-2">List Comprehension</p>
+                <a href="{% url 'ukazky:list_comprehension' %}" id="action" class="btn btn-primary d-block px-2 py-3">Zisti Viac</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 ic-animate d-flex sample-front cs-style-3">
+        <div class="block-7 w-100" style="background-image: url({% static 'core/images/samples-python.png' %});">
+          <div class="text-center">
+            <div>
+              <div class="number"><span class="hash">#</span>3</div>
+              <img style="vertical-align: super;" src="{% static 'core/images/python.png' %}" width="18%">
+            </div>
+            <figure>
+              <div><img src="{% static 'core/images/sample-3.png' %}" width="100%" alt=""></div>
+              <figcaption>
+                <p class="py-2">Python Anagram</p>
+                <a href="{% url 'ukazky:python_anagram' %}" id="action" class="btn btn-primary d-block px-2 py-3">Zisti Viac</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ic-appointment ic-section img" style="background-image: url({% static 'core/images/bg_2.jpg' %});">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 half ic-animate">
+        <div id="alert-box"></div>
+        <h2 class="mb-4">Ak máte otázky pošlite mi správu!</h2>
+        <form action="" method="POST" class="appointment" id="confirmform">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                {{ form.name }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {{ form.email }}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="form-field">
+                  <div class="select-wrap">
+                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                    {{ form.service }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                {{ form.message }}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="submit" value="Odoslať správu" class="btn btn-primary py-3 px-4">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ic-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 heading-section text-center ic-animate">
+        <span class="subheading">Blog</span>
+        <h2>Najnovší Blog</h2>
+      </div>
+    </div>
+    <div class="row d-flex">
+      <div class="col-md-4 d-flex ic-animate">
+        <div class="blog-entry justify-content-end">
+          <div class="text text-center">
+            <a href="{% url 'blog:co_je_kniznica_pandas' %}" class="block-20 img" style="background-image: url({% static 'core/images/blog_3.png' %});">
+            </a>
+            <div class="meta text-center mb-2 d-flex align-items-center justify-content-center">
+              <div>
+                <span class="day">19</span>
+                <span class="mos">Január</span>
+                <span class="yr">2021</span>
+              </div>
+            </div>
+            <h3 class="heading mb-3">
+              <a href="{% url 'blog:co_je_kniznica_pandas' %}">
+                Čo je knižnica Pandas?</a mb-3>
+            </h3>
+            <p>Na spracovanie, čistenie a úpravu dát používame moju obľúbenú knižnicu Pandas. V tomto článku môžete 
+            nahliadnúť, čo všetko táto knižnica ponúka.</p>            
+          </div>
+        </div>
+      </div>
+      	<div class="col-md-4 d-flex ic-animate">
+      		<div class="blog-entry justify-content-end">
+      			<div class="text text-center">
+      				<a href="{% url 'blog:co_je_kniznica_numpy' %}" class="block-20 img" style="background-image: url({% static 'core/images/blog_2.png' %});">
+      				</a>
+      				<div class="meta text-center mb-2 d-flex align-items-center justify-content-center">
+     					  <div>
+      					<span class="day">05</span>
+      					<span class="mos">Január</span>
+      					<span class="yr">2021</span>
+      				</div>
+      			</div>
+      			<h3 class="heading mb-3"><a href="{% url 'blog:co_je_kniznica_numpy' %}">Čo je knižnica Numpy?</a></h3>
+      			<p>V tomto článku vám prinášam náhľad do Python knižnice NumPy, kde sa môžete oboznámiť s jej 
+      			najdôležitejšími funkciami.</p>
+      		</div>
+      	</div>
+      </div>
+      <div class="col-md-4 d-flex ic-animate">
+        <div class="blog-entry justify-content-end">
+          <div class="text text-center">
+            <a href="{% url 'blog:co_je_datova_analyza' %}" class="block-20 img" style="background-image: url({% static 'core/images/blog_1.png' %});">
+            </a>
+            <div class="meta text-center mb-2 d-flex align-items-center justify-content-center">
+              <div>
+                <span class="day">07</span>
+                <span class="mos">December</span>
+                <span class="yr">2020</span>
+              </div>
+            </div>
+            <h3 class="heading mb-3"><a href="{% url 'blog:co_je_datova_analyza' %}">Čo je dátová analýza?</a></h3>
+            <p>Ak chcete vedieť čo je dátová analýza a prečo je dôležitá, tak v tomto článku sa môžete dozvedieť 
+              niečo viac.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock content %}
