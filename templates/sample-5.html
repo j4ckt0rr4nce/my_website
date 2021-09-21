@@ -2,67 +2,59 @@
 {% load static %}
 
 {% block content %}
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-end justify-content-center">
-          <div class="col-md-9 ic-animate mb-5 text-center">
-          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'ukazky' %}">Ukážky <i class="fa fa-chevron-right"></i></a></span> <span>Python Matrix <i class="fa fa-chevron-right"></i></span></p>
-            <h1 class="mb-0 bread">Python Matrix</h1>
-          </div>
-        </div>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ic-animate mb-5 text-center">
+        <p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'ukazky' %}">Ukážky <i class="fa fa-chevron-right"></i></a></span> <span>Python Matrix <i class="fa fa-chevron-right"></i></span></p>
+        <h1 class="mb-0 bread">Python Matrix</h1>
       </div>
-    </section>
-
-		<section class="ic-section ic-degree-bg">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10 ic-animate ic-sample px-5 pb-5">
-            <h2 class="mb-3 mt-4">Skúmanie matíc(matrices) v Pythone </h2>
-            <p>V tomto článku si predstavíme Python Matrix. Spoločne sa pozrieme na operácie s maticami(matrices) implementované 
-            pomocou Python kódu.</p>
-
-          	<p>
-              <img src="{% static 'core/images/sample-5.jpg' %}" alt="" class="img-fluid mt-4">
-            </p>
-            
-            <p>Matica je obdĺžnikové 2-rozmerné pole, ktoré ukladá údaje do riadkov a stĺpcov. Do matice je možné uložiť ľubovoľné 
-            dátové typy, ako sú čísla, reťazce, výrazy atď.</p>
-            <p>Python neobsahuje vstavaný typ pre matice, takže matice vytvoríme pomocou viacerých listov.</p>
-            <p> V tejto ukáźke sa pozrieme na nasledujúce operácie s maticami:</p>
-            <ul>
-              <li>Sčítanie matíc</li>
-              <li>Odčítanie matíc</li>
-              <li>Násobenie matíc</li>
-              <li>Transpozícia matíc</li>
-              <li>Tvorba matíc pomocou Numpy knižnice</li>
-            </ul>
-            <p>Nasledujúca matica má rozmer 2x2, čo znamená, že má dva riadky a dva stĺpce:</p>
-
-            <pre><code class="language-python">[[1,2],  
+    </div>
+  </div>
+</section>
+<section class="ic-section ic-degree-bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 ic-animate ic-sample px-5 pb-5">
+        <h2 class="mb-3 mt-4">Skúmanie matíc(matrices) v Pythone </h2>
+        <p>V tomto článku si predstavíme Python Matrix. Spoločne sa pozrieme na operácie s maticami(matrices) implementované 
+          pomocou Python kódu.
+        </p>
+        <p>
+          <img src="{% static 'core/images/sample-5.jpg' %}" alt="" class="img-fluid mt-4">
+        </p>
+        <p>Matica je obdĺžnikové 2-rozmerné pole, ktoré ukladá údaje do riadkov a stĺpcov. Do matice je možné uložiť ľubovoľné 
+          dátové typy, ako sú čísla, reťazce, výrazy atď.
+        </p>
+        <p>Python neobsahuje vstavaný typ pre matice, takže matice vytvoríme pomocou viacerých listov.</p>
+        <p> V tejto ukáźke sa pozrieme na nasledujúce operácie s maticami:</p>
+        <ul>
+          <li>Sčítanie matíc</li>
+          <li>Odčítanie matíc</li>
+          <li>Násobenie matíc</li>
+          <li>Transpozícia matíc</li>
+          <li>Tvorba matíc pomocou Numpy knižnice</li>
+        </ul>
+        <p>Nasledujúca matica má rozmer 2x2, čo znamená, že má dva riadky a dva stĺpce:</p>
+        <pre><code class="language-python">[[1,2],  
  [3,4]]</code></pre>
-
-            <p>Matrix(maticu) v Pythone môžeme vytvoriť pomocou vnoreného listu. Všetky prvky sú uzavreté v hranatých zátvorkách ([]) 
-            a oddelené čiarkou. Pozrime sa na nasledujúce príklady:</p>
-
-            <pre><code class="language-python">matrix = [["cat", 47, 21, 98],  
+        <p>Matrix(maticu) v Pythone môžeme vytvoriť pomocou vnoreného listu. Všetky prvky sú uzavreté v hranatých zátvorkách ([]) 
+          a oddelené čiarkou. Pozrime sa na nasledujúce príklady:
+        </p>
+        <pre><code class="language-python">matrix = [["cat", 47, 21, 98],  
           ["dog", 541, 81.70, 27],  
           [365, "turtle", 58, 12]]</code></pre>
-
-            <p>Vytvorili sme maticu v rozmere 3x3 pomocou vnoreného listu. Ako vidíme, naša matica pozostáva z čísel a reťazcov.</p>
-            <p>V nasledujúcom príklade vypíšeme vo výstupe každý riadok zadefinovanej matice:</p>
-
-            <pre><code class="language-python">matrix = [["cat", 47, 21, 98],  
+        <p>Vytvorili sme maticu v rozmere 3x3 pomocou vnoreného listu. Ako vidíme, naša matica pozostáva z čísel a reťazcov.</p>
+        <p>V nasledujúcom príklade vypíšeme vo výstupe každý riadok zadefinovanej matice:</p>
+        <pre><code class="language-python">matrix = [["cat", 47, 21, 98],  
           ["dog", 541, 81.70, 27],  
           [365, "turtle", 58, 12]]
           
           print("The matrix is: ", matrix)</code></pre>
-
-            <pre><code class="language-python">The matrix is:  [['cat', 47, 21, 98], ['dog', 541, 81.7, 27], [365, 'turtle', 58, 12]]</code></pre>
-
-            <p>V nasledujúcom príklade vypíšeme vo výstupe posledný prvok každého riadka:</p>
-
-            <pre><code class="language-python">matrix = [["cat", 47, 21, 98],  
+        <pre><code class="language-python">The matrix is:  [['cat', 47, 21, 98], ['dog', 541, 81.7, 27], [365, 'turtle', 58, 12]]</code></pre>
+        <p>V nasledujúcom príklade vypíšeme vo výstupe posledný prvok každého riadka:</p>
+        <pre><code class="language-python">matrix = [["cat", 47, 21, 98],  
           ["dog", 541, 81.70, 27],  
           [365, "turtle", 58, 12]]
 
@@ -71,16 +63,14 @@ matrix_length = len(matrix)
 #To read the last element from each row. 
 for i in range(matrix_length):  
     print(matrix[i][-1])</code></pre>
-
-            <pre><code class="language-python">98
+        <pre><code class="language-python">98
 27
 12</code></pre>
-
-            <p>Vyššie uvedenou metódou pomocou <strong>for</strong> cyklu a vstavanej funkcie <strong>len()</strong> môžeme 
-            vypísať ľubovoľný riadok, stĺpec alebo konkrétne prvky zadefinovanej matice.</p>
-            <p>V nasledujúcom príklade sčítame dve matice pomocou vnoreného <strong>for</strong> cyklu:</p>
-
-            <pre><code class="language-python">matrix1 = [[74, 15, 69],   
+        <p>Vyššie uvedenou metódou pomocou <strong>for</strong> cyklu a vstavanej funkcie <strong>len()</strong> môžeme 
+          vypísať ľubovoľný riadok, stĺpec alebo konkrétne prvky zadefinovanej matice.
+        </p>
+        <p>V nasledujúcom príklade sčítame dve matice pomocou vnoreného <strong>for</strong> cyklu:</p>
+        <pre><code class="language-python">matrix1 = [[74, 15, 69],   
            [69, 8, 4],   
            [98, 14, 75]]  
   
@@ -99,17 +89,16 @@ for i in range(len(matrix1)):
   
 #To Print the matrix  
 print("The sum of matrix1 and matrix2 =", matrix3)</code></pre>
-
-            <pre><code class="language-python">The sum of matrix1 and matrix2 = [[143, 59, 61], [72, 55, -5], [95, 21, 163]]</code></pre>
-
-            <p>V ukážke vyššie sme si zadefinovali dve matice v rozmere 3X3 a následne inicializovali tretiu 3X3 maticu, v ktorej
-            uložíme výsledok sčítania prvých dvoch matíc. Na iteráciu matíc sme použili vnorený <strong>for</strong> cyklus. V prvej
-            iterácii sa sčíta prvý prvok matice matrix1 a prvý prvok matice matrix2 a vnorená iterácia bude pokračovať, až kým sa 
-            nesčítajú všetky prvky oboch matíc.</p>
-            <p>V nasledujúcom príklade tentokrát dve matice vynásobíme. Princíp je rovnaký ako v predchádzajúcom príklade, 
-            len s rozdielom, že zmeníme operátor sčítania + na operátor násobenia *:</p>
-
-            <pre><code class="language-python">matrix1 = [[74, 15, 69],   
+        <pre><code class="language-python">The sum of matrix1 and matrix2 = [[143, 59, 61], [72, 55, -5], [95, 21, 163]]</code></pre>
+        <p>V ukážke vyššie sme si zadefinovali dve matice v rozmere 3X3 a následne inicializovali tretiu 3X3 maticu, v ktorej
+          uložíme výsledok sčítania prvých dvoch matíc. Na iteráciu matíc sme použili vnorený <strong>for</strong> cyklus. V prvej
+          iterácii sa sčíta prvý prvok matice matrix1 a prvý prvok matice matrix2 a vnorená iterácia bude pokračovať, až kým sa 
+          nesčítajú všetky prvky oboch matíc.
+        </p>
+        <p>V nasledujúcom príklade tentokrát dve matice vynásobíme. Princíp je rovnaký ako v predchádzajúcom príklade, 
+          len s rozdielom, že zmeníme operátor sčítania + na operátor násobenia *:
+        </p>
+        <pre><code class="language-python">matrix1 = [[74, 15, 69],   
            [69, 8, 4],   
            [98, 14, 75]]  
   
@@ -128,13 +117,11 @@ for i in range(len(matrix1)):
   
 #To Print the matrix  
 print("The sum of matrix1 and matrix2 =", matrix3)</code></pre>
-
-            <pre><code class="language-python">The sum of matrix1 and matrix2 = [[5106, 660, -552], [207, 376, -36], [-294, 98, 6600]]</code></pre>
-
-            <p>V nasledujúcom príklade sa pozrieme na transpozíciu riadkov a stĺpcov matice. Transpozícia je operácia, pri ktorej 
-            sa riadok danej matice prevedie na stĺpec matice a naopak:</p>
-
-            <pre><code class="language-python">matrix = [[8, 9],  
+        <pre><code class="language-python">The sum of matrix1 and matrix2 = [[5106, 660, -552], [207, 376, -36], [-294, 98, 6600]]</code></pre>
+        <p>V nasledujúcom príklade sa pozrieme na transpozíciu riadkov a stĺpcov matice. Transpozícia je operácia, pri ktorej 
+          sa riadok danej matice prevedie na stĺpec matice a naopak:
+        </p>
+        <pre><code class="language-python">matrix = [[8, 9],  
           [2, 9],  
           [1, 6]] 
   
@@ -149,14 +136,12 @@ for i in range(len(matrix)):
   
 for x in result:  
    print(x)</code></pre>
-
-            <pre><code class="language-python">[8, 2, 1]
+        <pre><code class="language-python">[8, 2, 1]
 [9, 9, 6]</code></pre>
-
-            <p>V nasledujúcom príklade sa pozrieme na transpozíciu riadkov a stĺpcov matice pomocou generátorovej notácie
-            (List Comprehension) a to použitím iba jedného riadku kódu:</p>
-
-            <pre><code class="language-python">matrix = [[8, 9],  
+        <p>V nasledujúcom príklade sa pozrieme na transpozíciu riadkov a stĺpcov matice pomocou generátorovej notácie
+          (List Comprehension) a to použitím iba jedného riadku kódu:
+        </p>
+        <pre><code class="language-python">matrix = [[8, 9],  
           [2, 9],  
           [1, 6]]
   
@@ -164,16 +149,15 @@ result = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0
   
 for x in result:  
    print(x)</code></pre>
-
-            <pre><code class="language-python">[8, 2, 1]
+        <pre><code class="language-python">[8, 2, 1]
 [9, 9, 6]</code></pre>
-
-            <p>Výstup je rovnaký ako v predošlom príklade. Použitím generátorovej notácie sme dosiahli
-            (List Comprehension) zníženie počtu riadkov kódu na jeden a transponovali maticu.</p>
-            <p>Doteraz sme diskutovali o vopred definovaných maticiach. Čo však, ak chce užívateľ zadať svoje údaje sám? Pozrime sa 
-            teda na nasledujúci príklad matice definovanej používateľom:</p>
-
-            <pre><code class="language-python"># An example for matrix input from user   
+        <p>Výstup je rovnaký ako v predošlom príklade. Použitím generátorovej notácie sme dosiahli
+          (List Comprehension) zníženie počtu riadkov kódu na jeden a transponovali maticu.
+        </p>
+        <p>Doteraz sme diskutovali o vopred definovaných maticiach. Čo však, ak chce užívateľ zadať svoje údaje sám? Pozrime sa 
+          teda na nasledujúci príklad matice definovanej používateľom:
+        </p>
+        <pre><code class="language-python"># An example for matrix input from user   
 row = int(input("Enter the number of rows:"))   
 column = int(input("Enter the number of columns:"))   
   
@@ -193,8 +177,7 @@ for i in range(row):
    for j in range(column):   
       print(matrix[i][j], end = " ")   
    print()</code></pre>
-
-            <pre><code class="language-python">Enter the number of rows:3
+        <pre><code class="language-python">Enter the number of rows:3
 Enter the number of columns:3
 Enter the entries row wise:
 1
@@ -209,32 +192,30 @@ Enter the entries row wise:
 1 2 3 
 4 5 6 
 7 8 9</code></pre>
-
-            <p>Vo vyššie uvedenom kóde používateľ zadal vstup na definovanie počtu riadkov a stĺpcov matice. Zadali sme 3 riadky a 
-            3 stĺpce; to znamená, že matica bude mať 9 prvkov. Následne sa vo vnorenom <strong>for</strong> cykle prvky vkladajú do 
-            prázdnej matice pomocou metódy append(). Druhý vnorený <strong>for</strong> cyklus je použítý na výpis zadaných hodnôt 
-            vo forme matice.</p>
-            <h5 class="mb-3 mt-5">Tvorba matíc pomocou knižnice Numpy</h5>
-            <p>Na úvod jednoduchý príklad matice vytvorenej pomocou Numpy knižnice:</p>
-
-            <pre><code class="language-python">import numpy as np
+        <p>Vo vyššie uvedenom kóde používateľ zadal vstup na definovanie počtu riadkov a stĺpcov matice. Zadali sme 3 riadky a 
+          3 stĺpce; to znamená, že matica bude mať 9 prvkov. Následne sa vo vnorenom <strong>for</strong> cykle prvky vkladajú do 
+          prázdnej matice pomocou metódy append(). Druhý vnorený <strong>for</strong> cyklus je použítý na výpis zadaných hodnôt 
+          vo forme matice.
+        </p>
+        <h5 class="mb-3 mt-5">Tvorba matíc pomocou knižnice Numpy</h5>
+        <p>Na úvod jednoduchý príklad matice vytvorenej pomocou Numpy knižnice:</p>
+        <pre><code class="language-python">import numpy as np
 
 matrix = np.array([[26, -15, 7], [78, -9, 21], [3, 13, 4]])
 
 print("The matrix is: ")  
 print(matrix)</code></pre>
-
-            <pre><code class="language-python">The matrix is: 
+        <pre><code class="language-python">The matrix is: 
 [[ 26 -15   7]
  [ 78  -9  21]
  [  3  13   4]]</code></pre>
-
-            <p>Všetky operácie s maticami, ako je sčítanie, odčítanie, transpozícia, segmentácia atď., môžeme vykonávať 
-            pomocou metódy <strong>numpy.array()</strong>.</p>
-            <p>Poďme sa pozrieť na nasledujúci príklad. Vytvoríme dve matice pomocou funkcie <strong>numpy.array()</strong> a 
-            sčítame ich pomocou operátora sčítania +:</p>
-
-            <pre><code class="language-python">import numpy as np
+        <p>Všetky operácie s maticami, ako je sčítanie, odčítanie, transpozícia, segmentácia atď., môžeme vykonávať 
+          pomocou metódy <strong>numpy.array()</strong>.
+        </p>
+        <p>Poďme sa pozrieť na nasledujúci príklad. Vytvoríme dve matice pomocou funkcie <strong>numpy.array()</strong> a 
+          sčítame ich pomocou operátora sčítania +:
+        </p>
+        <pre><code class="language-python">import numpy as np
 
 matrix1 = np.array([[4, 7, 9], [3, -2, 21], [15, 22, 18]])  
 
@@ -244,16 +225,14 @@ matrix3 = matrix1 + matrix2
 
 print("The matrix addition is: ")  
 print(matrix3)</code></pre>
-
-            <pre><code class="language-python">The matrix addition is: 
+        <pre><code class="language-python">The matrix addition is: 
 [[  7 -12  26]
  [ 14  53  54]
  [ 38  -9  60]]</code></pre>
-
-            <p>Poďme sa pozrieť na nasledujúci príklad. Na znásobenie dvoch matíc použijeme metódu <strong>numpy.dot()</strong>. 
-            Jedná sa o bodové násobenie matíc matrix1 a matrix2:</p>
-
-            <pre><code class="language-python">import numpy as np
+        <p>Poďme sa pozrieť na nasledujúci príklad. Na znásobenie dvoch matíc použijeme metódu <strong>numpy.dot()</strong>. 
+          Jedná sa o bodové násobenie matíc matrix1 a matrix2:
+        </p>
+        <pre><code class="language-python">import numpy as np
 
 matrix1 = np.array([[2, 3], [3, 5]])
 
@@ -263,31 +242,26 @@ matrix3 = matrix1.dot(matrix2)
 
 print("The matrix is:")  
 print(matrix3)</code></pre>
-
-            <pre><code class="language-python">The matrix is:
+        <pre><code class="language-python">The matrix is:
 [[ 78 128]
  [128 214]]</code></pre>
-
-            <p>Teraz sa pozrieme na segmentáciu matíc a to dosiahneme rovnakým spôsobom ako to robíme v štandardnom Python liste. 
-            Segmentácia znamená načítanie prvkov od nejakého indexu po ďalší index. Stačí zadať začiatočný a konečný bod indexu 
-            nasledovne: [start: end]. V príkladne nižšie použijeme jednoduché pole na bližšie pochopenie:</p>
-
-            <pre><code class="language-python">import numpy as np  
+        <p>Teraz sa pozrieme na segmentáciu matíc a to dosiahneme rovnakým spôsobom ako to robíme v štandardnom Python liste. 
+          Segmentácia znamená načítanie prvkov od nejakého indexu po ďalší index. Stačí zadať začiatočný a konečný bod indexu 
+          nasledovne: [start: end]. V príkladne nižšie použijeme jednoduché pole na bližšie pochopenie:
+        </p>
+        <pre><code class="language-python">import numpy as np  
   
 arr = np.array([15,30,25,74,32,17,99])
 
 print(arr[1:4]) # It will print the elements from 1 to 4  
 print(arr[:5]) # It will print the elements from 0 to 4  
 print(arr[2:]) # It will print the elements from 2 to length of the array.</code></pre>
-
-            <pre><code class="language-python">[30 25 74]
+        <pre><code class="language-python">[30 25 74]
 [15 30 25 74 32]
 [25 74 32 17 99]</code></pre>
-
-            <p>Teraz implementujeme segmentáciu na maticu. Docielime to tak, že zadáme index segmentácia pre riadky aj stĺpce matice.</p>
-            <p>Pozrime sa na nasledujúci príklad segmentácie matice:</p>
-
-            <pre><code class="language-python">import numpy as np
+        <p>Teraz implementujeme segmentáciu na maticu. Docielime to tak, že zadáme index segmentácia pre riadky aj stĺpce matice.</p>
+        <p>Pozrime sa na nasledujúci príklad segmentácie matice:</p>
+        <pre><code class="language-python">import numpy as np
 
 matrix = np.array([[ 6, 32, 58, 17, 34],  
                    [35, 16, 85,-11, 54],  
@@ -295,14 +269,11 @@ matrix = np.array([[ 6, 32, 58, 17, 34],
                    [ 7,-12, 36, 17, 55]])
 
 print(matrix[1:3, 2:4])</code></pre>
-
-            <pre><code class="language-python">[[ 85 -11]
+        <pre><code class="language-python">[[ 85 -11]
  [ 42  24]]</code></pre>
-
-            <p>Vo výstupe vyššie sme vypísali tretí a štvrtý prvok druhého a tretieho riadku.</p>
-            <p>Ešte niekoľko príkladov na záver.</p>
-
-            <pre><code class="language-python">import numpy as np
+        <p>Vo výstupe vyššie sme vypísali tretí a štvrtý prvok druhého a tretieho riadku.</p>
+        <p>Ešte niekoľko príkladov na záver.</p>
+        <pre><code class="language-python">import numpy as np
 
 matrix = np.array([[ 6, 32, 58, 17, 34],  
                    [35, 16, 85,-11, 54],  
@@ -310,43 +281,40 @@ matrix = np.array([[ 6, 32, 58, 17, 34],
                    [ 7,-12, 36, 17, 55]])
 
 print(matrix[:1, ])</code></pre>
-
-            <pre><code class="language-python">[[ 6 32 58 17 34]]</code></pre>
-
-            <pre><code class="language-python">import numpy as np  
+        <pre><code class="language-python">[[ 6 32 58 17 34]]</code></pre>
+        <pre><code class="language-python">import numpy as np  
 
 matrix = np.array([[-12, 35, 17], [28, -22, 11], [5,7,19]])
 
 print(matrix[0])  #first row  
 print(matrix[1])  # the second row  
 print(matrix[-1]) # -1 will print the last row</code></pre>
-
-            <pre><code class="language-python">[-12  35  17]
+        <pre><code class="language-python">[-12  35  17]
 [ 28 -22  11]
 [ 5  7 19]</code></pre>
-
-            <p>Matice v knižnici Numpy sme prešli len v jednoduchosti. Ak máte záujem, o knižnici Numpy je uvedený rozsiahli 
-            článok v sekcii Blog webstránky.</p>
+        <p>Matice v knižnici Numpy sme prešli len v jednoduchosti. Ak máte záujem, o knižnici Numpy je uvedený rozsiahli 
+          článok v sekcii Blog webstránky.
+        </p>
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-lg-11 ic-animate mt-3">
+        <div class="tag-widget post-tag-container mb-5 mt-5">
+          <div class="tagcloud">
+            <a href="#" class="tag-cloud-link">python</a>
+            <a href="#" class="tag-cloud-link">matrix</a>
+            <a href="#" class="tag-cloud-link">programming</a>
+            <a href="#" class="tag-cloud-link">sample</a>
           </div>
-        </div>
-        <div class="row justify-content-end">
-          <div class="col-lg-11 ic-animate mt-3">
-            <div class="tag-widget post-tag-container mb-5 mt-5">
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">python</a>
-                <a href="#" class="tag-cloud-link">matrix</a>
-                <a href="#" class="tag-cloud-link">programming</a>
-                <a href="#" class="tag-cloud-link">sample</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ml-md-10 float-left sample-btn-l">    
-          <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:python_property' %}">&lt;&lt; Predchádzajúca ukážka</a>
-        </div>
-        <div class="mr-md-10 float-right sample-btn-r">    
-          <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:regular_expression' %}">Nasledujúca ukážka &gt;&gt;</a>
         </div>
       </div>
-    </section> <!-- .section -->
+    </div>
+    <div class="ml-md-10 float-left sample-btn-l">    
+      <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:python_property' %}">&lt;&lt; Predchádzajúca ukážka</a>
+    </div>
+    <div class="mr-md-10 float-right sample-btn-r">    
+      <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:regular_expression' %}">Nasledujúca ukážka &gt;&gt;</a>
+    </div>
+  </div>
+</section>
 {% endblock content %}

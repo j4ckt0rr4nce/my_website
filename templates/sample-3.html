@@ -2,44 +2,42 @@
 {% load static %}
 
 {% block content %}
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-end justify-content-center">
-          <div class="col-md-9 ic-animate mb-5 text-center">
-          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'ukazky' %}">Ukážky <i class="fa fa-chevron-right"></i></a></span> <span>Python Anagram <i class="fa fa-chevron-right"></i></span></p>
-            <h1 class="mb-0 bread">Python Anagram</h1>
-          </div>
-        </div>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ic-animate mb-5 text-center">
+        <p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'ukazky' %}">Ukážky <i class="fa fa-chevron-right"></i></a></span> <span>Python Anagram <i class="fa fa-chevron-right"></i></span></p>
+        <h1 class="mb-0 bread">Python Anagram</h1>
       </div>
-    </section>
-
-		<section class="ic-section ic-degree-bg">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10 ic-animate ic-sample px-5 pb-5">
-            <h2 class="mb-3 mt-4">Python program na nájdenie anagramu</h2>
-            <p>V tejto ukážke sa pozrieme na to, ako môžeme zistiť, či sú dané reťazce anagramy. Najprv by sme sa však mali zoznámiť 
-            s konceptom anagramu. </p>
-
-          	<p>
-              <img src="{% static 'core/images/sample-3.jpg' %}" alt="" class="img-fluid mt-4">
-            </p>
-            
-            <p>Anagram je stav, keď je jeden reťazec alebo číslo usporiadané tak, kde každý znak preusporiadaného reťazca alebo 
-            čísla musí byť súčasťou iného reťazca alebo čísla. Inými slovami, reťazec môžeme nazvať anagramom iného reťazca vtedy, 
-            ak je druhý reťazec jednoduchým preskupením prvého reťazca. Napríklad python a yphton sú anagramy; Java a avaJ sú taktiež
-            anagramy. </p>
-            <p>Poďme sa pozrieť na popis problému skôr ako ho vyriešime.</p>
-            <ul>
-              <li>Získame vstupy reťazcov od používateľa a uložíme ich do samostatných premenných.</li>
-              <li>Na vytriedenie oboch reťazcov do listov použijeme metódu <strong>sort()</strong>.</li>
-              <li>Skontrolujte oba listy, či tvoria anagram alebo nie.</li>
-              <li>Vytlačíme výsledok.</li>
-              <li>Ukončíme program.</li>
-            </ul>
-
-            <pre><code class="language-python">def check_for_anagram(string1,string2):
+    </div>
+  </div>
+</section>
+<section class="ic-section ic-degree-bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 ic-animate ic-sample px-5 pb-5">
+        <h2 class="mb-3 mt-4">Python program na nájdenie anagramu</h2>
+        <p>V tejto ukážke sa pozrieme na to, ako môžeme zistiť, či sú dané reťazce anagramy. Najprv by sme sa však mali zoznámiť 
+          s konceptom anagramu. 
+        </p>
+        <p>
+          <img src="{% static 'core/images/sample-3.jpg' %}" alt="" class="img-fluid mt-4">
+        </p>
+        <p>Anagram je stav, keď je jeden reťazec alebo číslo usporiadané tak, kde každý znak preusporiadaného reťazca alebo 
+          čísla musí byť súčasťou iného reťazca alebo čísla. Inými slovami, reťazec môžeme nazvať anagramom iného reťazca vtedy, 
+          ak je druhý reťazec jednoduchým preskupením prvého reťazca. Napríklad python a yphton sú anagramy; Java a avaJ sú taktiež
+          anagramy. 
+        </p>
+        <p>Poďme sa pozrieť na popis problému skôr ako ho vyriešime.</p>
+        <ul>
+          <li>Získame vstupy reťazcov od používateľa a uložíme ich do samostatných premenných.</li>
+          <li>Na vytriedenie oboch reťazcov do listov použijeme metódu <strong>sort()</strong>.</li>
+          <li>Skontrolujte oba listy, či tvoria anagram alebo nie.</li>
+          <li>Vytlačíme výsledok.</li>
+          <li>Ukončíme program.</li>
+        </ul>
+        <pre><code class="language-python">def check_for_anagram(string1,string2):
 
     # Convert string into lists  
     list1 = list(string1)  
@@ -61,24 +59,24 @@
     return matches  
   
 print(check_for_anagram('heart','earth'))</code></pre>
-
-            <pre><code class="language-python"># Output
+        <pre><code class="language-python"># Output
 True</code></pre>
-
-            <p>Vo vyššie uvedenom kóde sme deklarovali metódu <strong>check_for_anagram()</strong>, ktorá ako argument berie dva 
-            reťazce. Tieto reťazce sa prevedú do listu, v ktorom sa zoradia. Potom sme definovali premennú <strong>index</strong>
-            a priradili sme jej nulu. V každej iterácii cyklu while je dĺžka reťazca porovnaná s hodnotou <strong>index</strong> 
-            listu. Každý prvok oboch listov sa navzájom porovnáva a zvýši hodnotu <strong>index</strong> o jedna. Akonáhle bude 
-            hodnota <strong>index</strong> väčšia ako dĺžka reťazca, cyklus sa ukončí a vráti hodnotu <strong>True</strong>; 
-            v opačnom prípade sa vráti <strong>False</strong>.</p>
-            <p>Existuje niekoľko techník a príkladov, ktoré môžeme použiť na nájdenie anagramu v Pythone. Nižšie sa na niekoľko z 
-            nich pozrieme.</p>
-            <h5 class="mb-3 mt-5">Technika počítadla</h5>
-            <p>Pri tejto technike zrátame počet znakov v oboch daných reťazcoch. Ak sa počet znakov daného reťazca zhoduje s 
-            iným reťazcom, potom je zodpovedajúcim slovom anagram druhého slova.</p>
-            <p>Pozrime sa na nasledujúci príklad.</p>
-
-            <pre><code class="language-python">from collections import Counter, defaultdict 
+        <p>Vo vyššie uvedenom kóde sme deklarovali metódu <strong>check_for_anagram()</strong>, ktorá ako argument berie dva 
+          reťazce. Tieto reťazce sa prevedú do listu, v ktorom sa zoradia. Potom sme definovali premennú <strong>index</strong>
+          a priradili sme jej nulu. V každej iterácii cyklu while je dĺžka reťazca porovnaná s hodnotou <strong>index</strong> 
+          listu. Každý prvok oboch listov sa navzájom porovnáva a zvýši hodnotu <strong>index</strong> o jedna. Akonáhle bude 
+          hodnota <strong>index</strong> väčšia ako dĺžka reťazca, cyklus sa ukončí a vráti hodnotu <strong>True</strong>; 
+          v opačnom prípade sa vráti <strong>False</strong>.
+        </p>
+        <p>Existuje niekoľko techník a príkladov, ktoré môžeme použiť na nájdenie anagramu v Pythone. Nižšie sa na niekoľko z 
+          nich pozrieme.
+        </p>
+        <h5 class="mb-3 mt-5">Technika počítadla</h5>
+        <p>Pri tejto technike zrátame počet znakov v oboch daných reťazcoch. Ak sa počet znakov daného reťazca zhoduje s 
+          iným reťazcom, potom je zodpovedajúcim slovom anagram druhého slova.
+        </p>
+        <p>Pozrime sa na nasledujúci príklad.</p>
+        <pre><code class="language-python">from collections import Counter, defaultdict 
 
 def check_for_anagram(strings):  
     ddict = defaultdict(list)  
@@ -92,21 +90,19 @@ def check_for_anagram(strings):
 strings = ("heart","earth")  
 
 print(check_for_anagram(strings))</code></pre>
-
-            <pre><code class="language-python"># Output
+        <pre><code class="language-python"># Output
 [['heart'], ['earth']]</code></pre>
-  
-            <p>Importovali sme modul <strong>collections</strong> a jeho metódy <strong>Counter</strong> a <strong>defaultdict</strong>
-            na vyhľadanie anagramov reťazcov vo vyššie uvedenom kóde. Definovali sme metódu <strong>check_for_anagram()</strong> na 
-            spočítanie a zaznamenanie každého znaku pomocou našej funkcie. Počet každého znaku je zapísaný v liste na zodpovedajúcom 
-            mieste mieste. Tento proces sa vykonáva pre všetky znaky v prvom ako aj v druhom reťazci. Ak je počet znakov oboch 
-            reťazcov zhodný, znamená to, že naŠe reťazce sú anagramy.</p>
-        
-            <h5 class="mb-3 mt-5">Zoraďovacia technika</h5>
-            <p>Pri tejto technike sú oba reťazce zoradené a funkcia kontroluje, či sa obe hodnoty navzájom zhodujú. Poďme 
-            sa pozrieť na nasledujúci príklad.</p>
-
-            <pre><code class="language-python">def check_for_anagram(string1, string2):  
+        <p>Importovali sme modul <strong>collections</strong> a jeho metódy <strong>Counter</strong> a <strong>defaultdict</strong>
+          na vyhľadanie anagramov reťazcov vo vyššie uvedenom kóde. Definovali sme metódu <strong>check_for_anagram()</strong> na 
+          spočítanie a zaznamenanie každého znaku pomocou našej funkcie. Počet každého znaku je zapísaný v liste na zodpovedajúcom 
+          mieste mieste. Tento proces sa vykonáva pre všetky znaky v prvom ako aj v druhom reťazci. Ak je počet znakov oboch 
+          reťazcov zhodný, znamená to, že naŠe reťazce sú anagramy.
+        </p>
+        <h5 class="mb-3 mt-5">Zoraďovacia technika</h5>
+        <p>Pri tejto technike sú oba reťazce zoradené a funkcia kontroluje, či sa obe hodnoty navzájom zhodujú. Poďme 
+          sa pozrieť na nasledujúci príklad.
+        </p>
+        <pre><code class="language-python">def check_for_anagram(string1, string2):  
 
     # Strings are sorted and check whether both are matching or not  
     if(sorted(string1) == sorted(string2)): 
@@ -121,39 +117,36 @@ print( "String-1 : ", word1 )
 print( "String-2 : ", word2 )
 
 check_for_anagram(word1, word2)</code></pre>
-
-            <pre><code class="language-python"># Output
+        <pre><code class="language-python"># Output
 String-1 :  heart
 String-2 :  earth
 Both strings are an Anagram.</code></pre>
-
-            <p>Vo vyššie uvedenom kóde sme definovali metódu check_for_anagram() a zadali dva reťazce ako parametre. V metóde 
-            check_for_anagram() sme reťazce uložili do konkrétnych premenných. Po zoradení sme porovnali každý reťazec. Ak sa 
-            porovnanie medzi reťazcami zhoduje, dané reťazce tvoria anagram; v opačnom prípade nám funcia vypíše, že reťazce 
-            anagram netvoria. Táto metóda je pomerne jednoduchá a účinná. Znižuje zložitosť kódu vo význačnej miere.</p>
-            <h5 class="mb-3 mt-5">Reverzná kontrola anagramu </h5>
-            <p>Túto techniku môžeme uplatniť nasledovne.</p>
-
-            <pre><code class="language-python">random_list = ["pizza", "cheeseburger", "now", "won"]
+        <p>Vo vyššie uvedenom kóde sme definovali metódu check_for_anagram() a zadali dva reťazce ako parametre. V metóde 
+          check_for_anagram() sme reťazce uložili do konkrétnych premenných. Po zoradení sme porovnali každý reťazec. Ak sa 
+          porovnanie medzi reťazcami zhoduje, dané reťazce tvoria anagram; v opačnom prípade nám funcia vypíše, že reťazce 
+          anagram netvoria. Táto metóda je pomerne jednoduchá a účinná. Znižuje zložitosť kódu vo význačnej miere.
+        </p>
+        <h5 class="mb-3 mt-5">Reverzná kontrola anagramu </h5>
+        <p>Túto techniku môžeme uplatniť nasledovne.</p>
+        <pre><code class="language-python">random_list = ["pizza", "cheeseburger", "now", "won"]
 anagrams = {}  
 for x in random_list:  
     reverse_word = x[::-1]
     if reverse_word in random_list:  
          anagrams[x] = (random_list.pop(random_list.index(reverse_word)))  
          print(anagrams)</code></pre>
-
-            <pre><code class="language-python"># Output
+        <pre><code class="language-python"># Output
 {'now': 'won'}</code></pre>
-
-            <p>Vo vyššie uvedenom kóde sme použili techniku na porovnanie anagramov pomocou reverzného reťazca. Vytvorili sme si 
-            dva rôzne reťazce. Táto technika je podobná palindrómom, kde sme jeden reťazec obrátili a porovnali s ostatnými reťazcami.
-            Ak sa zhodujú, reťazce vytvorili anagram; ak sa nezhodujú, anagramy nebudú vypísané.</p>
-            <h5 class="mb-3 mt-5">Technika overenia pozície</h5>
-            <p>Pri tejto metóde sa na vyhľadanie anagramu porovnáva úroveň pozície. To môžeme dosiahnuť overením pozičného znaku 
-            prvého reťazca s každým pozičným znakom v druhom reťazci. Ak prvý reťazec obsahuje podobnú zhodu s druhým reťazcom, 
-            je označený za anagram. Poďme sa pozrieť na nasledujúci príklad.</p>
-            
-            <pre><code class="language-python">def check_for_anagram(string1, string2):
+        <p>Vo vyššie uvedenom kóde sme použili techniku na porovnanie anagramov pomocou reverzného reťazca. Vytvorili sme si 
+          dva rôzne reťazce. Táto technika je podobná palindrómom, kde sme jeden reťazec obrátili a porovnali s ostatnými reťazcami.
+          Ak sa zhodujú, reťazce vytvorili anagram; ak sa nezhodujú, anagramy nebudú vypísané.
+        </p>
+        <h5 class="mb-3 mt-5">Technika overenia pozície</h5>
+        <p>Pri tejto metóde sa na vyhľadanie anagramu porovnáva úroveň pozície. To môžeme dosiahnuť overením pozičného znaku 
+          prvého reťazca s každým pozičným znakom v druhom reťazci. Ak prvý reťazec obsahuje podobnú zhodu s druhým reťazcom, 
+          je označený za anagram. Poďme sa pozrieť na nasledujúci príklad.
+        </p>
+        <pre><code class="language-python">def check_for_anagram(string1, string2):
     checking = True
 
     if len(string1) != len(string2):  
@@ -185,38 +178,37 @@ if result:
     print("Both words are Anagram.")  
 else:  
     print("Both words are not Anagram.")</code></pre>
-
-            <pre><code class="language-python"># Output
+        <pre><code class="language-python"># Output
 String-1 :  heart
 String-2 :  earth</code></pre>
-            
-            
-            <p>Poďme si vysvetliť poslednú techniku na vyhľadanie anagramu dvoch reťazcov. Vo vnorenom while cykle vložíme do cyklov 
-            reťazec na overovací proces.</p>
-            <p>Vonkajší while cyklus je použitý na spracovanie jedného z reťazcov a vnútorný cyklus je použítý pre druhý reťazec. 
-            Znak jedného reťazca sa porovná s každým znakom ďalšieho reťazca a tento proces pokračuje pri každom písmene prvého reťazca.
-            Ak sú všetky znaky prvého reťazca zhodné so znakmi druhého reťazca, potom môžme reťazce označiť za anagramy</p>
-            <p>Táto technika je veľmi stabilný proces, pretože funguje na algoritmickej technike, ktorá presne posudzuje reťazce.</p>
+        <p>Poďme si vysvetliť poslednú techniku na vyhľadanie anagramu dvoch reťazcov. Vo vnorenom while cykle vložíme do cyklov 
+          reťazec na overovací proces.
+        </p>
+        <p>Vonkajší while cyklus je použitý na spracovanie jedného z reťazcov a vnútorný cyklus je použítý pre druhý reťazec. 
+          Znak jedného reťazca sa porovná s každým znakom ďalšieho reťazca a tento proces pokračuje pri každom písmene prvého reťazca.
+          Ak sú všetky znaky prvého reťazca zhodné so znakmi druhého reťazca, potom môžme reťazce označiť za anagramy
+        </p>
+        <p>Táto technika je veľmi stabilný proces, pretože funguje na algoritmickej technike, ktorá presne posudzuje reťazce.</p>
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-lg-11 ic-animate mt-3">
+        <div class="tag-widget post-tag-container mb-5 mt-5">
+          <div class="tagcloud">
+            <a href="#" class="tag-cloud-link">python</a>
+            <a href="#" class="tag-cloud-link">anagram</a>
+            <a href="#" class="tag-cloud-link">programming</a>
+            <a href="#" class="tag-cloud-link">sample</a>
           </div>
-        </div>
-        <div class="row justify-content-end">
-          <div class="col-lg-11 ic-animate mt-3">
-            <div class="tag-widget post-tag-container mb-5 mt-5">
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">python</a>
-                <a href="#" class="tag-cloud-link">anagram</a>
-                <a href="#" class="tag-cloud-link">programming</a>
-                <a href="#" class="tag-cloud-link">sample</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ml-md-10 float-left sample-btn-l"> 
-          <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:list_comprehension' %}">&lt;&lt; Predchádzajúca ukážka</a>
-        </div>
-        <div class="mr-md-10 float-right sample-btn-r">
-          <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:python_property' %}">Nasledujúca ukážka &gt;&gt;</a>
         </div>
       </div>
-    </section> <!-- .section -->
+    </div>
+    <div class="ml-md-10 float-left sample-btn-l"> 
+      <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:list_comprehension' %}">&lt;&lt; Predchádzajúca ukážka</a>
+    </div>
+    <div class="mr-md-10 float-right sample-btn-r">
+      <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:python_property' %}">Nasledujúca ukážka &gt;&gt;</a>
+    </div>
+  </div>
+</section>
 {% endblock content %}

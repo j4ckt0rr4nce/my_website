@@ -2,61 +2,60 @@
 {% load static %}
 
 {% block content %}
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-end justify-content-center">
-          <div class="col-md-9 ic-animate mb-5 text-center">
-          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'ukazky' %}">Ukážky <i class="fa fa-chevron-right"></i></a></span> <span>Flask Blueprint <i class="fa fa-chevron-right"></i></span></p>
-            <h1 class="mb-0 bread">Flask Blueprint</h1>
-          </div>
-        </div>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ic-animate mb-5 text-center">
+        <p class="breadcrumbs mb-0"><span class="mr-2"><a href="{% url 'index-view' %}">Domov <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{% url 'ukazky' %}">Ukážky <i class="fa fa-chevron-right"></i></a></span> <span>Flask Blueprint <i class="fa fa-chevron-right"></i></span></p>
+        <h1 class="mb-0 bread">Flask Blueprint</h1>
       </div>
-    </section>
-
-		<section class="ic-section ic-degree-bg">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-11 ic-animate ic-sample px-5 pb-5">
-            <h2 class="mb-3 mt-4">Flask Blueprint</h2>
-
-            <p>
-              <img src="{% static 'core/images/sample-1.jpg' %}" alt="" class="img-fluid">
-            </p>
-
-            <p>Blueprint vo frameworku Flask je logická štruktúra, ktorá predstavuje podmnožinu aplikácie. Blueprint môže obsahovať 
-            prvky, ako sú trasy(routes), funkcie zobrazenia(views), formuláre(forms), šablóny(templates) a statické súbory(static files). 
-            Ak svoj Blueprint vytvoríte ako samostatný Python balík(package), potom máte komponent, ktorý zapuzdruje prvky súvisiace 
-            so špecifickými funkciami aplikácie.</p>
-            <p>Obsah Blueprintu je pôvodne v nečinnom stave. Na priradenie zapuzdrených prvkov je potrebné, aby bol Blueprint 
-            zaregistrovaný v aplikácii. Po registrácii sú všetky prvky, ktoré Blueprint obsahuje, priradené k aplikácii.
-            Blueprint si teda môžete predstaviť ako dočasné úložisko pre funkcie aplikácií, ktoré pomáha pri organizácii kódu.</p>
-            <p>Blueprint vytvoríte dosť podobne ako aj samotnú aplikáciu. Ako som vyššie spomenul Bluprint môžete vytvoriť vo forme 
-            Python balíčku, ja však uprednostňujem Blueprinty vytvárať v moduloch __init__.py daného priečinku Blueprintu: </p>
-
-          	<pre><code class="language-python">from flask import Blueprint
+    </div>
+  </div>
+</section>
+<section class="ic-section ic-degree-bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-11 ic-animate ic-sample px-5 pb-5">
+        <h2 class="mb-3 mt-4">Flask Blueprint</h2>
+        <p>
+          <img src="{% static 'core/images/sample-1.jpg' %}" alt="" class="img-fluid">
+        </p>
+        <p>Blueprint vo frameworku Flask je logická štruktúra, ktorá predstavuje podmnožinu aplikácie. Blueprint môže obsahovať 
+          prvky, ako sú trasy(routes), funkcie zobrazenia(views), formuláre(forms), šablóny(templates) a statické súbory(static files). 
+          Ak svoj Blueprint vytvoríte ako samostatný Python balík(package), potom máte komponent, ktorý zapuzdruje prvky súvisiace 
+          so špecifickými funkciami aplikácie.
+        </p>
+        <p>Obsah Blueprintu je pôvodne v nečinnom stave. Na priradenie zapuzdrených prvkov je potrebné, aby bol Blueprint 
+          zaregistrovaný v aplikácii. Po registrácii sú všetky prvky, ktoré Blueprint obsahuje, priradené k aplikácii.
+          Blueprint si teda môžete predstaviť ako dočasné úložisko pre funkcie aplikácií, ktoré pomáha pri organizácii kódu.
+        </p>
+        <p>Blueprint vytvoríte dosť podobne ako aj samotnú aplikáciu. Ako som vyššie spomenul Bluprint môžete vytvoriť vo forme 
+          Python balíčku, ja však uprednostňujem Blueprinty vytvárať v moduloch __init__.py daného priečinku Blueprintu: 
+        </p>
+        <pre><code class="language-python">from flask import Blueprint
 
 bp = Blueprint('main', __name__)
 
 from app import routes</code></pre>
-                
-            <p>Blueprint class berie dva predvolené argumenty. Prvý argument „main“ je názov Blueprintu, ktorý je potrebný v rámci 
-            mechanizmu trás(routes) frameworku Flask. Druhý argument, __name__, je import názov Blueprintu, ktorý Flask používa na 
-            vyhľadanie zdrojov Blueprintu. Na zmenu správania Blueprintu môžete prípadne zadať ďalšie voliteľné argumenty:</p>
-            <ul>
-              <li><strong>static_folder:</strong> priečinok, kde sa nachádzajú statické súbory Blueprintu</li>
-              <li><strong>static_url_path:</strong> adresa URL, z ktorej sa majú poskytovať statické súbory</li>
-              <li><strong>template_folder:</strong> priečinok obsahujúci šablóny Blueprintu</li>
-              <li><strong>url_prefix:</strong> cesta, ktorá sa má pripojiť k všetkým adresám URL Blueprintu</li>
-              <li><strong>subdomain:</strong> subdoména, na ktorej sa budú trasy tohto Blueprintu predvolene zhodovať</li>
-              <li><strong>url_defaults:</strong> slovník(dictionary) predvolených hodnôt, ktoré získajú zobrazenia(views) tohto Blueprintu</li>
-              <li><strong>root_path:</strong> cesta root adresára Blueprintu, ktorej predvolená hodnota sa získa z import názvu Blueprintu</li>
-            </ul>
-            <p>Keď máme vytvorený Blueprint objekt, importujeme modul routes.py, čím jeho obsah zaregistrujeme v Blueprinte.</p>
-            <p>V našom Blueprinte sme teda importovali trasy(routes),modulu routes.py. Predstavme si, že modul obsahuje 
-            nasledujúce trasy.</p>
-
-            <pre><code class="language-python">from flask import render_template
+        <p>Blueprint class berie dva predvolené argumenty. Prvý argument „main“ je názov Blueprintu, ktorý je potrebný v rámci 
+          mechanizmu trás(routes) frameworku Flask. Druhý argument, __name__, je import názov Blueprintu, ktorý Flask používa na 
+          vyhľadanie zdrojov Blueprintu. Na zmenu správania Blueprintu môžete prípadne zadať ďalšie voliteľné argumenty:
+        </p>
+        <ul>
+          <li><strong>static_folder:</strong> priečinok, kde sa nachádzajú statické súbory Blueprintu</li>
+          <li><strong>static_url_path:</strong> adresa URL, z ktorej sa majú poskytovať statické súbory</li>
+          <li><strong>template_folder:</strong> priečinok obsahujúci šablóny Blueprintu</li>
+          <li><strong>url_prefix:</strong> cesta, ktorá sa má pripojiť k všetkým adresám URL Blueprintu</li>
+          <li><strong>subdomain:</strong> subdoména, na ktorej sa budú trasy tohto Blueprintu predvolene zhodovať</li>
+          <li><strong>url_defaults:</strong> slovník(dictionary) predvolených hodnôt, ktoré získajú zobrazenia(views) tohto Blueprintu</li>
+          <li><strong>root_path:</strong> cesta root adresára Blueprintu, ktorej predvolená hodnota sa získa z import názvu Blueprintu</li>
+        </ul>
+        <p>Keď máme vytvorený Blueprint objekt, importujeme modul routes.py, čím jeho obsah zaregistrujeme v Blueprinte.</p>
+        <p>V našom Blueprinte sme teda importovali trasy(routes),modulu routes.py. Predstavme si, že modul obsahuje 
+          nasledujúce trasy.
+        </p>
+        <pre><code class="language-python">from flask import render_template
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -69,16 +68,15 @@ def about_us():
 @app.route('/gallery', methods=['GET', 'POST'])
 def gallery():
     return render_template('gallery.html', title='Gallery')</code></pre>
-
-            <p>Vo Flasku na priradenie trás k aplikáciám používame dekorátory s názvom aplikácie, v našom prípade app. V module 
-            routes.py namiesto priradenia trás k aplikácii pomocou dekorátora @app.route použijeme dekorátor @bp.route podľa nami 
-            vytvoreného Blueprintu a tým k nemu priradíme dané trasy.
-            Aj keď oba dekorátory dosiahnu rovnaký konečný výsledok, myšlienkou je pokúsiť sa vytvoriť návrh nezávislý na aplikácii, 
-            aby bol prenosnejší. Taktiež si môžete vytvoriť aj podadresáre pre určité html-šablóny ktoré Vám pripadajú, že patria do 
-            rovnakej kategórie a následne k nim priradit patričné cesty k Blueprintom.</p>
-            <p>Modul routes.py po zmene dekorátorov:</p>
-
-            <pre><code class="language-python">from flask import render_template
+        <p>Vo Flasku na priradenie trás k aplikáciám používame dekorátory s názvom aplikácie, v našom prípade app. V module 
+          routes.py namiesto priradenia trás k aplikácii pomocou dekorátora @app.route použijeme dekorátor @bp.route podľa nami 
+          vytvoreného Blueprintu a tým k nemu priradíme dané trasy.
+          Aj keď oba dekorátory dosiahnu rovnaký konečný výsledok, myšlienkou je pokúsiť sa vytvoriť návrh nezávislý na aplikácii, 
+          aby bol prenosnejší. Taktiež si môžete vytvoriť aj podadresáre pre určité html-šablóny ktoré Vám pripadajú, že patria do 
+          rovnakej kategórie a následne k nim priradit patričné cesty k Blueprintom.
+        </p>
+        <p>Modul routes.py po zmene dekorátorov:</p>
+        <pre><code class="language-python">from flask import render_template
 
 @bp.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -91,18 +89,17 @@ def about_us():
 @bp.route('/gallery', methods=['GET', 'POST'])
 def gallery():
     return render_template('gallery.html', title='Gallery')</code></pre>
-
-            <p>Blueprint objekty taktiež poskytujú ďalšie metódy, ktoré môžu byť pre vás užitočné:</p>
-            <ul>
-              <li><strong>.errorhandler()</strong> zaregistruje error handler funkciu</li>
-              <li><strong>.before_request()</strong> vykoná akciu pred každým requestom</li>
-              <li><strong>.after_request()</strong> vykoná akciu po každom requeste</li>
-              <li><strong>.app_template_filter()</strong> zaregistruje filter šablón na aplikačnej úrovni</li>
-            </ul>
-            <p>Pamätajte si, že Flask nevyžaduje žiadny konkrétny layout projektu. Povedzme, že layout mojej aplikácia vyzeral 
-            pred použitím Blueprintov nasledovne:</p>
-
-            <pre><code class="language-python">app/
+        <p>Blueprint objekty taktiež poskytujú ďalšie metódy, ktoré môžu byť pre vás užitočné:</p>
+        <ul>
+          <li><strong>.errorhandler()</strong> zaregistruje error handler funkciu</li>
+          <li><strong>.before_request()</strong> vykoná akciu pred každým requestom</li>
+          <li><strong>.after_request()</strong> vykoná akciu po každom requeste</li>
+          <li><strong>.app_template_filter()</strong> zaregistruje filter šablón na aplikačnej úrovni</li>
+        </ul>
+        <p>Pamätajte si, že Flask nevyžaduje žiadny konkrétny layout projektu. Povedzme, že layout mojej aplikácia vyzeral 
+          pred použitím Blueprintov nasledovne:
+        </p>
+        <pre><code class="language-python">app/
 |
 ├── static/
 |   └── # ...
@@ -116,18 +113,20 @@ def gallery():
 ├── models.py
 ├── forms.py
 └── routes.py</code></pre>
-
-            <p>V tomto rozložení by bolo ťažké znova použiť logiku aplikácie v iných projektoch, pretože všetky funkcie sú súčasťou 
-            modulu __init__.py a modely, formy a trasy rôzneho druhu sú pokope vo svojich moduloch. Ak namiesto toho rozdelíme tieto
-            prvky do súvisiacich kategórií, následne môžeme novovytvorené moduly znova použiť v rôznych projektoch.</p>
-            <p>Navyše, veľké súbory sú zdrojom konfliktov, keď pracujete v tíme, pretože všetci budú vykonávať zmeny v tom istom 
-            súbore. Toto je len niekoľko dôvodov, prečo je predchádzajúce rozloženie dobré iba pre veľmi malé aplikácie.</p>
-            <p>Teraz sa pozrieme na to, ako navrhnúť predchádzajúcu aplikáciu a vytvoriť Blueprinty, ktoré budú zahŕňať všetky 
-            súvisiace funkcie.</p>
-            <p>Ak použijeme samostatné priečinky pre každý Blueprint a jeho zdroje, potom by rozloženie projektu vyzeralo 
-            nasledovne:</p> 
-
-            <pre><code class="language-python">app/
+        <p>V tomto rozložení by bolo ťažké znova použiť logiku aplikácie v iných projektoch, pretože všetky funkcie sú súčasťou 
+          modulu __init__.py a modely, formy a trasy rôzneho druhu sú pokope vo svojich moduloch. Ak namiesto toho rozdelíme tieto
+          prvky do súvisiacich kategórií, následne môžeme novovytvorené moduly znova použiť v rôznych projektoch.
+        </p>
+        <p>Navyše, veľké súbory sú zdrojom konfliktov, keď pracujete v tíme, pretože všetci budú vykonávať zmeny v tom istom 
+          súbore. Toto je len niekoľko dôvodov, prečo je predchádzajúce rozloženie dobré iba pre veľmi malé aplikácie.
+        </p>
+        <p>Teraz sa pozrieme na to, ako navrhnúť predchádzajúcu aplikáciu a vytvoriť Blueprinty, ktoré budú zahŕňať všetky 
+          súvisiace funkcie.
+        </p>
+        <p>Ak použijeme samostatné priečinky pre každý Blueprint a jeho zdroje, potom by rozloženie projektu vyzeralo 
+          nasledovne:
+        </p>
+        <pre><code class="language-python">app/
 |
 ├── auth/
 |   ├── __init__.py
@@ -149,14 +148,14 @@ def gallery():
 |
 ├── __init__.py
 └── models.py</code></pre>
-
-            <p>Posledným krokom k dokončeniu je registrácia Blueprintu v aplikácii.</p>
-            <p>Pripomeňme si, že Flask Blueprint nie je v skutočnosti aplikáciou. Keď zaregistrujete Flask Blueprint v aplikácii,
-            rozšírite aplikáciu o jej obsah.</p>
-            <p>Predpokladajme, že základný modul __init__.py v priečinku app, čo je naša aplikácia, obsahuje nasledujúce 
-            nastavenia pred registráciou Blueprintu:</p>
-
-            <pre><code class="language-python">import os
+        <p>Posledným krokom k dokončeniu je registrácia Blueprintu v aplikácii.</p>
+        <p>Pripomeňme si, že Flask Blueprint nie je v skutočnosti aplikáciou. Keď zaregistrujete Flask Blueprint v aplikácii,
+          rozšírite aplikáciu o jej obsah.
+        </p>
+        <p>Predpokladajme, že základný modul __init__.py v priečinku app, čo je naša aplikácia, obsahuje nasledujúce 
+          nastavenia pred registráciou Blueprintu:
+        </p>
+        <pre><code class="language-python">import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -168,13 +167,12 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # ...</code></pre>
-
-            <p>Na registráciu Blueprintu sa používa metóda <strong>register_blueprint()</strong> inštancie aplikácie Flask. Keď je 
-            Blueprint zaregistrovaný, k aplikácii sú pripojené všetky prvky, ako sú trasy, funkcie zobrazenia, formuláre, šablóny, 
-            statické súbory atď. Import Blueprintu umiestníme priamo nad metódu app.register_blueprint(), aby sme predišli 
-            zacykleniu kódu.(circular dependencies)</p>
-
-            <pre><code class="language-python">import os
+        <p>Na registráciu Blueprintu sa používa metóda <strong>register_blueprint()</strong> inštancie aplikácie Flask. Keď je 
+          Blueprint zaregistrovaný, k aplikácii sú pripojené všetky prvky, ako sú trasy, funkcie zobrazenia, formuláre, šablóny, 
+          statické súbory atď. Import Blueprintu umiestníme priamo nad metódu app.register_blueprint(), aby sme predišli 
+          zacykleniu kódu.(circular dependencies)
+        </p>
+        <pre><code class="language-python">import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -192,17 +190,17 @@ from app.auth import bp as auth_bp
 app.register_blueprint(auth_bp, url_prefix='/auth')
 
 # ...</code></pre>
-
-            <p>Treba ešte zdôrazniť jednu dôležitú vec. Doteraz sme používali premennú aplikácie <strong>app</strong> 
-            ako globálnu premennú a to prináša určité komplikácie, hlavne vo forme obmedzení pre niektoré testovacie scenáre. 
-            Predtým, ako sme si predstavili Blueprinty, musela byť aplikácia globálnou premennou, pretože všetky funkcie zobrazenia
-            museli byť dekorované dekorátormi, ktoré boli priamo z aplikácie, ako napríklad @app.route. Teraz však, keď boli všetky 
-            trasy presunuté do Blueprintov, existuje oveľa menej dôvodov na to, aby bola sféra aplikácie globálna.</p>
-            <p>Čo teda môžeme urobť, je pridať funkciu s názvom create_app (), ktorá zostaví inštanciu aplikácie Flask a odstráni 
-            globálnu premennú. Bohužiaľ transformácia nie je triviálna a preto musíme vyriešiť niekoľko komplikácií. Pozrime 
-            sa na základný modul __init__.py v hlavnom priečinku app našej aplikácie:</p>
-
-            <pre><code class="language-python">import os
+        <p>Treba ešte zdôrazniť jednu dôležitú vec. Doteraz sme používali premennú aplikácie <strong>app</strong> 
+          ako globálnu premennú a to prináša určité komplikácie, hlavne vo forme obmedzení pre niektoré testovacie scenáre. 
+          Predtým, ako sme si predstavili Blueprinty, musela byť aplikácia globálnou premennou, pretože všetky funkcie zobrazenia
+          museli byť dekorované dekorátormi, ktoré boli priamo z aplikácie, ako napríklad @app.route. Teraz však, keď boli všetky 
+          trasy presunuté do Blueprintov, existuje oveľa menej dôvodov na to, aby bola sféra aplikácie globálna.
+        </p>
+        <p>Čo teda môžeme urobť, je pridať funkciu s názvom create_app (), ktorá zostaví inštanciu aplikácie Flask a odstráni 
+          globálnu premennú. Bohužiaľ transformácia nie je triviálna a preto musíme vyriešiť niekoľko komplikácií. Pozrime 
+          sa na základný modul __init__.py v hlavnom priečinku app našej aplikácie:
+        </p>
+        <pre><code class="language-python">import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -227,24 +225,24 @@ def create_app(config_class=Config):
     # ...
 
     return app</code></pre>
-
-            <p>Videli ste, že väčšina rozšírení frameworku Flask sa inicializuje vytvorením inštancie rozšírenia a odoslaním 
-            aplikácie ako argumentu. Ak aplikácia neexistuje ako globálna premenná, existuje alternatívny režim, v ktorom sa 
-            rozšírenia inicializujú v dvoch fázach. Inštancia rozšírenia je najskôr vytvorená v globálnom rozsahu ako predtým, 
-            ale nie sú jej odoslané žiadne argumenty. To vytvorí inštanciu rozšírenia, ktorá nie je pripojené k aplikácii. V čase 
-            vytvorenia inštancie aplikácie vo funkcii create_app je potrebné na inštanciách rozšírenia vyvolať metódu init_app(), 
-            aby sa prepojili s teraz známou aplikáciou.</p>
-
-            <p>Na záver si povedzme ešte niečo k html-šablónam v rámci použitia Blueprintov. Keď vo Flasku funkcie zobrazenia(views) 
-            vykreslia nejakú šablónu, súbor šablóny sa vyhľadáva vo všetkých adresároch, ktoré boli zaregistrované vo vyhľadávacej ceste  
-            šablóny aplikácie. V predvolenom nastavení je táto cesta [" /templates"], takže šablóny sa vyhľadávajú iba v 
-            adresári /templates v root adresári aplikácie. </p>
-            <p>Ak pri vytváraní Blueprintu pridáme argument template_folder, jeho priečinok so šablónami sa pri registrácii 
-            Blueprintu pridá do vyhľadávacej cesty šablóny aplikácie. Ak však existujú duplicitné cesty k súborom pod rôznymi 
-            adresármi, ktoré sú súčasťou vyhľadávacej cesty šablón, bude mať prednosť cesta v závislosti od poradia ich registrácie.</p>
-            <p>Z tohto dôvodu má nasledujúca štruktúra pre šablóny v aplikácii zmysluplnejšiu štruktúru.:</p>
-
-            <pre><code class="language-python">app/
+        <p>Videli ste, že väčšina rozšírení frameworku Flask sa inicializuje vytvorením inštancie rozšírenia a odoslaním 
+          aplikácie ako argumentu. Ak aplikácia neexistuje ako globálna premenná, existuje alternatívny režim, v ktorom sa 
+          rozšírenia inicializujú v dvoch fázach. Inštancia rozšírenia je najskôr vytvorená v globálnom rozsahu ako predtým, 
+          ale nie sú jej odoslané žiadne argumenty. To vytvorí inštanciu rozšírenia, ktorá nie je pripojené k aplikácii. V čase 
+          vytvorenia inštancie aplikácie vo funkcii create_app je potrebné na inštanciách rozšírenia vyvolať metódu init_app(), 
+          aby sa prepojili s teraz známou aplikáciou.
+        </p>
+        <p>Na záver si povedzme ešte niečo k html-šablónam v rámci použitia Blueprintov. Keď vo Flasku funkcie zobrazenia(views) 
+          vykreslia nejakú šablónu, súbor šablóny sa vyhľadáva vo všetkých adresároch, ktoré boli zaregistrované vo vyhľadávacej ceste  
+          šablóny aplikácie. V predvolenom nastavení je táto cesta [" /templates"], takže šablóny sa vyhľadávajú iba v 
+          adresári /templates v root adresári aplikácie. 
+        </p>
+        <p>Ak pri vytváraní Blueprintu pridáme argument template_folder, jeho priečinok so šablónami sa pri registrácii 
+          Blueprintu pridá do vyhľadávacej cesty šablóny aplikácie. Ak však existujú duplicitné cesty k súborom pod rôznymi 
+          adresármi, ktoré sú súčasťou vyhľadávacej cesty šablón, bude mať prednosť cesta v závislosti od poradia ich registrácie.
+        </p>
+        <p>Z tohto dôvodu má nasledujúca štruktúra pre šablóny v aplikácii zmysluplnejšiu štruktúru.:</p>
+        <pre><code class="language-python">app/
 |
 └── templates/
     ├── auth/
@@ -256,30 +254,30 @@ def create_app(config_class=Config):
         ├── index.html
         ├── contact.html
         └── # ...</code></pre>
-
-            <p>Následne už iba pri volaní metódy render_template pridáte názov priečinku šablóny pred názov samotnej šablóny 
-            nasledovne: main/index.html</p>
-            <p>Ešte malá poznámka. Základný templates adresár aplikácie má vždy prednosť pred ďaľšími priečinkami šablón, takže ak 
-            chcete nahradiť šablóny v týchto priečinkoch môžete vytvoriť šablóny s rovnakým názvom v základnom templates priečinku 
-            aplikácie.</p>
+        <p>Následne už iba pri volaní metódy render_template pridáte názov priečinku šablóny pred názov samotnej šablóny 
+          nasledovne: main/index.html
+        </p>
+        <p>Ešte malá poznámka. Základný templates adresár aplikácie má vždy prednosť pred ďaľšími priečinkami šablón, takže ak 
+          chcete nahradiť šablóny v týchto priečinkoch môžete vytvoriť šablóny s rovnakým názvom v základnom templates priečinku 
+          aplikácie.
+        </p>
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-lg-11 ic-animate mt-3">
+        <div class="tag-widget post-tag-container mb-5 mt-5">
+          <div class="tagcloud">
+            <a href="#" class="tag-cloud-link">python</a>
+            <a href="#" class="tag-cloud-link">flask</a>
+            <a href="#" class="tag-cloud-link">programming</a>
+            <a href="#" class="tag-cloud-link">sample</a>
           </div>
-        </div>
-        <div class="row justify-content-end">
-          <div class="col-lg-11 ic-animate mt-3">
-            <div class="tag-widget post-tag-container mb-5 mt-5">
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">python</a>
-                <a href="#" class="tag-cloud-link">flask</a>
-                <a href="#" class="tag-cloud-link">programming</a>
-                <a href="#" class="tag-cloud-link">sample</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mr-md-10 float-right sample-btn-r">  
-          <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:list_comprehension' %}">Nasledujúca ukážka &gt;&gt;</a>
         </div>
       </div>
-    </section> <!-- .section -->
+    </div>
+    <div class="mr-md-10 float-right sample-btn-r">  
+      <a class="btn btn-outline-info mb-4" href="{% url 'ukazky:list_comprehension' %}">Nasledujúca ukážka &gt;&gt;</a>
+    </div>
+  </div>
+</section>
 {% endblock content %}
-    
