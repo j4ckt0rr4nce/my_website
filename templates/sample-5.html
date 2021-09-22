@@ -24,7 +24,7 @@
         <p>
           <img src="{% static 'core/images/sample-5.jpg' %}" alt="" class="img-fluid mt-4">
         </p>
-        <p>Matica je obdĺžnikové 2-rozmerné pole, ktoré ukladá údaje do riadkov a stĺpcov. Do matice je možné uložiť ľubovoľné 
+        <p>Matica(Matrix) je obdĺžnikové 2-rozmerné pole, ktoré ukladá údaje do riadkov a stĺpcov. Do matice je možné uložiť ľubovoľné 
           dátové typy, ako sú čísla, reťazce, výrazy atď.
         </p>
         <p>Python neobsahuje vstavaný typ pre matice, takže matice vytvoríme pomocou viacerých listov.</p>
@@ -53,7 +53,7 @@
           
           print("The matrix is: ", matrix)</code></pre>
         <pre><code class="language-python">The matrix is:  [['cat', 47, 21, 98], ['dog', 541, 81.7, 27], [365, 'turtle', 58, 12]]</code></pre>
-        <p>V nasledujúcom príklade vypíšeme vo výstupe posledný prvok každého riadka:</p>
+        <p>V nasledujúcom príklade vypíšeme vo výstupe posledný prvok každého riadku:</p>
         <pre><code class="language-python">matrix = [["cat", 47, 21, 98],  
           ["dog", 541, 81.70, 27],  
           [365, "turtle", 58, 12]]
@@ -151,8 +151,8 @@ for x in result:
    print(x)</code></pre>
         <pre><code class="language-python">[8, 2, 1]
 [9, 9, 6]</code></pre>
-        <p>Výstup je rovnaký ako v predošlom príklade. Použitím generátorovej notácie sme dosiahli
-          (List Comprehension) zníženie počtu riadkov kódu na jeden a transponovali maticu.
+        <p>Výstup je rovnaký ako v predošlom príklade. Použitím generátorovej notácie (List Comprehension) sme dosiahli
+           zníženie počtu riadkov kódu na jeden a transponovali maticu.
         </p>
         <p>Doteraz sme diskutovali o vopred definovaných maticiach. Čo však, ak chce užívateľ zadať svoje údaje sám? Pozrime sa 
           teda na nasledujúci príklad matice definovanej používateľom:

@@ -75,7 +75,7 @@ True</code></pre>
         <p>Pri tejto technike zrátame počet znakov v oboch daných reťazcoch. Ak sa počet znakov daného reťazca zhoduje s 
           iným reťazcom, potom je zodpovedajúcim slovom anagram druhého slova.
         </p>
-        <p>Pozrime sa na nasledujúci príklad.</p>
+        <p>Pozrime sa na nasledujúci príklad:</p>
         <pre><code class="language-python">from collections import Counter, defaultdict 
 
 def check_for_anagram(strings):  
@@ -95,20 +95,20 @@ print(check_for_anagram(strings))</code></pre>
         <p>Importovali sme modul <strong>collections</strong> a jeho metódy <strong>Counter</strong> a <strong>defaultdict</strong>
           na vyhľadanie anagramov reťazcov vo vyššie uvedenom kóde. Definovali sme metódu <strong>check_for_anagram()</strong> na 
           spočítanie a zaznamenanie každého znaku pomocou našej funkcie. Počet každého znaku je zapísaný v liste na zodpovedajúcom 
-          mieste mieste. Tento proces sa vykonáva pre všetky znaky v prvom ako aj v druhom reťazci. Ak je počet znakov oboch 
-          reťazcov zhodný, znamená to, že naŠe reťazce sú anagramy.
+          mieste. Tento proces sa vykonáva pre všetky znaky v prvom ako aj v druhom reťazci. Ak je počet znakov oboch 
+          reťazcov zhodný, znamená to, že naše reťazce sú anagramy.
         </p>
         <h5 class="mb-3 mt-5">Zoraďovacia technika</h5>
         <p>Pri tejto technike sú oba reťazce zoradené a funkcia kontroluje, či sa obe hodnoty navzájom zhodujú. Poďme 
-          sa pozrieť na nasledujúci príklad.
+          sa pozrieť na nasledujúci príklad:
         </p>
         <pre><code class="language-python">def check_for_anagram(string1, string2):  
 
     # Strings are sorted and check whether both are matching or not  
     if(sorted(string1) == sorted(string2)): 
-        print("Both strings are an Anagram.")  
+        print("Reťazce tvoria Anagram.")  
     else:  
-        print("Both strings are not an Anagram.")  
+        print("Reťazce netvoria Anagram.")  
          
 word1 ="heart"  
 word2 ="earth"  
@@ -120,14 +120,14 @@ check_for_anagram(word1, word2)</code></pre>
         <pre><code class="language-python"># Output
 String-1 :  heart
 String-2 :  earth
-Both strings are an Anagram.</code></pre>
-        <p>Vo vyššie uvedenom kóde sme definovali metódu check_for_anagram() a zadali dva reťazce ako parametre. V metóde 
-          check_for_anagram() sme reťazce uložili do konkrétnych premenných. Po zoradení sme porovnali každý reťazec. Ak sa 
+Reťazce tvoria Anagram.</code></pre>
+        <p>Vo vyššie uvedenom kóde sme definovali metódu <strong>check_for_anagram()</strong> a zadali dva reťazce ako parametre. V metóde 
+          <strong>check_for_anagram()</strong> sme reťazce uložili do konkrétnych premenných. Po zoradení sme porovnali každý reťazec. Ak sa 
           porovnanie medzi reťazcami zhoduje, dané reťazce tvoria anagram; v opačnom prípade nám funcia vypíše, že reťazce 
           anagram netvoria. Táto metóda je pomerne jednoduchá a účinná. Znižuje zložitosť kódu vo význačnej miere.
         </p>
         <h5 class="mb-3 mt-5">Reverzná kontrola anagramu </h5>
-        <p>Túto techniku môžeme uplatniť nasledovne.</p>
+        <p>Túto techniku môžeme uplatniť nasledovne:</p>
         <pre><code class="language-python">random_list = ["pizza", "cheeseburger", "now", "won"]
 anagrams = {}  
 for x in random_list:  
@@ -141,46 +141,89 @@ for x in random_list:
           dva rôzne reťazce. Táto technika je podobná palindrómom, kde sme jeden reťazec obrátili a porovnali s ostatnými reťazcami.
           Ak sa zhodujú, reťazce vytvorili anagram; ak sa nezhodujú, anagramy nebudú vypísané.
         </p>
+        <h5 class="mb-3 mt-5">Technika sumácie</h5>
+        <p>Ďalej sa pozrieme na ďalšie optimalizované riešenie, kde pomocou <strong>for</strong> cyklu zoberieme hodnoty ASCII 
+        každého znaku oboch reťazcov pomocou vstavanej metódy <strong>ord()</strong> a zvýšime počet hodnoty pri prechode prvým 
+        reťazcom a znížime počet pri prechode druhým reťazcom. Stačí skontrolovať, či premenná <strong>sum</strong> má alebo nemá
+         nulovú hodnotu. Ukážka nižšie:
+        </p>
+        <pre><code class="language-python">def check_for_anagram(string1, string2): 
+    len1 = len(string1)
+    len2 = len(string2)
+    sum = 0
+    
+    if len1 != len2:
+        print("Toto nie je Anagram.")
+        return
+           
+    for itr in range(len1):
+        sum += ord(string1[itr])
+        sum -= ord(string2[itr])
+    
+    if(sum != 0):
+        print("Toto nie je Anagram.")
+        return
+        
+    print("Hurá Anagram.")
+    return
+    
+str1 = "Dusty"
+str2 = "Study"
+
+check_for_anagram(str1, str2)</code></pre>
+        <pre><code class="language-python"># Output
+Hurá Anagram.</code></pre>
+        <p>Ak konečná hodnota súčtu nie je rovná nule, tak sme nenašli anagram a v opačnom prípade sme anagram našli.</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        
+
+
+
         <h5 class="mb-3 mt-5">Technika overenia pozície</h5>
         <p>Pri tejto metóde sa na vyhľadanie anagramu porovnáva úroveň pozície. To môžeme dosiahnuť overením pozičného znaku 
           prvého reťazca s každým pozičným znakom v druhom reťazci. Ak prvý reťazec obsahuje podobnú zhodu s druhým reťazcom, 
-          je označený za anagram. Poďme sa pozrieť na nasledujúci príklad.
+          je označený za anagram. Poďme sa pozrieť na nasledujúci príklad:
         </p>
         <pre><code class="language-python">def check_for_anagram(string1, string2):
     checking = True
 
     if len(string1) != len(string2):  
         checking = False  
-        list1 = list(string2)  
+
+    list1 = list(string2)  
     pos_str1 = 0
+
     while pos_str1 < len(string1) and checking: 
         pos_str2 = 0  
-        found = False  
-    while pos_str2 < len(list1) and not found:  
-        if string1[pos_str1] == list1[pos_str2]:  
-            found = True  
+        found = False 
+        while pos_str2 < len(list1) and not found:  
+            if string1[pos_str1] == list1[pos_str2]:  
+                found = True  
+            else:  
+                pos_str2 = pos_str2 + 1
+        if found:  
+            list1[pos_str2] = None
         else:  
-            pos_str2 = pos_str2 + 1  
-    if found:  
-        list1[pos_str2] = None
-    else:  
-        checking = False
-        pos_str1 = pos_str1 + 1  
+            checking = False         
+        pos_str1 = pos_str1 + 1
+          
     return checking  
-  
   
 string1 = "heart"
 string2 = "earth"
 print("String-1 : " , string1)  
 print("String-2 : " , string2)  
-result = check_for_anagram('heart','earth')  
+result = check_for_anagram(string1, string2)  
 if result:
-    print("Both words are Anagram.")  
+    print("Hurá máme Anagram.")  
 else:  
-    print("Both words are not Anagram.")</code></pre>
+    print("Toto nie je Anagram.")</code></pre>
         <pre><code class="language-python"># Output
 String-1 :  heart
-String-2 :  earth</code></pre>
+String-2 :  earth
+Hurá máme Anagram.</code></pre>
         <p>Poďme si vysvetliť poslednú techniku na vyhľadanie anagramu dvoch reťazcov. Vo vnorenom while cykle vložíme do cyklov 
           reťazec na overovací proces.
         </p>
