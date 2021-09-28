@@ -10274,6 +10274,11 @@ textarea.form-control {
     .categories li.active a span, .sidelink li.active a span {
       color:  #1590a6 ; }
 
+@media (max-width: 991.98px) {
+  .categories {
+    margin-top: 40px; }
+}
+
 #ic-loader {
   position: fixed;
   width: 96px;
