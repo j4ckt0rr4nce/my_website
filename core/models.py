@@ -46,6 +46,7 @@ class Comment(models.Model):
     email = models.EmailField()
     website = models.CharField(max_length=20, blank=True)
     message = models.TextField()
+    reply = models.ForeignKey('Comment', null=True, related_name='replies', blank=True, on_delete=models.CASCADE)
     avatar = models.ImageField(default='avatar.png')
     blog_no = models.CharField(choices=BLOG_CHOICES, max_length=20)
     updated = models.DateTimeField(auto_now=True)

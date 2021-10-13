@@ -147,7 +147,7 @@ class ContactView(FormView):
 
 def blog_1(request):
     c_form = CommentForm(request.POST or None)
-    comments = Comment.objects.filter(blog_no='Blog_1')
+    comments = Comment.objects.filter(blog_no='Blog_1', reply=None)
     page = request.GET.get('page', 1)
     paginator = Paginator(comments, 5)
 
@@ -161,6 +161,12 @@ def blog_1(request):
     if request.method == 'POST':
         if c_form.is_valid():   
             instance = c_form.save(commit=False)
+            reply_id = request.POST.get('comment_id')
+            comment_qs = None
+            if reply_id:
+                comment_qs = Comment.objects.get(id=reply_id)
+            comment = Comment.objects.create(reply=comment_qs)
+            comment.save()
             messages.success(request, 'Vaša správa bola úspešne odoslaná.')
             instance.blog_no ='Blog_1'
             instance.save()
