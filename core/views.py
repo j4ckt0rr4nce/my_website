@@ -7,6 +7,7 @@ from .models import Message, Contact, Comment, Blog
 from .forms import MessageForm, ContactForm, CommentForm
 from django.views.generic import TemplateView, FormView, ListView
 from django.http import JsonResponse
+from django.db.models import Count
 
 
 class IndexView(FormView):
@@ -147,7 +148,8 @@ class ContactView(FormView):
 
 def blog_1(request):
     c_form = CommentForm(request.POST or None)
-    comments = Comment.objects.filter(blog_no='Blog_1', reply=None)
+    comments = Comment.objects.filter(blog_no='Blog_1', parent=None)
+    replies = Comment.objects.filter(blog_no='Blog_1').exclude(parent=None).order_by('pk')
     page = request.GET.get('page', 1)
     paginator = Paginator(comments, 5)
 
@@ -158,26 +160,35 @@ def blog_1(request):
     except EmptyPage:
         comments = paginator.page(paginator.num_pages)
 
-    if request.method == 'POST':
-        if c_form.is_valid():   
-            instance = c_form.save(commit=False)
-            reply_id = request.POST.get('comment_id')
-            comment_qs = None
-            if reply_id:
-                comment_qs = Comment.objects.get(id=reply_id)
-            comment = Comment.objects.create(reply=comment_qs)
-            comment.save()
-            messages.success(request, 'Vaša správa bola úspešne odoslaná.')
-            instance.blog_no ='Blog_1'
-            instance.save()
-            
-            return redirect('blog:co_je_datova_analyza')
-    else:
-        c_form = CommentForm()
+    replyDict={}
+    for reply in replies:
+        if reply.parent.pk not in replyDict.keys():
+            replyDict[reply.parent.pk]=[reply]
+        else:
+            replyDict[reply.parent.pk].append(reply)
 
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        website = request.POST.get('website')
+        message = request.POST.get('message')
+        parentpk = request.POST.get('parentpk')
+
+        if parentpk == "":
+            comment = Comment(name=name, email=email, website=website, message=message, blog_no='Blog_1')
+            comment.save()
+        else:
+            parent = Comment.objects.get(pk=parentpk)
+            comment = Comment(name=name, message=message, parent=parent, blog_no='Blog_1')
+            comment.save()
+        
+        return redirect('blog:co_je_datova_analyza')
+    
     context = {
 	'c_form':c_form,
     'comments':comments,
+    'replies':replies,
+    'replyDict':replyDict
 	}
 
     return render(request, 'blog-1.html', context)
@@ -186,7 +197,8 @@ def blog_1(request):
 
 def blog_2(request):
     c_form = CommentForm(request.POST or None)
-    comments = Comment.objects.filter(blog_no='Blog_2')
+    comments = Comment.objects.filter(blog_no='Blog_2', parent=None)
+    replies = Comment.objects.filter(blog_no='Blog_2').exclude(parent=None).order_by('pk')
     page = request.GET.get('page', 1)
     paginator = Paginator(comments, 5)
 
@@ -197,20 +209,35 @@ def blog_2(request):
     except EmptyPage:
         comments = paginator.page(paginator.num_pages)
 
-    if request.method == 'POST':
-        if c_form.is_valid():
-            instance = c_form.save(commit=False)
-            messages.success(request, 'Vaša správa bola úspešne odoslaná.')
-            instance.blog_no ='Blog_2'
-            instance.save()
+    replyDict={}
+    for reply in replies:
+        if reply.parent.pk not in replyDict.keys():
+            replyDict[reply.parent.pk]=[reply]
+        else:
+            replyDict[reply.parent.pk].append(reply)
 
-            return redirect('blog:co_je_kniznica_numpy')
-    else:
-        c_form = CommentForm()
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        website = request.POST.get('website')
+        message = request.POST.get('message')
+        parentpk = request.POST.get('parentpk')
+
+        if parentpk == "":
+            comment = Comment(name=name, email=email, website=website, message=message, blog_no='Blog_2')
+            comment.save()
+        else:
+            parent = Comment.objects.get(pk=parentpk)
+            comment = Comment(name=name, message=message, parent=parent, blog_no='Blog_2')
+            comment.save()
+        
+        return redirect('blog:co_je_kniznica_numpy')
 
     context = {
 	'c_form':c_form,
     'comments':comments,
+    'replies':replies,
+    'replyDict':replyDict
 	}
 
     return render(request, 'blog-2.html', context)
@@ -219,7 +246,8 @@ def blog_2(request):
 
 def blog_3(request):
     c_form = CommentForm(request.POST or None)
-    comments = Comment.objects.filter(blog_no='Blog_3')
+    comments = Comment.objects.filter(blog_no='Blog_3', parent=None)
+    replies = Comment.objects.filter(blog_no='Blog_3').exclude(parent=None).order_by('pk')
     page = request.GET.get('page', 1)
     paginator = Paginator(comments, 5)
 
@@ -230,20 +258,35 @@ def blog_3(request):
     except EmptyPage:
         comments = paginator.page(paginator.num_pages)
 
-    if request.method == 'POST':
-        if c_form.is_valid():
-            instance = c_form.save(commit=False)
-            messages.success(request, 'Vaša správa bola úspešne odoslaná.')
-            instance.blog_no ='Blog_3'
-            instance.save()
+    replyDict={}
+    for reply in replies:
+        if reply.parent.pk not in replyDict.keys():
+            replyDict[reply.parent.pk]=[reply]
+        else:
+            replyDict[reply.parent.pk].append(reply)
 
-            return redirect('blog:co_je_kniznica_pandas')
-    else:
-        c_form = CommentForm()
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        website = request.POST.get('website')
+        message = request.POST.get('message')
+        parentpk = request.POST.get('parentpk')
+
+        if parentpk == "":
+            comment = Comment(name=name, email=email, website=website, message=message, blog_no='Blog_3')
+            comment.save()
+        else:
+            parent = Comment.objects.get(pk=parentpk)
+            comment = Comment(name=name, message=message, parent=parent, blog_no='Blog_3')
+            comment.save()
+        
+        return redirect('blog:co_je_kniznica_pandas')
 
     context = {
 	'c_form':c_form,
     'comments':comments,
+    'replies':replies,
+    'replyDict':replyDict
 	}
 
     return render(request, 'blog-3.html', context)

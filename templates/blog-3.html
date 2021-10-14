@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load extras %}
 
 {% block content %}
 <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'core/images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
@@ -1162,14 +1163,39 @@ df = pd.DataFrame(np.random.randn(50,3))
           <div class="comment-list">
             {% for comment in comments %}
             <li class="comment">
-              <div class="vcard bio">
+              <div class="vcard">
                 <img src="{{ comment.avatar.url }}" alt="Avatar">
               </div>
               <div class="comment-body">
                 <h3>{{ comment.name }}</h3>
                 <div class="meta">{{ comment.created|date:"F d, Y \o H:i" }}</div>
-                <p class="">{{ comment.message }}</p>
-                <p><a href="#" class="reply">Reply</a></p>
+                <p class="" >{{ comment.message }}</p>
+                {% for reply in replyDict|get_val:comment.pk %}
+                <div class="row">
+                  <div class="vcard-r">
+                    <img src="{{ comment.avatar.url }}" alt="Avatar">
+                  </div>
+                  <div class="comment-body">
+                    <h3>{{ reply.name }}</h3>
+                    <div class="meta">{{ reply.created|date:"F d, Y \o H:i" }}</div>
+                    <p class="" >{{ reply.message }}</p>
+                  </div>
+                </div>
+                {% endfor %}
+                <button class="btn reply" type="button" data-toggle="collapse" data-target="#replyBox{{comment.pk}}" aria-expanded="false" aria-controls="replyBox{{comment.pk}}">
+                {{replies.count}} odpovedať
+                </button>
+                <div class="collapse" id="replyBox{{comment.pk}}">
+                  <div class="mt-2">
+                    <form action="{% url 'blog:co_je_kniznica_pandas' %}#c_action" method="POST">
+                      {% csrf_token %}
+                      <input type="text" class="" name="name" placeholder="Vložte meno">
+                      <input type="text" class="" name="message" placeholder="Napíšte komentár...">
+                      <input type="hidden" name="parentpk" value="{{comment.pk}}">
+                      <button type="submit" class="btn reply">Submit</button>
+                    </form>
+                  </div>
+                </div>
               </div>
               {% endfor %}
             </li>
@@ -1193,13 +1219,7 @@ df = pd.DataFrame(np.random.randn(50,3))
               {% endif %}
             </div>
           </div>
-          <!-- END comment-list -->
           <div class="comment-form-wrap pt-5">
-            <!--{% if messages %}
-              {% for message in messages %}
-              	<div class="alert alert-info" role="alert">{{ message }}</div>
-              {% endfor %}
-              {% endif %}-->
             <h3 class="mb-5">Napíšte komentár</h3>
             <form action="{% url 'blog:co_je_kniznica_pandas' %}#c_action" method="POST" class="p-5 bg-light">
               {% csrf_token %}
@@ -1220,13 +1240,13 @@ df = pd.DataFrame(np.random.randn(50,3))
                 {{ c_form.message }}
               </div>
               <div class="form-group">
+                <input type="hidden" name="parentpk" value="">
                 <input type="submit" value="Odoslať Komentár" class="btn py-3 px-4 btn-primary">
               </div>
             </form>
           </div>
         </div>
       </div>
-      <!-- .col-md-8 -->
       <div class="col-lg-4 sidebar pl-lg-5 ic-animate">
         <div class="sidebar-box ic-animate">
           <div class="categories">

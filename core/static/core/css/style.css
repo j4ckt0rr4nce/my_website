@@ -10195,8 +10195,14 @@ textarea.form-control {
     .comment-list li .vcard {
       width: 80px;
       float: left; }
+    .comment-list li .vcard-r {
+      width: 60px;
+      float: left; }
       .comment-list li .vcard img {
         width: 50px;
+        border-radius: 50%; }
+      .comment-list li .vcard-r img {
+        width: 40px;
         border-radius: 50%; }
     .comment-list li .comment-body {
       word-wrap: break-word;
@@ -10215,7 +10221,7 @@ textarea.form-control {
         text-transform: uppercase;
         font-size: 11px;
         letter-spacing: .1em;
-        font-weight: 400;
+        font-weight: 400 ;
         border-radius: 4px; }
         .comment-list li .comment-body .reply:hover {
           color: #fff;
