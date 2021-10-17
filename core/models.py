@@ -55,6 +55,9 @@ class Comment(models.Model):
     def __str__(self):
 	    return f"{self.blog_no} - {self.name}"
 
+    def num_replies(self):
+        return self.comment_set.all().count()
+
     class Meta:
         ordering = ('-created',)
 

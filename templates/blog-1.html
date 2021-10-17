@@ -217,7 +217,12 @@
           </div>
         </div>
         <div class="pt-5 mt-5">
-          <h3 class="mb-5">{{ c_no_1 }} Comments</h3>
+          <h3 class="mb-5">{{ c_no_1 }}
+          {% if c_no_1 == 0 %} Komentov
+          {% elif c_no_1 == 1 %} Koment
+          {% elif c_no_1 > 1 and c_no_1 < 5 %} Komenty
+          {% else %} Komentov
+          {% endif %}</h3>
           <div class="comment-list">
             {% for comment in comments %}
             <li class="comment">
@@ -241,16 +246,21 @@
                 </div>
                 {% endfor %}
                 <button class="btn reply" type="button" data-toggle="collapse" data-target="#replyBox{{comment.pk}}" aria-expanded="false" aria-controls="replyBox{{comment.pk}}">
-                {{replies.count}} odpovedať
+                {{comment.num_replies}} 
+                {% if comment.num_replies == 0 %} odpovedí
+                {% elif comment.num_replies == 1 %} odpoveď
+                {% elif comment.num_replies > 1 and comment.num_replies < 5 %} odpovede
+                {% else %} odpovedí
+                {% endif %}
                 </button>
                 <div class="collapse" id="replyBox{{comment.pk}}">
                   <div class="mt-2">
-                    <form action="{% url 'blog:co_je_datova_analyza' %}#c_action" method="POST">
+                    <form class="ui form" action="{% url 'blog:co_je_datova_analyza' %}#c_action" method="POST">
                       {% csrf_token %}
                       <input type="text" class="" name="name" placeholder="Vložte meno">
                       <input type="text" class="" name="message" placeholder="Napíšte komentár...">
                       <input type="hidden" name="parentpk" value="{{comment.pk}}">
-                      <button type="submit" class="btn reply">Submit</button>
+                      <button type="submit" class="btn reply mt-2">Odoslať</button>
                     </form>
                   </div>
                 </div>
