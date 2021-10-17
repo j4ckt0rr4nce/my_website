@@ -217,11 +217,11 @@
           </div>
         </div>
         <div class="pt-5 mt-5">
-          <h3 class="mb-5">{{ c_no_1 }}
-          {% if c_no_1 == 0 %} Komentov
-          {% elif c_no_1 == 1 %} Koment
-          {% elif c_no_1 > 1 and c_no_1 < 5 %} Komenty
-          {% else %} Komentov
+          <h3 id="rep" class="mb-5">{{ c_no_1 }}
+          {% if c_no_1 == 0 %} Komentárov
+          {% elif c_no_1 == 1 %} Komentár
+          {% elif c_no_1 > 1 and c_no_1 < 5 %} Komentáre
+          {% else %} Komentárov
           {% endif %}</h3>
           <div class="comment-list">
             {% for comment in comments %}
@@ -233,19 +233,21 @@
                 <h3>{{ comment.name }}</h3>
                 <div class="meta">{{ comment.created|date:"F d, Y \o H:i" }}</div>
                 <p class="" >{{ comment.message }}</p>
+                <div class="rply-box">
                 {% for reply in replyDict|get_val:comment.pk %}
-                <div class="row">
-                  <div class="vcard-r">
-                    <img src="{{ comment.avatar.url }}" alt="Avatar">
+                  <div class="row">
+                    <div class="vcard-r">
+                      <img src="{{ comment.avatar.url }}" alt="Avatar">
+                    </div>
+                    <div class="comment-body">
+                      <h3>{{ reply.name }}</h3>
+                      <div class="meta">{{ reply.created|date:"F d, Y \o H:i" }}</div>
+                      <p class="" >{{ reply.message }}</p>
+                    </div>
                   </div>
-                  <div class="comment-body">
-                    <h3>{{ reply.name }}</h3>
-                    <div class="meta">{{ reply.created|date:"F d, Y \o H:i" }}</div>
-                    <p class="" >{{ reply.message }}</p>
-                  </div>
-                </div>
                 {% endfor %}
-                <button class="btn reply" type="button" data-toggle="collapse" data-target="#replyBox{{comment.pk}}" aria-expanded="false" aria-controls="replyBox{{comment.pk}}">
+                </div>
+                <button class="rply_btn btn reply-no" type="button">
                 {{comment.num_replies}} 
                 {% if comment.num_replies == 0 %} odpovedí
                 {% elif comment.num_replies == 1 %} odpoveď
@@ -253,12 +255,15 @@
                 {% else %} odpovedí
                 {% endif %}
                 </button>
+                <button class="btn reply" type="button" data-toggle="collapse" data-target="#replyBox{{comment.pk}}" aria-expanded="false" aria-controls="replyBox{{comment.pk}}">
+                Odpovedať
+                </button>
                 <div class="collapse" id="replyBox{{comment.pk}}">
                   <div class="mt-2">
-                    <form class="ui form" action="{% url 'blog:co_je_datova_analyza' %}#c_action" method="POST">
+                    <form class="ui form" action="{% url 'blog:co_je_datova_analyza' %}#rep" method="POST">
                       {% csrf_token %}
-                      <input type="text" class="" name="name" placeholder="Vložte meno">
-                      <input type="text" class="" name="message" placeholder="Napíšte komentár...">
+                      <input type="text" name="name" placeholder="Vložte meno" required>
+                      <input type="text" name="message" placeholder="Napíšte komentár..." required>
                       <input type="hidden" name="parentpk" value="{{comment.pk}}">
                       <button type="submit" class="btn reply mt-2">Odoslať</button>
                     </form>

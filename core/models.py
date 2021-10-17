@@ -43,7 +43,7 @@ BLOG_CHOICES = [
 
 class Comment(models.Model):
     name = models.CharField(max_length=20)
-    email = models.EmailField(blank=True)
+    email = models.EmailField()
     website = models.CharField(max_length=20, blank=True)
     message = models.TextField()
     parent = models.ForeignKey('self',on_delete=models.CASCADE, null=True )

@@ -2,6 +2,12 @@
 
 	"use strict";
 
+	let rToggle = function () {
+		$(this).prev(".rply-box").toggle();
+	};
+	$('.rply_btn').on('click', rToggle );
+
+
 	$("#index-more").click(function () {
 		$(document).scrollTop(910)
 	});

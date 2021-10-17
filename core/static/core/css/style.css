@@ -10555,7 +10555,6 @@ textarea.form-control {
   margin:0;
   outline:0;
   -webkit-appearance:none;
-  tap-highlight-color:rgba(255,255,255,0);
   line-height:1.21428571em;
   padding:.6em 1em;
   font-size:0.9em;
@@ -10571,7 +10570,6 @@ textarea.form-control {
  .ui.form textarea {
   margin:0;
   -webkit-appearance:none;
-  tap-highlight-color:rgba(255,255,255,0);
   padding:.78571429em 1em;
   background:#fff;
   border:1px solid rgba(34,36,38,.15);
@@ -10978,4 +10976,15 @@ textarea.form-control {
   -ms-flex-align:center;
   align-items:center
  }
+}
+
+.rply-box {
+  display: none;
+}
+
+.reply-no {
+  background-color: none;
+}
+.reply-no:hover {
+  color: #1590a6;
 }
