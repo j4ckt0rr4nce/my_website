@@ -43,10 +43,10 @@ BLOG_CHOICES = [
 
 class Comment(models.Model):
     name = models.CharField(max_length=20)
-    email = models.EmailField()
-    website = models.CharField(max_length=20, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    website = models.CharField(max_length=20, null=True, blank=True)
     message = models.TextField()
-    parent = models.ForeignKey('self',on_delete=models.CASCADE, null=True )
+    reply = models.ForeignKey('self',on_delete=models.CASCADE, null=True, related_name='replies')
     avatar = models.ImageField(default='avatar.png')
     blog_no = models.CharField(choices=BLOG_CHOICES, max_length=20)
     updated = models.DateTimeField(auto_now=True)
@@ -55,8 +55,11 @@ class Comment(models.Model):
     def __str__(self):
 	    return f"{self.blog_no} - {self.name}"
 
-    def num_replies(self):
-        return self.comment_set.all().count()
+    def total_replies(self):
+        return self.replies.count()
+
+    def order_replies(self):
+        return self.replies.order_by('pk')
 
     class Meta:
         ordering = ('-created',)

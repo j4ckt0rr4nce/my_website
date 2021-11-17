@@ -10978,13 +10978,18 @@ textarea.form-control {
  }
 }
 
-.rply-box {
+.rply-none {
   display: none;
 }
-
 .reply-no {
   background-color: none;
 }
 .reply-no:hover {
   color: #1590a6;
+}
+
+.rply-msg {
+  word-wrap: break-word;
+  float: left;
+  width: calc(100% - 80px);
 }

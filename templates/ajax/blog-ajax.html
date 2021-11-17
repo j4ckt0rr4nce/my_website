@@ -1,0 +1,12 @@
+{% for reply in comment.order_replies.all %}
+  <div class="row reply_row">
+    <div class="vcard-r">
+      <img src="{{ comment.avatar.url }}" alt="Avatar">
+    </div>
+    <div class="comment-body">
+      <h3>{{ reply.name }}</h3>
+      <div class="meta">{{ reply.created|date:"F d, Y \o H:i" }}</div>
+      <p>{{ reply.message }}</p>
+    </div>
+  </div>
+{% endfor %}
