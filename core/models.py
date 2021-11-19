@@ -43,7 +43,7 @@ BLOG_CHOICES = [
 
 class Comment(models.Model):
     name = models.CharField(max_length=20)
-    email = models.EmailField(null=True, blank=True)
+    email = models.EmailField()
     website = models.CharField(max_length=20, null=True, blank=True)
     message = models.TextField()
     reply = models.ForeignKey('self',on_delete=models.CASCADE, null=True, related_name='replies')
@@ -54,9 +54,6 @@ class Comment(models.Model):
 
     def __str__(self):
 	    return f"{self.blog_no} - {self.name}"
-
-    def total_replies(self):
-        return self.replies.count()
 
     def order_replies(self):
         return self.replies.order_by('pk')
@@ -71,6 +68,7 @@ class Blog(models.Model):
     content = models.TextField()
     image = models.ImageField()
     url = models.CharField(max_length=40)
+    tags = models.TextField(default='')
     day = models.IntegerField(default=0)
     month = models.CharField(max_length=10)
     year = models.IntegerField(default=0)
@@ -79,3 +77,6 @@ class Blog(models.Model):
 
     def __str__(self):
 	    return str(self.title)
+
+
+

@@ -5,17 +5,21 @@
 
 	let rToggle = function (e) {
 		e.preventDefault();
-		$(this).prev().children(':hidden').slice(0, 3).show();
+		$(this).prev().children(':hidden').slice(-4, -1).show();
 	};
 	$('.rply_btn').on('click', rToggle );
 
+//	if ($("div:hidden").length == 0) {
+//		$("#loadMore").fadeOut('slow');
+//	}
 
-	$("#index-more").click(function () {
+
+	$('#index-more').click(function () {
 		$(document).scrollTop(910)
 	});
 
 
-	if (window.location.href.includes("mapa")) {
+	if (window.location.href.includes('mapa')) {
 		$(document).scrollTop(420);
 	}
 
@@ -31,7 +35,7 @@
 	const service = document.getElementById('id_service')
 	const message = document.getElementById('id_message')
 	const csrf = document.getElementsByName('csrfmiddlewaretoken')
-	const url = ""
+	const url = ''
 
 	const handleAlerts = (type, text) => {
 		alertBox.innerHTML = `<div class="alert alert-${type}" role="alert">
@@ -59,10 +63,10 @@
 				const sText = `Vaša správa bola úspešne odoslaná.`
 				handleAlerts('success', sText)
 				setTimeout(() => {
-					alertBox.innerHTML = ""
-					name.value = ""
-					email.value = ""
-					message.value = ""
+					alertBox.innerHTML = ''
+					name.value = ''
+					email.value = ''
+					message.value = ''
 				}, 6000)
 			},
 			error: function (error) {
@@ -76,12 +80,11 @@
 	})
 
 	
-	$(".rply_form").submit(function (event) {
+	$('.rply_form').submit(function (event) {
 		event.preventDefault()
 
 		const idR = $(this).data('reply');
 		const rply_form = $(this);
-		const rButton = $('.r_b_id-'+idR)
 
 	  $.ajax({
 	    type: 'POST',
@@ -89,19 +92,17 @@
 			data: rply_form.serialize(),
 			dataType:'json',
 			beforeSend:function(){
-				$(".save-comment").addClass('disabled').text('ukladá sa...');
+				$('.save-comment').addClass('disabled').text('ukladá sa...');
 			},
 	    success: function(response){
 
-				//$.each($('.rply-none'), function() {
-				//	$('.rply_btn').prev().children().show();
-				//});
+			//	$('.r_b_id-+idR).prev().children(':hidden').slice(-3, -1).show()
 			
-				$(".rply_name").val('');
-				$(".rply_message").val('');
+				$('.rply_name').val('');
+				$('.rply_message').val('');
 			
 				const jsonName = JSON.parse(response);
-				const date = "pridané pred chvíľou ...";
+				const date = 'pridané pred chvíľou ...';
 				const _html='<div style="display:block;" class="rply-none row">\
 					<div class="vcard-r">\
 						<img src="/media/avatar.png" alt="Avatar">\
@@ -112,12 +113,12 @@
 						<p>'+jsonName[0].fields.message+'</p>\
 					</div>\
 				</div>';
-				$(".comment-wrapper-"+idR).append(_html);
-				const prevCountComment=$(".comment-count").text();
-				const prevCountReply=$(".reply-count-"+idR).text();
-				$(".comment-count").text(parseInt(prevCountComment)+1);
-      	$(".reply-count-"+idR).text(parseInt(prevCountReply)+1);
-				$(".save-comment").removeClass('disabled').text('Odoslať');
+				$('.comment-wrapper-'+idR).append(_html);
+				const prevCountComment=$('.comment-count').text();
+				const prevCountReply=$('.reply-count-'+idR).text();
+				$('.comment-count').text(parseInt(prevCountComment)+1);
+      	$('.reply-count-'+idR).text(parseInt(prevCountReply)+1);
+				$('.save-comment').removeClass('disabled').text('Odoslať');
 	    },
 	    error: function(error){
 	          console.log(error)

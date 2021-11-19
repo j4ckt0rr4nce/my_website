@@ -281,6 +281,21 @@ def blog_3(request):
 
 
 
+def tag(request, tag):
+    blogs = Blog.objects.filter(tags__icontains=tag).order_by('-id')
+    paginator = Paginator(blogs, 6)
+    page_num = request.GET.get('page', 1)
+    blogs = paginator.page(page_num)
+
+    context = {
+	'blogs':blogs,
+    'tag':tag
+	}
+
+    return render(request,'tag.html', context)
+
+
+
 class BlogView(ListView):
     model = Blog
     template_name = 'blog.html'

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-from core.views import IndexView, AboutMeView, ServicesView, SamplesView, BlogView, ContactView, PrivacyPolicyView
+from core.views import IndexView, AboutMeView, ServicesView, SamplesView, BlogView, ContactView, PrivacyPolicyView, tag
 
 urlpatterns = [
     path('blog/', include('core.urls-blog', namespace='blog')),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('sluzby/', ServicesView.as_view(), name='sluzby'),
     path('ukazky/', SamplesView.as_view(), name='ukazky'),
     path('blog/', BlogView.as_view(), name='blog'),
+    path('tag/<str:tag>', tag, name='tag'),
     path('kontakt/', ContactView.as_view(), name='kontakt'),
     path('zasady-ochrany-osobnych-udajov/', PrivacyPolicyView.as_view(), name='zasady-ochrany-osobnych-udajov'),
 ]

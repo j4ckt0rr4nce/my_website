@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 app_name = 'ukazky'
 urlpatterns = [
     path('flask_blueprint', views.Sample1View.as_view(), name='flask_blueprint'),
