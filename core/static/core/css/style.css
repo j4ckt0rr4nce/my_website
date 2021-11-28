@@ -10978,10 +10978,6 @@ textarea.form-control {
  }
 }
 
-.rply-none {
-  display: none;
-}
-
 .reply-no {
   background-color: none;
 }
@@ -10989,8 +10985,16 @@ textarea.form-control {
   color: #1590a6;
 }
 
+.rply-none {
+  display: none;
+}
+
 .rply-msg {
   word-wrap: break-word;
   float: left;
   width: calc(100% - 80px);
+}
+
+.r_opacity {
+  opacity: 0.3;
 }

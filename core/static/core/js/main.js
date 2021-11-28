@@ -5,13 +5,26 @@
 
 	let rToggle = function (e) {
 		e.preventDefault();
-		$(this).prev().children(':hidden').slice(-4, -1).show();
+		const idR = $(this).data('fade');
+		$(this).prev().children(':hidden').slice(-3).show();
+		if ($(this).prev().children(':hidden').length == 0) {
+			$('.r_b_id-'+idR).fadeTo('slow', 0.3);
+		};
 	};
 	$('.rply_btn').on('click', rToggle );
 
-//	if ($("div:hidden").length == 0) {
-//		$("#loadMore").fadeOut('slow');
-//	}
+
+	let rFade = function (e) {
+		e.preventDefault();
+		const idR = $('.rply_btn').data('fade');
+		if ($('.reply-count-'+idR).text() == parseInt(0)) {
+			$('.r_b_id-'+idR).addClass('r_opacity');
+		}
+		else {
+			$('.r_b_id-'+idR).removeClass('r_opacity');
+		}
+	};
+	$(window).load(rFade);
 
 
 	$('#index-more').click(function () {
@@ -96,7 +109,7 @@
 			},
 	    success: function(response){
 
-			//	$('.r_b_id-+idR).prev().children(':hidden').slice(-3, -1).show()
+			//	$('.r_b_id-+idR).prev().children(':hidden').slice(-3).show()
 			
 				$('.rply_name').val('');
 				$('.rply_message').val('');
@@ -114,10 +127,12 @@
 					</div>\
 				</div>';
 				$('.comment-wrapper-'+idR).append(_html);
+
 				const prevCountComment=$('.comment-count').text();
 				const prevCountReply=$('.reply-count-'+idR).text();
+
 				$('.comment-count').text(parseInt(prevCountComment)+1);
-      	$('.reply-count-'+idR).text(parseInt(prevCountReply)+1);
+      			$('.reply-count-'+idR).text(parseInt(prevCountReply)+1);
 				$('.save-comment').removeClass('disabled').text('Odoslať');
 	    },
 	    error: function(error){

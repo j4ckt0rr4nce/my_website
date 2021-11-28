@@ -1007,12 +1007,7 @@ plt.imshow(np.flip(im, axis=1))</pre>
           </div>
         </div>
         <div class="pt-5 mt-5">
-          <h3 class="mb-5">&#39;<span class="comment-count">{{ c_no_2 }}</span>&#39;
-          {% if c_no_2 == 0 %} Komentárov
-          {% elif c_no_2 == 1 %} Komentár
-          {% elif c_no_2 > 1 and c_no_2 < 5 %} Komentáre
-          {% else %} Komentárov
-          {% endif %}</h3>
+          <h3 class="mb-5">Komentáre &#39;<span class="comment-count">{{ c_no_2 }}</span>&#39;</h3>
           <div class="comment-list">
             {% for comment in comments %}
             <li class="comment">
@@ -1037,7 +1032,7 @@ plt.imshow(np.flip(im, axis=1))</pre>
                   </div>
                 {% endfor %}
                 </div>
-                <button class="r_b_id-{{comment.pk}} rply_btn btn reply-no" type="button">
+                <button class="r_b_id-{{comment.pk}} rply_btn btn reply-no" type="button" data-fade="{{comment.pk}}">
                 &#40;<span class="reply-count-{{comment.pk}}">{{comment.replies.count}}</span>&#41; Zobraziť odpovede
                 </button>
                 <button class="btn reply" type="button" data-toggle="collapse" data-target="#replyBox{{comment.pk}}" aria-expanded="false" aria-controls="replyBox{{comment.pk}}">
