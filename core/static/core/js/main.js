@@ -102,8 +102,6 @@
 		event.preventDefault()
 
 		const idR = $(this).data('reply');
-		const idF = $(this).parent().parent().prev().prev().data('fade');
-		console.log(idF)
 		const rply_form = $(this);
 
 	  $.ajax({
