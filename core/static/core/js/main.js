@@ -1,31 +1,36 @@
 (function ($) {
 
 	"use strict";
+	
 
-
-	let rToggle = function (e) {
+	let rShow = function (e) {
 		e.preventDefault();
 		const idR = $(this).data('fade');
-		$(this).prev().children(':hidden').slice(-3).show();
-		if ($(this).prev().children(':hidden').length == 0) {
-			$('.r_b_id-'+idR).fadeTo('slow', 0.3);
-		};
-	};
-	$('.rply_btn').on('click', rToggle );
-
-
-	let rFade = function (e) {
-		e.preventDefault();
-		const idR = $('.rply_btn').data('fade');
-		if ($('.reply-count-'+idR).text() == parseInt(0)) {
-			$('.r_b_id-'+idR).addClass('r_opacity');
+		const prevCountReply = $(this).children().text()
+		$(this).prev().children(':hidden').slice(-3).show('fast');
+		if ($(this).children().text() > parseInt(0)) {
+			if ($(this).children().text() == parseInt(1) || $(this).children().text() == parseInt(2)) {
+				$(this).children().text(parseInt(0))
+			}
+			else { $(this).children().text(parseInt(prevCountReply)-3)	
+			}	
 		}
-		else {
-			$('.r_b_id-'+idR).removeClass('r_opacity');
+		if ($(this).children().text() == parseInt(0)) {
+			$('.rb-id-'+idR).fadeTo('slow', 0.3);
 		}
 	};
-	$(window).load(rFade);
+	$('.rply-btn').on('click', rShow);
 
+
+	let initFade = function (index, value) {
+		if ($(value).children().text() == parseInt(0)) {
+			$(value).addClass('r-opacity');
+		}
+		else {	$(value).removeClass('r-opacity');	
+		}
+	  };
+	  $('.rply-btn').each(initFade);
+  
 
 	$('#index-more').click(function () {
 		$(document).scrollTop(910)
@@ -56,8 +61,8 @@
                         	</div>`
 	}
 
-	$('#confirmform').submit(function (event) {
-		event.preventDefault()
+	$('#confirmform').submit(function (e) {
+		e.preventDefault()
 
 		const fd = new FormData()
 		fd.append('csrfmiddlewaretoken', csrf[0].value)
@@ -93,10 +98,12 @@
 	})
 
 	
-	$('.rply_form').submit(function (event) {
+	$('.rply-form').submit(function (event) {
 		event.preventDefault()
 
 		const idR = $(this).data('reply');
+		const idF = $(this).parent().parent().prev().prev().data('fade');
+		console.log(idF)
 		const rply_form = $(this);
 
 	  $.ajax({
@@ -104,38 +111,35 @@
 	    url: rply_form.attr('action'),
 			data: rply_form.serialize(),
 			dataType:'json',
-			beforeSend:function(){
-				$('.save-comment').addClass('disabled').text('ukladá sa...');
-			},
-	    success: function(response){
+		beforeSend: function() {
+			$('.save-comment').addClass('disabled').text('ukladá sa...');
+		},
+	    success: function(response) {
 
-			//	$('.r_b_id-+idR).prev().children(':hidden').slice(-3).show()
+			//	$('.rb-id-'+idR).prev().children(':hidden').slice(-3).show()
 			
-				$('.rply_name').val('');
-				$('.rply_message').val('');
-			
-				const jsonName = JSON.parse(response);
-				const date = 'pridané pred chvíľou ...';
-				const _html='<div style="display:block;" class="rply-none row">\
-					<div class="vcard-r">\
-						<img src="/media/avatar.png" alt="Avatar">\
-					</div>\
-					<div class="rply-msg">\
-						<h3>'+jsonName[0].fields.name+'</h3>\
-						<div class="meta">'+date+'</div>\
-						<p>'+jsonName[0].fields.message+'</p>\
-					</div>\
-				</div>';
-				$('.comment-wrapper-'+idR).append(_html);
-
-				const prevCountComment=$('.comment-count').text();
-				const prevCountReply=$('.reply-count-'+idR).text();
-
-				$('.comment-count').text(parseInt(prevCountComment)+1);
-      			$('.reply-count-'+idR).text(parseInt(prevCountReply)+1);
-				$('.save-comment').removeClass('disabled').text('Odoslať');
+			$('.rply-name').val('');
+			$('.rply-message').val('');
+		
+			const jsonName = JSON.parse(response);
+			const date = 'pridané pred chvíľou ...';
+			const _html='<div style="display:block;" class="rply-none row">\
+				<div class="vcard-r">\
+					<img src="/media/avatar.png" alt="Avatar">\
+				</div>\
+				<div class="rply-msg">\
+					<h3>'+jsonName[0].fields.name+'</h3>\
+					<div class="meta">'+date+'</div>\
+					<p>'+jsonName[0].fields.message+'</p>\
+				</div>\
+			</div>';
+			$('.comment-wrapper-'+idR).append(_html);
+			const prevCountComment=$('.comment-count').text();
+			const prevCountReply=$('.reply-count-'+idR).text();
+			$('.comment-count').text(parseInt(prevCountComment)+1);
+			$('.save-comment').removeClass('disabled').text('Odoslať');
 	    },
-	    error: function(error){
+	    error: function(error) {
 	          console.log(error)
 	    },
 	  })

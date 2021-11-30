@@ -4,14 +4,17 @@ from django.db import models
 SLUZBY_CHOICES = [
         ('Služby', 'Služby'),
         ('Django', 'Django'),
-        ('React', 'React'),
-        ('Html/CSS', 'Html/CSS'),
+        ('Flask', 'Flask'),
+        ('Dátová Analýza', 'Dátová Analýza'),
+        ('Front-end Development', 'Front-end Development'),
+        ('Web Scraping', 'Web Scraping'),
+        ('Python Scripting', 'Python Scripting'),
     ]
 
 class Message(models.Model):
     name = models.CharField(max_length=20)
     email = models.EmailField()
-    service = models.CharField(choices=SLUZBY_CHOICES, default='Služby', max_length=20)
+    service = models.CharField(choices=SLUZBY_CHOICES, default='Služby', max_length=25)
     message = models.TextField()
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
