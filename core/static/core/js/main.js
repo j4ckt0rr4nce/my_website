@@ -7,7 +7,7 @@
 		e.preventDefault();
 		const idR = $(this).data('fade');
 		const prevCountReply = $(this).children().text()
-		$(this).prev().children(':hidden').slice(-3).show('fast');
+		$(this).prev().children(':hidden').slice(-3).show();
 		if ($(this).children().text() > parseInt(0)) {
 			if ($(this).children().text() == parseInt(1) || $(this).children().text() == parseInt(2)) {
 				$(this).children().text(parseInt(0))
@@ -133,7 +133,6 @@
 			</div>';
 			$('.comment-wrapper-'+idR).append(_html);
 			const prevCountComment=$('.comment-count').text();
-			const prevCountReply=$('.reply-count-'+idR).text();
 			$('.comment-count').text(parseInt(prevCountComment)+1);
 			$('.save-comment').removeClass('disabled').text('Odoslať');
 	    },
