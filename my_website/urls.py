@@ -28,7 +28,7 @@ urlpatterns = [
     path('sluzby/', ServicesView.as_view(), name='sluzby'),
     path('ukazky/', SamplesView.as_view(), name='ukazky'),
     path('blog/', BlogView.as_view(), name='blog'),
-    path('tag/<str:tag>', tag, name='tag'),
+    path('kategoria/<str:tag>', tag, name='tag'),
     path('kontakt/', ContactView.as_view(), name='kontakt'),
     path('zasady-ochrany-osobnych-udajov/', PrivacyPolicyView.as_view(), name='zasady-ochrany-osobnych-udajov'),
 ]
