@@ -45,10 +45,10 @@
             <li><a href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
             {% endif %}
             <li class="{% if request.get_full_path == '/blog/' or request.get_full_path == '/blog/?page=1' %}active{% endif %}"><a href="?page=1">1</a></li>
-            <li class="{% if request.get_full_path == '/blog/?page=2' %}active{% endif %}"><a href="?page=2">2</a></li>
-            <li class="{% if request.get_full_path == '/blog/?page=3' %}active{% endif %}"><a href="?page=3">3</a></li>
-            <li class="{% if request.get_full_path == '/blog/?page=4' %}active{% endif %}"><a href="?page=4">4</a></li>
-            <li class="{% if request.get_full_path == '/blog/?page=5' %}active{% endif %}"><a href="?page=5">5</a></li>
+            <li onclick="return false;" class="{% if request.get_full_path == '/blog/?page=2' %}active{% endif %}"><a href="?page=2">2</a></li>
+            <li onclick="return false;" class="{% if request.get_full_path == '/blog/?page=3' %}active{% endif %}"><a href="?page=3">3</a></li>
+            <li onclick="return false;" class="{% if request.get_full_path == '/blog/?page=4' %}active{% endif %}"><a href="?page=4">4</a></li>
+            <li onclick="return false;" class="{% if request.get_full_path == '/blog/?page=5' %}active{% endif %}"><a href="?page=5">5</a></li>
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
             {% endif %}
