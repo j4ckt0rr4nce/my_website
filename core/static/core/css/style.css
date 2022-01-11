@@ -7562,18 +7562,12 @@ button.bg-dark:focus {
   .mr-md-5,
   .mx-md-5 {
     margin-right: 3rem !important; }
-  .mr-md-10,
-  .mx-md-10 {
-    margin-right: 16rem; }
   .mb-md-5,
   .my-md-5 {
     margin-bottom: 3rem !important; }
   .ml-md-5,
   .mx-md-5 {
     margin-left: 3rem !important; }
-  .ml-md-10,
-  .mx-md-10 {
-    margin-left: 16rem; }
   .p-md-0 {
     padding: 0 !important; }
   .pt-md-0,
@@ -8797,6 +8791,9 @@ h1, h2, h3, h4, h5,
   .slider-text .bread {
     font-weight: 500 !important;
     position: relative; }
+  @media (max-width: 575.98px) {
+    .slider-text .bread {
+      font-size: 46px; } }
 
 .owl-carousel {
   position: relative; }
@@ -9794,7 +9791,7 @@ textarea.form-control {
   .testimony-wrap .user-img {
     width: 100px;
     height: 100px;
-    margin-left: 50px;
+    margin-left: 15%;
     filter: grayscale(1);
     transition: all .5s ease-in-out;
     /*-webkit-border-radius: 50%;
@@ -9819,7 +9816,7 @@ textarea.form-control {
   .testimony-wrap .name {
     font-size: 40px; }
   .testimony-wrap .user-img {
-    margin-left: 75px; } }
+    margin-left: 15%; } }
     
 @media (max-width: 766.98px) {
   .about-image {
@@ -10487,13 +10484,6 @@ textarea.form-control {
 	transition: transform 0.4s, opacity 0.1s;
 }
 
-@media (min-width: 767.98px) and (max-width: 991.98px) {
-  .sample-btn-l {
-    margin-left: 15%; }
-  .sample-btn-r {
-    margin-right: 15%; }
-}
-
 .ui.form {
   position:relative;
  }
@@ -10997,4 +10987,18 @@ textarea.form-control {
 
 .r-opacity {
   opacity: 0.3;
+}
+
+.sample-btn-l {
+  margin-left: 15% !important; }
+.sample-btn-r {
+  margin-right: 15% !important; }
+
+@media (max-width: 768px) {
+  .sample-btn-l {
+    margin-left: 0 !important;
+    float: left !important; }
+  .sample-btn-r {
+    margin-right: 0 !important;
+    float: left !important; }
 }
