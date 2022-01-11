@@ -8735,7 +8735,7 @@ h1, h2, h3, h4, h5,
       height: 400px !important; }
 
 .slider-text {
-  height: 440px;
+  height: 700px;
   position: relative; }
   .slider-text h1 {
     font-size: 60px;
@@ -9709,8 +9709,11 @@ textarea.form-control {
   .testimony-section .owl-carousel {
     margin: 0; }
   .testimony-section .owl-carousel .owl-stage-outer {
-    margin-top: 80px;
+    padding: 80px 0 2em;
     position: relative; }
+  @media (max-width: 481.98px) {
+    .testimony-section .owl-carousel .owl-stage-outer {
+      padding: 15px 0 2em; } }
   .testimony-section .owl-nav {
     position: absolute;
     top: 100%;
@@ -9816,7 +9819,7 @@ textarea.form-control {
   .testimony-wrap .name {
     font-size: 40px; }
   .testimony-wrap .user-img {
-    margin-left: 15%; } }
+    margin-left: 10%; } }
     
 @media (max-width: 766.98px) {
   .about-image {
@@ -11002,3 +11005,7 @@ textarea.form-control {
     margin-right: 0 !important;
     float: left !important; }
 }
+
+@media (max-width: 575.98px) {
+  .i-font {
+    font-size: 40px !important; } }

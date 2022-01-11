@@ -3,16 +3,14 @@
 {% load static %}
 
 {% block content %}
-<div class="hero-wrap filtered" style="background-image: url({% static 'core/images/bg_1.jpg' %}); max-width:1700px; " data-stellar-background-ratio="0.5">
+<div class="hero-wrap filtered" style="background-image: url({% static 'core/images/bg_1.jpg' %});" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container">
-    <div class="pt-4">
-      <img src="{% static 'core/images/index-python.png' %}" width='200'>
-    </div>
     <div class="row no-gutters slider-text align-items-center">
       <div class="col-md-6 ic-animate d-flex align-items-end">
         <div class="text w-100">
-          <h1 class="mb-4">Python Web Development and Data Analysis</h1>
+          <img class="mb-4" src="{% static 'core/images/index-python.png' %}">
+          <h1 class="mb-4 i-font">Python Web Development and Data Analysis</h1>
           <p class="mb-4">Sortiment služieb vo vysokoúrovňovom, dynamickom programovacom jazyku Python.</p>
           <p><a href="{% url 'kontakt' %}#mapa" class="btn btn-primary py-3 px-4 lol">Kontakt</a> <a id="index-more" class="btn btn-white py-3 px-4">Zistiť viac</a></p>
         </div>
