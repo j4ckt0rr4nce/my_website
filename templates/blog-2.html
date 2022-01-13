@@ -1044,8 +1044,8 @@ plt.imshow(np.flip(im, axis=1))</pre>
                     <form class="ui form rply-form" action="{% url 'blog:co_je_kniznica_numpy' %}" method="POST" data-reply="{{comment.pk}}">
                       {% csrf_token %}
                       <input type="hidden" name="replypk" value="{{comment.pk}}">
-                      <input class="rply-name" type="text" style="width:25%;" name="name" placeholder="Vložte meno" required>
-                      <input class="rply-message" type="text" style="width:50%;" name="message" placeholder="Napíšte komentár..." required>
+                      <input class="rply-name mb-1" type="text" name="name" placeholder="Vložte meno" required>
+                      <input class="rply-message" type="text" name="message" placeholder="Napíšte komentár..." required>
                       <button type="submit" class="btn reply mt-2 save-comment">Odoslať</button>
                     </form>
                   </div>

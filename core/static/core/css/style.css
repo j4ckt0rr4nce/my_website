@@ -8955,7 +8955,7 @@ h1, h2, h3, h4, h5,
 
 @media (max-width: 767.98px) {
   .services-wrap:hover .text {
-    outline: 4px solid #1590a6; }
+    outline: 3px solid #1590a6; }
   .media-special-wrap {
     border-bottom: 3px solid #1590a6; }
 }
@@ -11009,3 +11009,20 @@ textarea.form-control {
 @media (max-width: 575.98px) {
   .i-font {
     font-size: 40px !important; } }
+
+@media (max-width: 575.98px) {
+  .s-font {
+    font-size: 23px !important; } }
+
+.rply-name {
+  width: 28% !important; }
+.rply-message {
+  width: 47% !important; }
+
+@media (max-width: 575.98px) {
+  .rply-name {
+    width: 50% !important; }
+  .rply-message {
+    width: 70% !important; } }
+
+    
