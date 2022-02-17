@@ -147,19 +147,19 @@
             <a class="nav-link active py-4" data-toggle="tab" href="#services-1">Django Web/App Development</a>
           </li>
           <li class="nav-item text-left">
-            <a class="nav-link py-4" data-toggle="tab" href="#services-2">Flask Web/App Development</a>
+            <a class="nav-link py-4" data-toggle="tab" href="#services-2">Django REST Framework</a>
           </li>
           <li class="nav-item text-left">
-            <a class="nav-link py-4" data-toggle="tab" href="#services-3">Python Dátová Analýza</a>
+            <a class="nav-link py-4" data-toggle="tab" href="#services-3">Flask Web/App Development</a>
           </li>
           <li class="nav-item text-left">
-            <a class="nav-link py-4" data-toggle="tab" href="#services-4">Frontend Development</a>
+            <a class="nav-link py-4" data-toggle="tab" href="#services-4">Python Dátová Analýza</a>
           </li>
           <li class="nav-item text-left">
-            <a class="nav-link py-4" data-toggle="tab" href="#services-5">Web Scraping / Crawling</a>
+            <a class="nav-link py-4" data-toggle="tab" href="#services-5">Frontend Development</a>
           </li>
           <li class="nav-item text-left">
-            <a class="nav-link py-4" data-toggle="tab" href="#services-6">Python Basic Scripting</a>
+            <a class="nav-link py-4" data-toggle="tab" href="#services-6">Web Scraping / Crawling</a>
           </li>
         </ul>
       </div>
@@ -175,6 +175,15 @@
             </p>
           </div>
           <div class="tab-pane container p-0 fade" id="services-2">
+            <div class="img" style="background-image: url({% static 'core/images/index-services-drf.png' %});"></div>
+            <h3><a href="#">Django REST Framework</a></h3>
+            <p>Django REST framework (DRF) je open source, vyspelá a dobre podporovaná Python/Django knižnica, ktorá sa zameriava 
+              na tvorbu sofistikovaných webových APIs. Je to flexibilná a plne vybavená sada nástrojov s modulárnou a 
+              prispôsobiteľnou architektúrou, ktorá umožňuje vývoj, či už jednoduchých API koncových bodov, tak aj komplikovaných 
+              REST konštrukcií.
+            </p>
+          </div>
+          <div class="tab-pane container p-0 fade" id="services-3">
             <div class="img" style="background-image: url({% static 'core/images/index-services-flask.png' %});"></div>
             <h3><a href="#">Flask Web/App Development</a></h3>
             <p>Vývoj webových aplikácii vo frameworku Flask. Flask je mikro webový framework napísaný v programovacom jazyku 
@@ -182,7 +191,7 @@
               Flask: lightweight, open source a ponúka za pomoci minima kódu vývoj skvelých aplikácií.
             </p>
           </div>
-          <div class="tab-pane container p-0 fade" id="services-3">
+          <div class="tab-pane container p-0 fade" id="services-4">
             <div class="img" style="background-image: url({% static 'core/images/index-services-data-analysis.png' %});"></div>
             <h3><a href="#">Python Dátová Analýza</a></h3>
             <p>Dátová Analýza v jazyku Python za použitia flexibilných knižníc ako NumPy, Pandas, Matplotlib, či 
@@ -191,7 +200,7 @@
               ich vedú k lepším rozhodnutiam.
             </p>
           </div>
-          <div class="tab-pane container p-0 fade" id="services-4">
+          <div class="tab-pane container p-0 fade" id="services-5">
             <div class="img" style="background-image: url({% static 'core/images/index-services-frontend.png' %});"></div>
             <h3><a href="#">Front-end Web Development</a></h3>
             <p>Ľahká a príjemná interakcia návštevníkov s webovými stránkami je pri tvorbe dizajnu prioritou. Tvorba dizajnu 
@@ -199,21 +208,12 @@
               do živej podoby, Vývoj užívateľského rozhrania a v neposlednom rade Implementácia responzívneho dizajnu.
             </p>
           </div>
-          <div class="tab-pane container p-0 fade" id="services-5">
+          <div class="tab-pane container p-0 fade" id="services-6">
             <div class="img" style="background-image: url({% static 'core/images/index-services-web-scraping.png' %});"></div>
             <h3><a href="#">Web Scraping / Crawling</a></h3>
             <p>Web scraping/crawling je technika automatického prístupu a extrakcie veľkého množstva informácií z webových 
               stránok, čo môže ušetriť obrovské množstvo času a úsilia a to dosiahneme využitím obľúbenej Python knižnice Beautiful 
               Soup, ktorá poskytuje idiomatické spôsoby navigácie, vyhľadávania a úpravy rozloženia potrebných údajov.
-            </p>
-          </div>
-          <div class="tab-pane container p-0 fade" id="services-6">
-            <div class="img" style="background-image: url({% static 'core/images/index-services-python.png' %});"></div>
-            <h3><a href="#">Python Basic Scripting</a></h3>
-            <p>Python je skriptovací, univerzálny, vysokoúrovňový a interpretovaný programovací jazyk. Vzhľadom na to môže byť 
-              určený na vykonávanie úloh na základe automatizácie opakovaných úloh a to tak, že zahŕňa rovnaké typy krokov pri 
-              implementácii postupu alebo programu. Skracuje čas a ďalej znižuje náklady. Automatizácia úloh má veľmi širokú oblasť
-              využitia.
             </p>
           </div>
         </div>
@@ -250,6 +250,16 @@
                 <div class="d-flex align-items-center">
                   <div class="user-img" style="background-image: url({% static 'core/images/django.png' %});"></div>
                   <p class="name ">Django</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap py-4">
+              <div class="text">
+                <div class="d-flex align-items-center">
+                  <div class="user-img" style="background-image: url({% static 'core/images/drf.png' %});"></div>
+                  <p class="name ">Django-RF</p>
                 </div>
               </div>
             </div>
