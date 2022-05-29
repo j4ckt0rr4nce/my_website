@@ -6,7 +6,7 @@ Live site example:
 
 ## What's included?
 
-- A full, responsive, portfolio website
+- A full responsive, portfolio website
 - Catalog of services and tools I use
 - Email framework for sending mails
 - Simple Python code samples
